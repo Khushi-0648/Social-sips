@@ -18,7 +18,7 @@ const bulkPackages = [
     serves: 'Serves 10–14 Guests',
     image: '/images/coffee-coldbrew.jpg',
     icon: Coffee,
-    badge: 'Popular for Meetings',
+    badge: 'Office Favorite',
     description: 'Freshly brewed single-origin drip coffee or 18-hour chilled cold brew in an insulated carry box. Includes 12 cups, lids, sleeves, organic oat & whole milk, and cane sugar.',
     turnaround: 'Ready in 30 mins'
   },
@@ -28,7 +28,7 @@ const bulkPackages = [
     serves: '12 to 50+ Cups',
     image: '/images/boba-tiger.jpg',
     icon: CupSoda,
-    badge: 'Party & Birthday Hit',
+    badge: 'Party Hit',
     description: 'Assorted custom sealed boba cups with assorted flavors: Brown Sugar Tiger Milk Tea, Ceremonial Matcha Cloud, Mango Jasmine Refresher, and Taro Brulee. Includes fat boba straws.',
     turnaround: '2-hour advance notice'
   },
@@ -38,7 +38,7 @@ const bulkPackages = [
     serves: '25 to 100+ Servings',
     image: '/images/gelato-pistachio.jpg',
     icon: IceCream,
-    badge: 'Weddings & Celebrations',
+    badge: 'Celebrations',
     description: 'Insulated 5-liter party tubs of authentic Italian gelato (Sicilian Pistachio, Stracciatella, Wild Strawberry Sorbet) with freshly baked cinnamon waffle cones and wooden scoops.',
     turnaround: '24-hour advance notice'
   },
@@ -48,7 +48,7 @@ const bulkPackages = [
     serves: 'Serves 15–20 Guests',
     image: '/images/croissant.jpg',
     icon: Package,
-    badge: 'Breakfast & Brunch',
+    badge: 'Brunch Hit',
     description: 'European cultured butter croissants, pain au chocolat, sliced sourdough with mashed avocado, heirloom cherry tomatoes, and house-made espresso strawberry jam.',
     turnaround: '24-hour advance notice'
   }
@@ -84,7 +84,7 @@ function BulkPackageCard({ pkg }) {
       />
 
       <div>
-        {/* Package Preview Image - Clean without text overlay */}
+        {/* Package Preview Image - Clean without overlay text */}
         <div className="relative h-48 overflow-hidden bg-cafe-100">
           <img
             src={pkg.image}
@@ -96,17 +96,13 @@ function BulkPackageCard({ pkg }) {
         </div>
 
         {/* Card Content */}
-        <div className="p-6">
-          <div className="flex items-center justify-between gap-2 mb-2">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                <Icon className="w-4 h-4" />
-              </div>
-              <span className="text-xs font-bold text-amberGold">
-                {pkg.serves}
-              </span>
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 border border-cafe-200">
+        <div className="p-5 sm:p-6">
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 whitespace-nowrap">
+              <Icon className="w-3.5 h-3.5 text-amberGold shrink-0" />
+              <span>{pkg.serves}</span>
+            </span>
+            <span className="text-[10px] sm:text-[11px] font-semibold text-cafe-700 bg-cafe-100 px-2.5 py-0.5 rounded-full border border-cafe-200 whitespace-nowrap shrink-0">
               {pkg.badge}
             </span>
           </div>
@@ -143,7 +139,7 @@ function BulkPackageCard({ pkg }) {
 
 export default function BulkOrders() {
   return (
-    <section id="bulk-orders" className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
+    <section id="bulk-orders" className="py-20 lg:py-28 scroll-mt-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -160,7 +156,7 @@ export default function BulkOrders() {
         </div>
 
         {/* 4 Packages Grid with Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {bulkPackages.map((pkg) => (
             <BulkPackageCard key={pkg.id} pkg={pkg} />
           ))}

@@ -16,6 +16,7 @@
 /* Custom scrollbar for cafe aesthetic */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: #F4ECE1;
@@ -26,6 +27,17 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #8E603E;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Glassmorphic elements */

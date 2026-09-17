@@ -29,8 +29,7 @@ export default function HeroBanner({ onOpenReservation }) {
           loop
           muted
           playsInline
-          poster="/images/editorial-hero-centerpiece.jpg"
-          preload="metadata"
+          preload="auto"
           className="w-full h-full object-cover object-center filter contrast-[1.02] saturate-[1.05]"
         >
           <source src="/videos/iced-coffee-pour.mp4" type="video/mp4" />

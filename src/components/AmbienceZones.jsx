@@ -135,7 +135,7 @@ export default function AmbienceZones({ onOpenReservation }) {
         </div>
 
         {/* Linear Zone Quick-Jump Navigator */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-10">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1.5 px-2 max-w-full sm:justify-center mb-10">
           {zones.map((zone, idx) => {
             const Icon = zone.icon;
             const isActive = activeZoneIndex === idx;
@@ -143,7 +143,7 @@ export default function AmbienceZones({ onOpenReservation }) {
               <button
                 key={zone.id}
                 onClick={() => setActiveZoneIndex(idx)}
-                className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
+                className={`shrink-0 whitespace-nowrap flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer ${
                   isActive
                     ? 'bg-cafe-900 text-white shadow-warm-md scale-105 border border-cafe-800'
                     : 'bg-white text-cafe-800 border border-cafe-200 hover:bg-cafe-100 hover:border-cafe-300'
@@ -178,7 +178,7 @@ export default function AmbienceZones({ onOpenReservation }) {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
                   
-                  {/* Left: Atmospheric Photography */}
+                  {/* Left: Atmospheric Photography - Clean without overlay text */}
                   <div className="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-cafe-950 group">
                     <img
                       src={zone.image}
@@ -187,17 +187,20 @@ export default function AmbienceZones({ onOpenReservation }) {
                       decoding="async"
                       className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
                     />
-                    <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white text-xs font-mono font-bold border border-white/20">
-                      Corner {zone.number} of 04
-                    </div>
                   </div>
 
                   {/* Right: Narrative, Features & Reservation Action */}
                   <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
                     <div className="space-y-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold">
-                        <MapPin className="w-3 h-3 text-amberGold" />
-                        <span>{zone.vibe} • {zone.tag}</span>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs font-mono font-bold text-amberGold tracking-wider uppercase">
+                          Corner {zone.number} of 04
+                        </span>
+                        <span className="text-cafe-300">•</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold">
+                          <MapPin className="w-3 h-3 text-amberGold" />
+                          <span>{zone.vibe} • {zone.tag}</span>
+                        </div>
                       </div>
 
                       <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-cafe-950 leading-snug">

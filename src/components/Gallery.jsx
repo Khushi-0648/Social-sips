@@ -50,12 +50,12 @@ export default function Gallery() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 px-2 max-w-full sm:flex-wrap sm:justify-center mb-12">
           {galleryCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+              className={`shrink-0 whitespace-nowrap px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeCategory === cat.id
                   ? 'bg-cafe-900 text-white shadow-warm-sm border border-cafe-800'
                   : 'bg-white text-cafe-700 border border-cafe-200 hover:bg-cafe-50'

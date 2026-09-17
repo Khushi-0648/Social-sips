@@ -32,7 +32,7 @@ const products = [
     id: 'p3',
     name: 'Hand-Thrown Speckled Ceramic Mug',
     type: 'Artisan Stoneware (12oz)',
-    badge: 'Clearwater Studio Craft',
+    badge: 'Handmade Craft',
     tastingNotes: 'Features debossed Social Sips seal • Microwave & Dishwasher safe',
     image: '/images/ceramic-mug.jpg',
     details: 'Crafted exclusively for Social Sips by a local Florida ceramist. Ergonomic handle and natural sand-clay speckled glaze.'
@@ -81,7 +81,7 @@ export default function RetailShop() {
         </div>
 
         {/* 4 Retail Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((item) => (
             <div
               key={item.id}
@@ -100,12 +100,12 @@ export default function RetailShop() {
                 </div>
 
                 {/* Details */}
-                <div className="p-6 space-y-2.5">
+                <div className="p-5 sm:p-6 space-y-2.5">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-bold text-cafe-500 uppercase tracking-wider block">
+                    <span className="text-xs font-semibold text-cafe-500 whitespace-nowrap">
                       {item.type}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] font-bold border border-cafe-200">
+                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] sm:text-[11px] font-semibold border border-cafe-200 whitespace-nowrap shrink-0">
                       {item.badge}
                     </span>
                   </div>
