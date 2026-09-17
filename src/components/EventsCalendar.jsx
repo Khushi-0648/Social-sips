@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   Calendar, 
   Clock, 
@@ -7,7 +7,9 @@ import {
   Wine, 
   IceCream, 
   ArrowRight,
-  MapPin
+  MapPin,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 
 const events = [
@@ -54,12 +56,62 @@ const events = [
 ];
 
 export default function EventsCalendar({ onOpenReservation }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [cardsPerPage, setCardsPerPage] = useState(2);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  useEffect(() => {
+    const updateCards = () => {
+      if (window.innerWidth < 768) {
+        setCardsPerPage(1);
+      } else {
+        setCardsPerPage(2);
+      }
+    };
+    updateCards();
+    window.addEventListener('resize', updateCards);
+    return () => window.removeEventListener('resize', updateCards);
+  }, []);
+
+  const maxIndex = Math.max(0, events.length - cardsPerPage);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [isPaused, maxIndex]);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 50) nextSlide();
+    if (touchStartX.current - touchEndX.current < -50) prevSlide();
+  };
+
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section id="events" className="py-20 lg:py-28 scroll-mt-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        {/* Centered Linear Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>Community Gatherings</span>
           </div>
@@ -71,62 +123,112 @@ export default function EventsCalendar({ onOpenReservation }) {
           </p>
         </div>
 
-        {/* 4 Event Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {events.map((evt) => {
-            const Icon = evt.icon;
-            return (
-              <div
-                key={evt.id}
-                className="bg-white rounded-3xl p-6 sm:p-8 border border-cafe-200 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 flex flex-col sm:flex-row gap-6 group"
-              >
-                {/* Visual Thumbnail - Clean without text overlay */}
-                <div className="w-full sm:w-44 h-48 rounded-2xl overflow-hidden shrink-0 relative bg-cafe-100">
-                  <img
-                    src={evt.image}
-                    alt={evt.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-
-                {/* Details */}
-                <div className="flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 text-xs font-semibold text-cafe-500 mb-1.5">
-                      <span className="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 text-[10px] font-bold">
-                        {evt.day}
-                      </span>
-                      <Clock className="w-3.5 h-3.5 text-amberGold" />
-                      <span>{evt.time}</span>
+        {/* Linear Horizontal Events Slider */}
+        <div
+          className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{
+              transform: `translateX(-${currentIndex * (100 / cardsPerPage)}%)`,
+            }}
+          >
+            {events.map((evt) => {
+              const Icon = evt.icon;
+              return (
+                <div
+                  key={evt.id}
+                  className="w-full md:w-1/2 flex-shrink-0 px-3"
+                >
+                  <div className="bg-white rounded-3xl p-6 sm:p-7 border border-cafe-200 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 flex flex-col sm:flex-row gap-5 h-full group">
+                    {/* Visual Thumbnail */}
+                    <div className="w-full sm:w-44 h-48 sm:h-auto rounded-2xl overflow-hidden shrink-0 relative bg-cafe-100">
+                      <img
+                        src={evt.image}
+                        alt={evt.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
 
-                    <h3 className="font-serif text-xl font-bold text-cafe-950 mb-2 group-hover:text-amberGold transition-colors">
-                      {evt.title}
-                    </h3>
+                    {/* Details */}
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center gap-2 text-xs font-semibold text-cafe-500 mb-1.5">
+                          <span className="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 text-[10px] font-bold">
+                            {evt.day}
+                          </span>
+                          <Clock className="w-3.5 h-3.5 text-amberGold" />
+                          <span>{evt.time}</span>
+                        </div>
 
-                    <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
-                      {evt.description}
-                    </p>
-                  </div>
+                        <h3 className="font-serif text-lg sm:text-xl font-bold text-cafe-950 mb-2 group-hover:text-amberGold transition-colors leading-snug">
+                          {evt.title}
+                        </h3>
 
-                  <div className="pt-4 mt-2 border-t border-cafe-100 flex items-center justify-between">
-                    <span className="text-xs font-bold text-cafe-800 bg-cafe-50 px-3 py-1 rounded-lg border border-cafe-200">
-                      {evt.tag}
-                    </span>
-                    <button
-                      onClick={onOpenReservation}
-                      className="text-xs font-bold text-amberGold hover:text-cafe-900 transition-colors flex items-center gap-1 cursor-pointer"
-                    >
-                      <span>Join In</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                        <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
+                          {evt.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-3 border-t border-cafe-100 flex items-center justify-between">
+                        <span className="text-[11px] font-bold text-cafe-800 bg-cafe-50 px-2.5 py-1 rounded-lg border border-cafe-200">
+                          {evt.tag}
+                        </span>
+                        <button
+                          onClick={onOpenReservation}
+                          className="text-xs font-bold text-amberGold hover:text-cafe-900 transition-colors flex items-center gap-1 cursor-pointer"
+                        >
+                          <span>Join In</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Centered Slider Navigation Controls: Prev, Dots, Next in one linear line */}
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <button
+            onClick={prevSlide}
+            aria-label="Previous event"
+            className="w-10 h-10 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer group"
+          >
+            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          <div className="flex items-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to event slide ${idx + 1}`}
+                className={`transition-all duration-300 rounded-full h-2.5 ${
+                  currentIndex === idx
+                    ? 'w-8 bg-amberGold'
+                    : 'w-2.5 bg-cafe-300 hover:bg-cafe-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextSlide}
+            aria-label="Next event"
+            className="w-10 h-10 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer group"
+          >
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </button>
         </div>
 
         {/* Private Event CTA Banner */}

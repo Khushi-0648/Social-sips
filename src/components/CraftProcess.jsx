@@ -39,7 +39,7 @@ export default function CraftProcess() {
   ];
 
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section id="craft" className="py-20 lg:py-28 scroll-mt-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

@@ -77,7 +77,7 @@ export default function StatsCounter() {
   ];
 
   return (
-    <section id="stats" className="py-14 lg:py-18 bg-[#F4ECE1] relative overflow-hidden border-y border-cafe-200">
+    <section id="stats" className="py-20 lg:py-28 scroll-mt-24 bg-[#F4ECE1] relative overflow-hidden border-y border-cafe-200">
       
       {/* Aceternity Style Ambient Radiant Aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-amberGold/15 via-orange-200/20 to-amber-100/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
@@ -86,21 +86,17 @@ export default function StatsCounter() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Banner Title & Live Status Indicator */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-cafe-300/70 gap-4">
-          <div>
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs mb-3">
-              <span className="tracking-wide">COMMUNITY STATS • CLEARWATER, FL</span>
-            </div>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cafe-950 tracking-tight">
-              A Gathering Place Loved by Thousands
-            </h2>
+        {/* Centered Linear Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs">
+            <span>COMMUNITY STATS • CLEARWATER, FL</span>
           </div>
-
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-cafe-700 bg-white/80 px-4 py-2 rounded-xl border border-cafe-200 shadow-xs">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-            <span className="font-medium">Real-time smiles & community verified count</span>
-          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cafe-950 tracking-tight">
+            A Gathering Place Loved by Thousands
+          </h2>
+          <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
+            From sunrise cold brews to evening espresso martini dates, join thousands of smiling guests in Clearwater, FL.
+          </p>
         </div>
 
         {/* 4 Large Clean Stats Cards */}

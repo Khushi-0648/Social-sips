@@ -61,40 +61,20 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="py-20 lg:py-28 bg-cream-warm relative overflow-hidden">
+    <section id="reviews" className="py-20 lg:py-28 scroll-mt-24 bg-cream-warm relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div className="text-left max-w-2xl space-y-3">
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
-              Verified Customer Reviews
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cafe-950 tracking-tight">
-              Why Clearwater Loves Social Sips
-            </h2>
-            <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
-              From sunrise coffee runs to evening artisan gelato and boba dates, here is what our guests have to say.
-            </p>
+        {/* Centered Linear Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+          <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
+            <span>Verified Customer Reviews</span>
           </div>
-
-          {/* Slider Navigation Buttons */}
-          <div className="flex items-center gap-3 self-start md:self-end">
-            <button
-              onClick={prevSlide}
-              aria-label="Previous review"
-              className="w-12 h-12 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
-            >
-              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
-            </button>
-            <button
-              onClick={nextSlide}
-              aria-label="Next review"
-              className="w-12 h-12 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer group"
-            >
-              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
-            </button>
-          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cafe-950 tracking-tight">
+            Why Clearwater Loves Social Sips
+          </h2>
+          <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
+            From sunrise coffee runs to evening artisan gelato and boba dates, here is what our guests have to say.
+          </p>
         </div>
 
         {/* Reviews Slider Carousel */}
@@ -171,20 +151,38 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center items-center gap-2 mt-8">
-          {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`transition-all duration-300 rounded-full h-2.5 ${
-                currentIndex === idx
-                  ? 'w-8 bg-amberGold'
-                  : 'w-2.5 bg-cafe-300 hover:bg-cafe-400'
-              }`}
-            />
-          ))}
+        {/* Centered Navigation Controls: Prev, Dots, Next in one linear line */}
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <button
+            onClick={prevSlide}
+            aria-label="Previous review"
+            className="w-10 h-10 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer group"
+          >
+            <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+
+          <div className="flex items-center gap-2">
+            {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`transition-all duration-300 rounded-full h-2.5 ${
+                  currentIndex === idx
+                    ? 'w-8 bg-amberGold'
+                    : 'w-2.5 bg-cafe-300 hover:bg-cafe-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={nextSlide}
+            aria-label="Next review"
+            className="w-10 h-10 rounded-2xl bg-white border border-cafe-200 hover:border-amberGold hover:bg-cafe-900 hover:text-amberGold text-cafe-800 flex items-center justify-center transition-all duration-300 shadow-xs cursor-pointer group"
+          >
+            <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </button>
         </div>
 
         {/* Review aggregator banner */}
