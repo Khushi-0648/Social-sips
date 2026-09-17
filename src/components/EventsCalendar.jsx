@@ -86,6 +86,8 @@ export default function EventsCalendar({ onOpenReservation }) {
                   <img
                     src={evt.image}
                     alt={evt.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>

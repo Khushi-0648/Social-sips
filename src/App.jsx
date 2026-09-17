@@ -1,25 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import HeroBanner from './components/HeroBanner';
-import AboutUs from './components/AboutUs';
 import AmbienceZones from './components/AmbienceZones';
+import AboutUs from './components/AboutUs';
 import CraftProcess from './components/CraftProcess';
 import MenuServices from './components/MenuServices';
 import BulkOrders from './components/BulkOrders';
-import HygieneSafety from './components/HygieneSafety';
-import StatsCounter from './components/StatsCounter';
-import MeetTheTeam from './components/MeetTheTeam';
-import EventsCalendar from './components/EventsCalendar';
-import Gallery from './components/Gallery';
-import ClearwaterGuide from './components/ClearwaterGuide';
-import RetailShop from './components/RetailShop';
-import Testimonials from './components/Testimonials';
-import SocialFeed from './components/SocialFeed';
-import FAQSection from './components/FAQSection';
-import ContactSection from './components/ContactSection';
-import Footer from './components/Footer';
-import ReservationModal from './components/ReservationModal';
 import { Phone, Calendar, MapPin, Users } from 'lucide-react';
+
+// Code-split downstream sections & modals for lightning-fast initial load & 0 render-blocking
+const HygieneSafety = lazy(() => import('./components/HygieneSafety'));
+const StatsCounter = lazy(() => import('./components/StatsCounter'));
+const MeetTheTeam = lazy(() => import('./components/MeetTheTeam'));
+const EventsCalendar = lazy(() => import('./components/EventsCalendar'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const ClearwaterGuide = lazy(() => import('./components/ClearwaterGuide'));
+const RetailShop = lazy(() => import('./components/RetailShop'));
+const Testimonials = lazy(() => import('./components/Testimonials'));
+const SocialFeed = lazy(() => import('./components/SocialFeed'));
+const FAQSection = lazy(() => import('./components/FAQSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const Footer = lazy(() => import('./components/Footer'));
+const ReservationModal = lazy(() => import('./components/ReservationModal'));
 
 export default function App() {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
@@ -60,70 +62,73 @@ export default function App() {
           <BulkOrders />
         </section>
 
-        {/* 7. Hygiene, Cleanliness & Food Safety Standards */}
-        <section id="hygiene">
-          <HygieneSafety />
-        </section>
+        {/* 7-17. Lazy-loaded Downstream Interactive Sections & Modals */}
+        <Suspense fallback={<div className="min-h-[60px]" />}>
+          {/* 7. Hygiene, Cleanliness & Food Safety Standards */}
+          <section id="hygiene">
+            <HygieneSafety />
+          </section>
 
-        {/* 8. [MIDDLE SECTION] A Gathering Place Loved by Thousands (Stats Counter Banner) */}
-        <section id="stats">
-          <StatsCounter />
-        </section>
+          {/* 8. [MIDDLE SECTION] A Gathering Place Loved by Thousands (Stats Counter Banner) */}
+          <section id="stats">
+            <StatsCounter />
+          </section>
 
-        {/* 9. Meet The Team: Passionate Baristas & Italian Gelatieri */}
-        <section id="team">
-          <MeetTheTeam />
-        </section>
+          {/* 9. Meet The Team: Passionate Baristas & Italian Gelatieri */}
+          <section id="team">
+            <MeetTheTeam />
+          </section>
 
-        {/* 10. Weekly Socials & Cafe Hours Calendar */}
-        <section id="events">
-          <EventsCalendar onOpenReservation={() => setIsReservationOpen(true)} />
-        </section>
+          {/* 10. Weekly Socials & Cafe Hours Calendar */}
+          <section id="events">
+            <EventsCalendar onOpenReservation={() => setIsReservationOpen(true)} />
+          </section>
 
-        {/* 11. Visual Aesthetic Photo Gallery */}
-        <section id="gallery">
-          <Gallery />
-        </section>
+          {/* 11. Visual Aesthetic Photo Gallery */}
+          <section id="gallery">
+            <Gallery />
+          </section>
 
-        {/* 12. Clearwater Beach Companion Guide */}
-        <section id="guide">
-          <ClearwaterGuide />
-        </section>
+          {/* 12. Clearwater Beach Companion Guide */}
+          <section id="guide">
+            <ClearwaterGuide />
+          </section>
 
-        {/* 13. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
-        <section id="shop">
-          <RetailShop />
-        </section>
+          {/* 13. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
+          <section id="shop">
+            <RetailShop />
+          </section>
 
-        {/* 14. Customer Reviews & Community Feedback */}
-        <section id="reviews">
-          <Testimonials />
-        </section>
+          {/* 14. Customer Reviews & Community Feedback */}
+          <section id="reviews">
+            <Testimonials />
+          </section>
 
-        {/* 15. Instagram & TikTok Community Moments Feed */}
-        <section id="social">
-          <SocialFeed />
-        </section>
+          {/* 15. Instagram & TikTok Community Moments Feed */}
+          <section id="social">
+            <SocialFeed />
+          </section>
 
-        {/* 16. Frequently Asked Questions Accordion */}
-        <section id="faq">
-          <FAQSection />
-        </section>
+          {/* 16. Frequently Asked Questions Accordion */}
+          <section id="faq">
+            <FAQSection />
+          </section>
 
-        {/* 17. Contact Us, Clearwater Map & Hours */}
-        <section id="contact">
-          <ContactSection />
-        </section>
+          {/* 17. Contact Us, Clearwater Map & Hours */}
+          <section id="contact">
+            <ContactSection />
+          </section>
+        </Suspense>
       </main>
 
-      {/* Aesthetic Footer */}
-      <Footer />
-
-      {/* Reservation & Catering Modal */}
-      <ReservationModal
-        isOpen={isReservationOpen}
-        onClose={() => setIsReservationOpen(false)}
-      />
+      {/* Aesthetic Footer & Modal with Suspense */}
+      <Suspense fallback={null}>
+        <Footer />
+        <ReservationModal
+          isOpen={isReservationOpen}
+          onClose={() => setIsReservationOpen(false)}
+        />
+      </Suspense>
 
       {/* Floating Quick Action Bar on Mobile Screens */}
       <div className="fixed bottom-4 left-4 right-4 z-40 md:hidden">

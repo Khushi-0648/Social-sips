@@ -78,6 +78,8 @@ export default function Gallery() {
               <img
                 src={item.image}
                 alt={item.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-90 transition-all duration-700"
               />
               
@@ -137,6 +139,8 @@ export default function Gallery() {
               <img
                 src={currentItem.image}
                 alt={currentItem.title}
+                loading="lazy"
+                decoding="async"
                 className="max-h-[70vh] w-full object-contain"
               />
             </div>

@@ -56,6 +56,8 @@ export default function Testimonials() {
                   <img
                     src={rev.avatar}
                     alt={rev.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-11 h-11 rounded-full object-cover ring-2 ring-cafe-200"
                   />
                   <div>

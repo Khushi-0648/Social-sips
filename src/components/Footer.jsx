@@ -50,6 +50,8 @@ export default function Footer() {
         <img 
           src="/images/footer-bg.jpg" 
           alt="Social Sips Cafe Lounge Atmosphere" 
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-cafe-950 via-cafe-950/95 to-cafe-950/90" />

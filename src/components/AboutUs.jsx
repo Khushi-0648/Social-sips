@@ -69,6 +69,8 @@ export default function AboutUs() {
                 <img
                   src="/images/cafe-interior-main.jpg"
                   alt="Social Sips spacious interior cafe seating and gathering area in Clearwater"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -78,6 +80,8 @@ export default function AboutUs() {
                 <img
                   src="/images/coffee-latte.jpg"
                   alt="Barista pouring latte art"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-40 sm:h-48 object-cover"
                 />
               </div>

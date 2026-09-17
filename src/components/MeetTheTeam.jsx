@@ -82,6 +82,8 @@ export default function MeetTheTeam() {
                     <img
                       src={member.image}
                       alt={member.name}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-3 right-3 w-10 h-10 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center text-amberGold shadow-md border border-white">

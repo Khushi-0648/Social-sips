@@ -129,6 +129,8 @@ export default function MenuServices({ onOpenReservation }) {
                 <img
                   src={item.image}
                   alt={item.name}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -236,7 +238,7 @@ export default function MenuServices({ onOpenReservation }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white rounded-3xl max-w-md w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl border border-cafe-200">
             <div className="relative h-48 bg-cafe-900 shrink-0">
-              <img src={selectedItem.image} alt={selectedItem.name} className="w-full h-full object-cover" />
+              <img src={selectedItem.image} alt={selectedItem.name} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               <button
                 onClick={() => setSelectedItem(null)}
                 className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer"
