@@ -20,7 +20,7 @@ export default function HeroBanner({ onOpenReservation }) {
   return (
     <section 
       id="home"
-      className="relative min-h-[92vh] lg:min-h-[96vh] flex flex-col justify-between overflow-hidden bg-cafe-900 text-white pt-24 sm:pt-32 pb-24 sm:pb-10 px-4 sm:px-8 lg:px-14 select-none"
+      className="relative min-h-[88vh] lg:min-h-[94vh] flex flex-col justify-between overflow-hidden bg-cafe-900 text-white pt-24 sm:pt-28 pb-10 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
     >
       {/* Background Motion Video: Luminous Iced Coffee with Ice Cubes & Pour in Motion */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -46,7 +46,7 @@ export default function HeroBanner({ onOpenReservation }) {
       </div>
 
       {/* Top Editorial Row: BREATHE (Top-Left) & THE (Top-Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 pt-1 sm:pt-4">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 pt-1">
         
         {/* Headline Left: BREATHE */}
         <motion.div
@@ -55,7 +55,7 @@ export default function HeroBanner({ onOpenReservation }) {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
         >
-          <span className="font-syne font-extrabold uppercase text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.25rem] tracking-[-0.04em] text-white leading-[0.85] block drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+          <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
             BREATHE
           </span>
           <div className="flex items-center gap-2 mt-2 text-[11px] font-mono tracking-widest text-amberGold uppercase">
@@ -71,7 +71,7 @@ export default function HeroBanner({ onOpenReservation }) {
           transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:items-end gap-1.5"
         >
-          <span className="font-serif italic font-normal text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-amberGold/95 tracking-widest sm:text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
+          <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-amberGold/95 tracking-wider sm:text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.7)]">
             the
           </span>
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-mono text-white/90 shadow-md">
@@ -83,9 +83,9 @@ export default function HeroBanner({ onOpenReservation }) {
       </div>
 
       {/* Middle Space is Open & Uncluttered: Center Video Flows Cleanly */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto my-auto py-2 sm:py-8 flex items-center justify-center pointer-events-none">
+      <div className="relative z-10 w-full max-w-5xl mx-auto my-2 sm:my-4 flex items-center justify-center pointer-events-none min-h-[40px] max-h-[80px]">
         {/* Subtle Ambient Light Ray Ring */}
-        <div className="w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-amber-400/10 blur-3xl" />
+        <div className="w-64 h-32 sm:w-96 sm:h-48 rounded-full bg-amber-400/10 blur-3xl" />
       </div>
 
       {/* Bottom Editorial Row: Subtext (Lower-Left) & ROAST (Bottom-Right) */}
@@ -143,7 +143,7 @@ export default function HeroBanner({ onOpenReservation }) {
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="self-end md:self-auto text-right"
         >
-          <span className="font-syne font-extrabold uppercase text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] xl:text-[9.25rem] tracking-[-0.04em] text-white leading-[0.85] block drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+          <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
             ROAST
           </span>
           <div className="flex items-center justify-end gap-2 mt-2 text-[10px] font-mono text-neutral-300 uppercase tracking-widest">
