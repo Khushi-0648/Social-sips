@@ -1,19 +1,19 @@
 import React, { useState, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import HeroBanner from './components/HeroBanner';
+import Gallery from './components/Gallery';
 import AmbienceZones from './components/AmbienceZones';
-import AboutUs from './components/AboutUs';
 import CraftProcess from './components/CraftProcess';
+import EventsCalendar from './components/EventsCalendar';
+import StatsCounter from './components/StatsCounter';
+import AboutUs from './components/AboutUs';
 import MenuServices from './components/MenuServices';
 import BulkOrders from './components/BulkOrders';
 import { Phone, Calendar, MapPin, Users } from 'lucide-react';
 
-// Code-split downstream sections & modals for lightning-fast initial load & 0 render-blocking
+// Code-split downstream interactive sections & modals for lightning-fast initial load
 const HygieneSafety = lazy(() => import('./components/HygieneSafety'));
-const StatsCounter = lazy(() => import('./components/StatsCounter'));
 const MeetTheTeam = lazy(() => import('./components/MeetTheTeam'));
-const EventsCalendar = lazy(() => import('./components/EventsCalendar'));
-const Gallery = lazy(() => import('./components/Gallery'));
 const ClearwaterGuide = lazy(() => import('./components/ClearwaterGuide'));
 const RetailShop = lazy(() => import('./components/RetailShop'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
@@ -32,61 +32,61 @@ export default function App() {
       <Header onOpenReservation={() => setIsReservationOpen(true)} />
 
       <main className="flex-1 pb-20 md:pb-0">
-        {/* 1. Hero Banner with Background Image Carousel (Centered & Lightened) */}
+        {/* 1. Hero Banner */}
         <section id="home">
           <HeroBanner onOpenReservation={() => setIsReservationOpen(true)} />
         </section>
 
-        {/* 2. Four Ambience Zones: Discover Your Favorite Corner */}
+        {/* 2. The Aesthetic Experience (Visual Cafe Gallery) */}
+        <section id="gallery">
+          <Gallery />
+        </section>
+
+        {/* 3. Discover Your Favorite Corner (Four Ambience Zones) */}
         <section id="atmosphere">
           <AmbienceZones onOpenReservation={() => setIsReservationOpen(true)} />
         </section>
 
-        {/* 3. About Us: Crafted for Connection */}
-        <section id="about">
-          <AboutUs />
-        </section>
-
-        {/* 4. Behind The Counter: 3-Step Artisan Crafting Journey */}
+        {/* 4. How We Craft Your Sips (Behind The Counter Artisan Journey) */}
         <section id="craft">
           <CraftProcess />
         </section>
 
-        {/* 5. Services & Curated Menu Showcase */}
+        {/* 5. Weekly Socials & Cafe Hours (Community Calendar) */}
+        <section id="events">
+          <EventsCalendar onOpenReservation={() => setIsReservationOpen(true)} />
+        </section>
+
+        {/* 6. A Gathering Place Loved by Thousands (Stats Counter Banner) */}
+        <section id="stats">
+          <StatsCounter />
+        </section>
+
+        {/* 7. Crafted for Connection (About Us Story) */}
+        <section id="about">
+          <AboutUs />
+        </section>
+
+        {/* 8. Services & Curated Menu Showcase */}
         <section id="menu">
           <MenuServices onOpenReservation={() => setIsReservationOpen(true)} />
         </section>
 
-        {/* 6. Bulk Orders & Office Catering Showcase */}
+        {/* 9. Bulk Orders & Office Catering Showcase */}
         <section id="bulk-orders">
           <BulkOrders />
         </section>
 
-        {/* 7-17. Lazy-loaded Downstream Interactive Sections & Modals */}
+        {/* 10-17. Lazy-loaded Downstream Interactive Sections & Modals */}
         <Suspense fallback={<div className="min-h-[60px]" />}>
-          {/* 7. Hygiene, Cleanliness & Food Safety Standards */}
+          {/* 10. Hygiene, Cleanliness & Food Safety Standards */}
           <section id="hygiene">
             <HygieneSafety />
           </section>
 
-          {/* 8. [MIDDLE SECTION] A Gathering Place Loved by Thousands (Stats Counter Banner) */}
-          <section id="stats">
-            <StatsCounter />
-          </section>
-
-          {/* 9. Meet The Team: Passionate Baristas & Italian Gelatieri */}
+          {/* 11. Meet The Team: Passionate Baristas & Italian Gelatieri */}
           <section id="team">
             <MeetTheTeam />
-          </section>
-
-          {/* 10. Weekly Socials & Cafe Hours Calendar */}
-          <section id="events">
-            <EventsCalendar onOpenReservation={() => setIsReservationOpen(true)} />
-          </section>
-
-          {/* 11. Visual Aesthetic Photo Gallery */}
-          <section id="gallery">
-            <Gallery />
           </section>
 
           {/* 12. Clearwater Beach Companion Guide */}
@@ -99,7 +99,7 @@ export default function App() {
             <RetailShop />
           </section>
 
-          {/* 14. Customer Reviews & Community Feedback */}
+          {/* 14. Customer Reviews & Community Feedback (Interactive Slider) */}
           <section id="reviews">
             <Testimonials />
           </section>

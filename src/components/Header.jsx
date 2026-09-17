@@ -24,12 +24,13 @@ export default function Header({ onOpenReservation }) {
   }, []);
 
   const navLinks = [
+    { name: 'Gallery', targetId: 'gallery' },
     { name: 'Atmosphere', targetId: 'atmosphere' },
-    { name: 'About', targetId: 'about' },
+    { name: 'Craft', targetId: 'craft' },
+    { name: 'Events', targetId: 'events' },
     { name: 'Menu', targetId: 'menu' },
-    { name: 'Craft Process', targetId: 'craft' },
     { name: 'Catering', targetId: 'bulk-orders' },
-    { name: 'Contact & Hours', targetId: 'contact' },
+    { name: 'Contact', targetId: 'contact' },
   ];
 
   const handleNavClick = (e, targetId) => {

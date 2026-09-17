@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Eye, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryCategories, galleryItems } from '../data/galleryData';
 
 export default function Gallery() {
@@ -38,8 +38,7 @@ export default function Gallery() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
-            <Eye className="w-3.5 h-3.5 text-amberGold" />
+          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
             <span>Visual Cafe Gallery</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cafe-950 tracking-tight">

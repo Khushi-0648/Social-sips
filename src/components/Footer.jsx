@@ -62,8 +62,7 @@ export default function Footer() {
         {/* Top Newsletter & VIP Club Banner */}
         <div className="bg-cafe-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-cafe-700/70 mb-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-800 text-amberGold text-xs font-semibold uppercase tracking-wider border border-amberGold/30">
-              <Coffee className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-cafe-800 text-amberGold text-xs font-semibold uppercase tracking-wider border border-amberGold/30">
               <span>Clearwater Sip Club VIP</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">

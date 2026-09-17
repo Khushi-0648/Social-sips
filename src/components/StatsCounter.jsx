@@ -89,8 +89,7 @@ export default function StatsCounter() {
         {/* Banner Title & Live Status Indicator */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-cafe-300/70 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs mb-3">
-              <Coffee className="w-3.5 h-3.5 text-amberGold" />
+            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs mb-3">
               <span className="tracking-wide">COMMUNITY STATS • CLEARWATER, FL</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cafe-950 tracking-tight">

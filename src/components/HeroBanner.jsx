@@ -73,8 +73,7 @@ export default function HeroBanner({ onOpenReservation }) {
           <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-amberGold/95 tracking-wider text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
             the
           </span>
-          <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-mono text-white/90 shadow-md">
-            <Coffee className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amberGold" />
+          <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-mono text-white/90 shadow-md">
             <span className="hidden sm:inline">Artisanal Pour-Over & Gelato</span>
             <span className="sm:hidden">Pour-Over & Gelato</span>
           </div>
