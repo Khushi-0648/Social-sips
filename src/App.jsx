@@ -35,14 +35,14 @@ export default function App() {
           <HeroBanner onOpenReservation={() => setIsReservationOpen(true)} />
         </section>
 
-        {/* 2. About Us: Clearwater Story & Highlights */}
-        <section id="about">
-          <AboutUs />
-        </section>
-
-        {/* 3. Four Ambience Zones: Patio, Lounge, Work Lab & Evening Bar */}
+        {/* 2. Four Ambience Zones: Discover Your Favorite Corner */}
         <section id="atmosphere">
           <AmbienceZones onOpenReservation={() => setIsReservationOpen(true)} />
+        </section>
+
+        {/* 3. About Us: Crafted for Connection */}
+        <section id="about">
+          <AboutUs />
         </section>
 
         {/* 4. Behind The Counter: 3-Step Artisan Crafting Journey */}

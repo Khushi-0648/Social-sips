@@ -7,7 +7,6 @@ import {
   Coffee, 
   Award, 
   CheckCircle2, 
-  TrendingUp, 
   Smile,
   Flame
 } from 'lucide-react';
@@ -91,8 +90,8 @@ export default function StatsCounter() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-cafe-300/70 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs mb-3">
-              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500 animate-ping"></span>
-              <span className="tracking-wide">COMMUNITY STATS BANNER • CLEARWATER, FL</span>
+              <Coffee className="w-3.5 h-3.5 text-amberGold" />
+              <span className="tracking-wide">COMMUNITY STATS • CLEARWATER, FL</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cafe-950 tracking-tight">
               A Gathering Place Loved by Thousands
@@ -141,15 +140,6 @@ export default function StatsCounter() {
                 <p className="text-xs text-cafe-600 leading-relaxed">
                   {stat.detail}
                 </p>
-
-                {/* Accent Bar */}
-                <div className="mt-4 pt-3 border-t border-cafe-100 flex items-center justify-between text-[11px] text-cafe-500">
-                  <span className="flex items-center gap-1 text-amberGold font-semibold">
-                    <TrendingUp className="w-3.5 h-3.5" />
-                    <span>Real Community</span>
-                  </span>
-                  <span>Clearwater, FL</span>
-                </div>
               </motion.div>
             );
           })}

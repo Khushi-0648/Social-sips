@@ -1,14 +1,13 @@
 import React from 'react';
 import { 
-  Flame, 
   CheckCircle2, 
   Coffee, 
   IceCream, 
-  CupSoda,
-  ArrowRight
+  CupSoda
 } from 'lucide-react';
 
 export default function CraftProcess() {
+
   const steps = [
     {
       number: '01',
@@ -56,7 +55,6 @@ export default function CraftProcess() {
             We believe extraordinary drinks and desserts come from unwavering respect for raw ingredients and artisanal techniques.
           </p>
         </div>
-
         {/* 3 Steps Timeline Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {steps.map((step, idx) => {

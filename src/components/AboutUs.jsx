@@ -36,7 +36,7 @@ export default function AboutUs() {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-cream relative overflow-hidden">
+    <section id="about" className="py-20 lg:py-28 bg-cream relative overflow-hidden border-b border-cafe-200">
       {/* Decorative subtle texture */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-cafe-100/50 rounded-full blur-3xl pointer-events-none" />
 

@@ -24,9 +24,10 @@ export default function Header({ onOpenReservation }) {
   }, []);
 
   const navLinks = [
+    { name: 'Atmosphere', targetId: 'atmosphere' },
     { name: 'About', targetId: 'about' },
     { name: 'Menu', targetId: 'menu' },
-    { name: 'Atmosphere', targetId: 'atmosphere' },
+    { name: 'Craft Process', targetId: 'craft' },
     { name: 'Catering', targetId: 'bulk-orders' },
     { name: 'Contact & Hours', targetId: 'contact' },
   ];
@@ -89,12 +90,12 @@ export default function Header({ onOpenReservation }) {
         </div>
       </div>
 
-      {/* Main Streamlined Navigation Bar */}
+      {/* Main Streamlined Navigation Bar - Bright, Warm & Clean */}
       <nav 
         className={`transition-all duration-300 ${
           isScrolled 
-            ? 'bg-cream/95 backdrop-blur-md shadow-warm-md py-2.5 border-b border-cafe-200/90' 
-            : 'bg-cream/90 backdrop-blur-sm py-3.5 border-b border-cafe-200/50'
+            ? 'bg-cream/95 backdrop-blur-md shadow-warm-md py-2.5 border-b border-cafe-200/90 text-cafe-900' 
+            : 'bg-white/90 backdrop-blur-md py-3.5 border-b border-cafe-200/70 shadow-xs text-cafe-900'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -103,7 +104,7 @@ export default function Header({ onOpenReservation }) {
             onClick={handleLogoClick} 
             className="flex items-center gap-3 group text-left cursor-pointer focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-2xl bg-cafe-950 flex items-center justify-center text-amberGold shadow-sm group-hover:scale-105 transition-transform duration-300 border border-amberGold/30">
+            <div className="w-10 h-10 rounded-2xl bg-cafe-900 flex items-center justify-center text-amberGold shadow-sm group-hover:scale-105 transition-transform duration-300 border border-amberGold/30">
               <Coffee className="w-5 h-5 text-amberGold" />
             </div>
             <div>
@@ -111,11 +112,11 @@ export default function Header({ onOpenReservation }) {
                 <span className="font-serif text-xl font-bold tracking-tight text-cafe-950 group-hover:text-amberGold transition-colors">
                   Social Sips
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-cafe-100 text-cafe-800 font-bold border border-cafe-300/80 uppercase tracking-widest">
+                <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest bg-cafe-100 text-cafe-800 border border-cafe-300/80">
                   Cafe & Bar
                 </span>
               </div>
-              <p className="text-[11px] text-cafe-600 font-medium tracking-wide">
+              <p className="text-[11px] font-medium tracking-wide text-cafe-600">
                 Clearwater, FL • Coffee • Gelato • Boba
               </p>
             </div>
@@ -156,7 +157,9 @@ export default function Header({ onOpenReservation }) {
           {/* Mobile Menu Toggle Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-cafe-800 hover:bg-cafe-100 transition-colors"
+            className={`md:hidden p-2 rounded-xl transition-colors ${
+              isScrolled ? 'text-cafe-800 hover:bg-cafe-100' : 'text-white hover:bg-white/10'
+            }`}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}

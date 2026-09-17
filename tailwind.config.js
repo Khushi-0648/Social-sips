@@ -40,7 +40,9 @@ export default {
       },
       fontFamily: {
         serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
-        display: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+        display: ['"Syne"', '"Plus Jakarta Sans"', 'sans-serif'],
+        syne: ['"Syne"', 'sans-serif'],
+        mono: ['"Space Grotesk"', 'ui-monospace', 'monospace'],
         sans: ['"Plus Jakarta Sans"', '"Outfit"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {

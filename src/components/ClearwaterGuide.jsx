@@ -5,8 +5,7 @@ import {
   Navigation, 
   Compass, 
   Waves, 
-  Coffee,
-  Check
+  Coffee
 } from 'lucide-react';
 
 export default function ClearwaterGuide() {
@@ -75,11 +74,6 @@ export default function ClearwaterGuide() {
                   <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
                     {spot.tip}
                   </p>
-                </div>
-
-                <div className="pt-6 mt-4 border-t border-cafe-100 flex items-center gap-2 text-xs font-semibold text-emerald-700">
-                  <Check className="w-4 h-4 text-emerald-600" />
-                  <span>Curbside & Quick Carryout Available</span>
                 </div>
               </div>
             );
