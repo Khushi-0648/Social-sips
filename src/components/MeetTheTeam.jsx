@@ -67,7 +67,7 @@ export default function MeetTheTeam() {
         </div>
 
         {/* 4 Team Member Profiles */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
           {team.map((member, idx) => {
             const Icon = member.icon;
             return (

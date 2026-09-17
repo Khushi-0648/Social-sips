@@ -22,7 +22,7 @@ const products = [
   {
     id: 'p2',
     name: 'Single-Origin Ethiopian Yirgacheffe',
-    type: 'Specialty Light Roast (12oz)',
+    type: 'Light Roast Coffee (12oz)',
     badge: 'Barista Choice',
     tastingNotes: 'Tasting Notes: Jasmine Flower, Ripe Blueberry, Meyer Lemon',
     image: '/images/coffee-ethiopia.jpg',
@@ -40,7 +40,7 @@ const products = [
   {
     id: 'p4',
     name: 'At-Home DIY Handcrafted Boba Kit',
-    type: 'Complete Kit (Makes 8 Drinks)',
+    type: 'Complete Boba Kit (8 Cups)',
     badge: 'Popular Gift',
     tastingNotes: 'Includes Taiwanese tapioca, loose-leaf tea, brown sugar & wide straw',
     image: '/images/boba-kit.jpg',
@@ -52,7 +52,7 @@ export default function RetailShop() {
   const [heldProduct, setHeldProduct] = useState(null);
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
+    <section id="shop" className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
@@ -72,16 +72,16 @@ export default function RetailShop() {
           <div className="flex items-center gap-3">
             <a
               href="tel:+17272401811"
-              className="px-5 py-3 rounded-2xl bg-cafe-900 hover:bg-cafe-800 text-white text-xs font-bold transition-all flex items-center gap-2 shadow-xs"
+              className="px-5 py-3 rounded-2xl bg-cafe-900 hover:bg-cafe-800 text-white text-xs font-bold transition-all flex items-center gap-2 shadow-xs whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5 text-amberGold" />
+              <Phone className="w-3.5 h-3.5 text-amberGold shrink-0" />
               <span>Call to Reserve Items for Pickup</span>
             </a>
           </div>
         </div>
 
         {/* 4 Retail Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
           {products.map((item) => (
             <div
               key={item.id}
@@ -89,7 +89,7 @@ export default function RetailShop() {
             >
               <div>
                 {/* Image - Clean without overlay text */}
-                <div className="relative h-64 overflow-hidden bg-cafe-100">
+                <div className="relative h-60 sm:h-64 overflow-hidden bg-cafe-100">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -100,16 +100,16 @@ export default function RetailShop() {
                 </div>
 
                 {/* Details */}
-                <div className="p-5 sm:p-6 space-y-2.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-semibold text-cafe-500 whitespace-nowrap">
+                <div className="p-4 sm:p-5 space-y-2.5">
+                  <div className="flex items-center justify-between gap-2 min-w-0">
+                    <span className="text-[11px] sm:text-xs font-semibold text-cafe-600 whitespace-nowrap shrink-0">
                       {item.type}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] sm:text-[11px] font-semibold border border-cafe-200 whitespace-nowrap shrink-0">
+                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-900 text-[10px] sm:text-[11px] font-bold border border-cafe-300 whitespace-nowrap shrink-0 shadow-2xs">
                       {item.badge}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
                     {item.name}
                   </h3>
                   <p className="text-xs text-amberGold font-semibold">
@@ -122,7 +122,7 @@ export default function RetailShop() {
               </div>
 
               {/* Action */}
-              <div className="p-6 pt-0">
+              <div className="p-4 sm:p-5 pt-0">
                 <a
                   href="tel:+17272401811"
                   className="w-full py-2.5 rounded-xl bg-cafe-50 hover:bg-cafe-900 hover:text-white text-cafe-900 text-xs font-bold transition-colors border border-cafe-200 flex items-center justify-center gap-1.5"

@@ -75,7 +75,7 @@ export default function AboutUs() {
               </div>
 
               {/* Secondary Overlapping Image */}
-              <div className="absolute -bottom-8 -right-4 sm:-right-8 w-44 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden xs:block">
+              <div className="absolute -bottom-8 -right-2 sm:-right-6 w-44 sm:w-56 rounded-2xl overflow-hidden shadow-2xl border-4 border-white hidden sm:block">
                 <img
                   src="/images/coffee-latte.jpg"
                   alt="Barista pouring latte art"
@@ -86,13 +86,13 @@ export default function AboutUs() {
               </div>
 
               {/* Quality Seal floating badge */}
-              <div className="absolute -top-6 -left-4 sm:-left-6 bg-white p-4 rounded-2xl shadow-warm-md border border-cafe-200 text-cafe-900 flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-cafe-900 text-amberGold flex items-center justify-center font-serif text-lg font-bold">
+              <div className="absolute -top-5 left-2 sm:-left-4 lg:-left-6 bg-white p-3 sm:p-4 rounded-2xl shadow-warm-md border border-cafe-200 text-cafe-900 flex items-center gap-3">
+                <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-xl bg-cafe-900 text-amberGold flex items-center justify-center font-serif text-base sm:text-lg font-bold shrink-0">
                   FL
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-cafe-900">Clearwater Proud</p>
-                  <p className="text-[11px] text-cafe-500">Locally Owned & Operated</p>
+                  <p className="text-xs font-bold text-cafe-900 whitespace-nowrap">Clearwater Proud</p>
+                  <p className="text-[11px] text-cafe-500 whitespace-nowrap">Locally Owned & Operated</p>
                 </div>
               </div>
 

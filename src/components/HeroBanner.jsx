@@ -20,7 +20,7 @@ export default function HeroBanner({ onOpenReservation }) {
   return (
     <section 
       id="home"
-      className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-32 sm:pt-36 lg:pt-36 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
+      className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
     >
       {/* Background Motion Video: Crystal Clear, High-Visibility, No Muddy Dark Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">

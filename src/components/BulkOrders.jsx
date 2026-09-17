@@ -97,8 +97,8 @@ function BulkPackageCard({ pkg }) {
 
         {/* Card Content */}
         <div className="p-5 sm:p-6">
-          <div className="flex items-center justify-between gap-2 mb-3">
-            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 whitespace-nowrap">
+          <div className="flex items-center justify-between gap-2 mb-3 min-w-0">
+            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 whitespace-nowrap shrink-0">
               <Icon className="w-3.5 h-3.5 text-amberGold shrink-0" />
               <span>{pkg.serves}</span>
             </span>
@@ -156,7 +156,7 @@ export default function BulkOrders() {
         </div>
 
         {/* 4 Packages Grid with Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {bulkPackages.map((pkg) => (
             <BulkPackageCard key={pkg.id} pkg={pkg} />
           ))}
