@@ -4,7 +4,6 @@ import {
   Package, 
   Check, 
   Phone, 
-  Sparkles, 
   Star,
   Coffee,
   Heart
@@ -90,25 +89,25 @@ export default function RetailShop() {
               className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
             >
               <div>
-                {/* Image */}
+                {/* Image - Clean without overlay text */}
                 <div className="relative h-64 overflow-hidden bg-cafe-100">
                   <img
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full bg-cafe-950/85 text-amberGold text-xs font-bold backdrop-blur-md border border-amberGold/30">
-                      {item.badge}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-6 space-y-2.5">
-                  <span className="text-[11px] font-bold text-cafe-500 uppercase tracking-wider block">
-                    {item.type}
-                  </span>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[11px] font-bold text-cafe-500 uppercase tracking-wider block">
+                      {item.type}
+                    </span>
+                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] font-bold border border-cafe-200">
+                      {item.badge}
+                    </span>
+                  </div>
                   <h3 className="font-serif text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
                     {item.name}
                   </h3>

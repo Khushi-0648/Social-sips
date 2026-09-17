@@ -4,7 +4,6 @@ import {
   MapPin, 
   Navigation, 
   Compass, 
-  Sparkles, 
   Waves, 
   Coffee,
   Check

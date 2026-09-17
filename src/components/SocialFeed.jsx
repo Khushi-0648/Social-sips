@@ -3,7 +3,6 @@ import {
   Instagram, 
   Heart, 
   MessageCircle, 
-  Sparkles, 
   Camera 
 } from 'lucide-react';
 
@@ -115,7 +114,7 @@ export default function SocialFeed() {
           <div className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white text-cafe-950 font-bold text-xs sm:text-sm border border-cafe-300 shadow-sm">
             <Camera className="w-4 h-4 text-amberGold" />
             <span>Tag #SocialSipsClearwater on Your Social Stories</span>
-            <Sparkles className="w-3.5 h-3.5 text-amberGold" />
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
           </div>
         </div>
 

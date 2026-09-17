@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { 
   Coffee, 
+  MapPin, 
   Phone, 
   Mail, 
-  MapPin, 
+  Clock, 
   Heart, 
-  ArrowUp, 
-  Sparkles,
-  Send,
-  Check
+  Check, 
+  ArrowRight,
+  ArrowUp,
+  ShieldCheck,
+  Send
 } from 'lucide-react';
 
 export default function Footer() {
@@ -59,7 +61,7 @@ export default function Footer() {
         <div className="bg-cafe-900/90 backdrop-blur-md rounded-3xl p-8 sm:p-10 border border-cafe-700/70 mb-16 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-800 text-amberGold text-xs font-semibold uppercase tracking-wider border border-amberGold/30">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Coffee className="w-3.5 h-3.5" />
               <span>Clearwater Sip Club VIP</span>
             </div>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">

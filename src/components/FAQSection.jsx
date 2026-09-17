@@ -3,8 +3,7 @@ import {
   ChevronDown, 
   HelpCircle, 
   Phone, 
-  Mail, 
-  Sparkles 
+  Mail 
 } from 'lucide-react';
 
 const faqs = [

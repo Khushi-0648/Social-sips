@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Sun, 
   Armchair, 
   Laptop, 
   Wine, 
-  Sparkles, 
   Check, 
   MapPin, 
   Volume2, 
@@ -90,7 +90,7 @@ export default function AmbienceZones({ onOpenReservation }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amberGold" />
+            <MapPin className="w-3.5 h-3.5 text-amberGold" />
             <span>Atmosphere & Space</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cafe-950 tracking-tight">
@@ -123,86 +123,83 @@ export default function AmbienceZones({ onOpenReservation }) {
           })}
         </div>
 
-        {/* Big Interactive Showcase Box */}
-        <div className="bg-white rounded-3xl lg:rounded-[36px] overflow-hidden border border-cafe-200 shadow-2xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
-            
-            {/* Left: Atmospheric Photography with Overlay Badge */}
-            <div className="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-cafe-950">
-              <img
-                src={activeZone.image}
-                alt={activeZone.name}
-                className="w-full h-full object-cover transform transition-transform duration-1000 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-cafe-950/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-cafe-950/40" />
+        {/* Big Interactive Showcase Box with Smooth Motion Transitions */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeZone.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="bg-white rounded-3xl lg:rounded-[36px] overflow-hidden border border-cafe-200 shadow-2xl"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[520px]">
               
-              <div className="absolute top-4 left-4">
-                <span className="px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-cafe-950 text-xs font-extrabold shadow-md border border-white">
-                  {activeZone.tag}
-                </span>
+              {/* Left: Atmospheric Photography - Clean without text overlay */}
+              <div className="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-cafe-950 group">
+                <img
+                  src={activeZone.image}
+                  alt={activeZone.name}
+                  className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-105"
+                />
               </div>
 
-              <div className="absolute bottom-4 left-4 right-4 lg:hidden">
-                <p className="text-xs text-amberGold font-bold uppercase tracking-wider">Vibe</p>
-                <p className="text-base font-serif font-bold text-white">{activeZone.vibe}</p>
-              </div>
-            </div>
+              {/* Right: Narrative, Features & Reservation Action */}
+              <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold">
+                    <MapPin className="w-3 h-3 text-amberGold" />
+                    <span>{activeZone.vibe} • {activeZone.tag}</span>
+                  </div>
 
-            {/* Right: Narrative, Features & Reservation Action */}
-            <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="hidden lg:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold">
-                  <MapPin className="w-3 h-3 text-amberGold" />
-                  <span>{activeZone.vibe}</span>
-                </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-cafe-950 leading-snug">
+                    {activeZone.headline}
+                  </h3>
 
-                <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-cafe-950 leading-snug">
-                  {activeZone.headline}
-                </h3>
+                  <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
+                    {activeZone.description}
+                  </p>
 
-                <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
-                  {activeZone.description}
-                </p>
-
-                {/* Feature Bullets */}
-                <div className="pt-2 space-y-2.5">
-                  {activeZone.features.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-cafe-800">
-                      <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-amber-800 stroke-[3]" />
+                  {/* Feature Bullets */}
+                  <div className="pt-2 space-y-2.5">
+                    {activeZone.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-cafe-800">
+                        <div className="w-5 h-5 rounded-full bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-amber-800 stroke-[3]" />
+                        </div>
+                        <span className="font-medium">{feat}</span>
                       </div>
-                      <span className="font-medium">{feat}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              <div className="pt-6 border-t border-cafe-100 flex flex-wrap items-center gap-3">
-                <button
-                  onClick={onOpenReservation}
-                  className="px-6 py-3.5 rounded-xl bg-cafe-900 hover:bg-cafe-800 text-white font-bold text-xs sm:text-sm transition-all shadow-warm-sm flex items-center gap-2 cursor-pointer"
-                >
-                  <span>Reserve a Table in This Zone</span>
-                  <ChevronRight className="w-4 h-4 text-amberGold" />
-                </button>
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('contact');
-                    if (el) {
-                      const top = el.getBoundingClientRect().top + window.pageYOffset - 72;
-                      window.scrollTo({ top, behavior: 'smooth' });
-                    }
-                  }}
-                  className="px-4 py-3.5 rounded-xl text-xs font-bold text-cafe-700 hover:text-cafe-950 transition-colors cursor-pointer"
-                >
-                  View Floor Hours →
-                </button>
+                <div className="pt-6 border-t border-cafe-100 flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={onOpenReservation}
+                    className="px-6 py-3.5 rounded-xl bg-cafe-900 hover:bg-cafe-800 text-white font-bold text-xs sm:text-sm transition-all shadow-warm-sm flex items-center gap-2 cursor-pointer hover:shadow-warm-md hover:-translate-y-0.5"
+                  >
+                    <span>Reserve a Table in This Zone</span>
+                    <ChevronRight className="w-4 h-4 text-amberGold" />
+                  </button>
+                  <button
+                    onClick={() => {
+                      const el = document.getElementById('contact');
+                      if (el) {
+                        const top = el.getBoundingClientRect().top + window.pageYOffset - 72;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                      }
+                    }}
+                    className="px-4 py-3.5 rounded-xl text-xs font-bold text-cafe-700 hover:text-cafe-950 transition-colors cursor-pointer"
+                  >
+                    View Floor Hours →
+                  </button>
+                </div>
+
               </div>
 
             </div>
-
-          </div>
-        </div>
+          </motion.div>
+        </AnimatePresence>
 
       </div>
     </section>

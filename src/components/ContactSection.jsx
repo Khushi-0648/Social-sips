@@ -8,8 +8,7 @@ import {
   CheckCircle2, 
   Navigation,
   MessageCircle,
-  Coffee,
-  Sparkles
+  Coffee
 } from 'lucide-react';
 
 export default function ContactSection() {

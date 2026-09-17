@@ -8,7 +8,6 @@ import {
   Phone, 
   CheckCircle, 
   Clock, 
-  Sparkles,
   Send
 } from 'lucide-react';
 
@@ -55,6 +54,91 @@ const bulkPackages = [
   }
 ];
 
+function BulkPackageCard({ pkg }) {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+  const Icon = pkg.icon;
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  };
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
+    >
+      {/* Glare spotlight layer following cursor */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-300 hidden sm:block"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(350px circle at ${mousePos.x}px ${mousePos.y}px, rgba(212, 141, 59, 0.14), transparent 75%)`
+        }}
+      />
+
+      <div>
+        {/* Package Preview Image - Clean without text overlay */}
+        <div className="relative h-48 overflow-hidden bg-cafe-100">
+          <img
+            src={pkg.image}
+            alt={pkg.name}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+
+        {/* Card Content */}
+        <div className="p-6">
+          <div className="flex items-center justify-between gap-2 mb-2">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <Icon className="w-4 h-4" />
+              </div>
+              <span className="text-xs font-bold text-amberGold">
+                {pkg.serves}
+              </span>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 border border-cafe-200">
+              {pkg.badge}
+            </span>
+          </div>
+
+          <h3 className="font-serif text-lg font-bold text-cafe-950 mb-2 leading-snug">
+            {pkg.name}
+          </h3>
+          <p className="text-xs text-cafe-600 leading-relaxed">
+            {pkg.description}
+          </p>
+        </div>
+      </div>
+
+      <div className="px-6 pb-6 pt-0">
+        <div className="pt-3 border-t border-cafe-100 flex items-center justify-between text-[11px] text-cafe-500 font-semibold mb-3">
+          <span className="flex items-center gap-1">
+            <Clock className="w-3.5 h-3.5 text-amberGold" />
+            <span>{pkg.turnaround}</span>
+          </span>
+          <span className="text-emerald-700 font-bold">100% Sealed</span>
+        </div>
+
+        <a
+          href="tel:+17272401811"
+          className="w-full py-2.5 rounded-xl bg-cafe-50 hover:bg-cafe-900 hover:text-white text-cafe-950 text-xs font-bold transition-all border border-cafe-200 flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm"
+        >
+          <Phone className="w-3.5 h-3.5 text-amberGold" />
+          <span>Call to Order Package</span>
+        </a>
+      </div>
+    </div>
+  );
+}
+
 export default function BulkOrders() {
   return (
     <section id="bulk-orders" className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
@@ -76,68 +160,9 @@ export default function BulkOrders() {
 
         {/* 4 Packages Grid with Images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {bulkPackages.map((pkg) => {
-            const Icon = pkg.icon;
-            return (
-              <div
-                key={pkg.id}
-                className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
-              >
-                <div>
-                  {/* Package Preview Image */}
-                  <div className="relative h-48 overflow-hidden bg-cafe-100">
-                    <img
-                      src={pkg.image}
-                      alt={pkg.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cafe-950/85 text-amberGold backdrop-blur-md border border-amberGold/30 shadow-xs">
-                        {pkg.badge}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-bold text-amberGold">
-                        {pkg.serves}
-                      </span>
-                    </div>
-
-                    <h3 className="font-serif text-lg font-bold text-cafe-950 mb-2 leading-snug">
-                      {pkg.name}
-                    </h3>
-                    <p className="text-xs text-cafe-600 leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="px-6 pb-6 pt-0">
-                  <div className="pt-3 border-t border-cafe-100 flex items-center justify-between text-[11px] text-cafe-500 font-semibold mb-3">
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3.5 h-3.5 text-amberGold" />
-                      <span>{pkg.turnaround}</span>
-                    </span>
-                    <span className="text-emerald-700 font-bold">100% Sealed</span>
-                  </div>
-
-                  <a
-                    href="tel:+17272401811"
-                    className="w-full py-2.5 rounded-xl bg-cafe-50 hover:bg-cafe-900 hover:text-white text-cafe-950 text-xs font-bold transition-colors border border-cafe-200 flex items-center justify-center gap-1.5"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-amberGold" />
-                    <span>Call to Order Package</span>
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+          {bulkPackages.map((pkg) => (
+            <BulkPackageCard key={pkg.id} pkg={pkg} />
+          ))}
         </div>
 
         {/* Quick Contact Hotline Bar */}

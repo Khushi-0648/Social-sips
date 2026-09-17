@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   ShieldCheck, 
-  Sparkles, 
   Droplet, 
   Flame, 
   Thermometer, 

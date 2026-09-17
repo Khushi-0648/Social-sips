@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   Flame, 
-  Sparkles, 
   CheckCircle2, 
   Coffee, 
   IceCream, 
@@ -47,7 +46,7 @@ export default function CraftProcess() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amberGold" />
+            <Coffee className="w-3.5 h-3.5 text-amberGold" />
             <span>Behind The Counter</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cafe-950 tracking-tight">
@@ -58,7 +57,7 @@ export default function CraftProcess() {
           </p>
         </div>
 
-        {/* 3 Steps Horizontal / Vertical Timeline Cards */}
+        {/* 3 Steps Timeline Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {steps.map((step, idx) => {
             const Icon = step.icon;
@@ -67,26 +66,30 @@ export default function CraftProcess() {
                 key={idx}
                 className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1 flex flex-col group"
               >
-                {/* Visual Image */}
+                {/* Visual Image - Clean without overlay text */}
                 <div className="relative h-52 overflow-hidden bg-cafe-100">
                   <img
                     src={step.image}
                     alt={step.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute top-3 left-3 bg-cafe-950/80 text-amberGold text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md border border-amberGold/30">
-                    {step.badge}
-                  </div>
-                  <div className="absolute bottom-3 right-3 font-serif text-4xl font-extrabold text-white/90 drop-shadow-md">
-                    {step.number}
-                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
                   <div>
-                    <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5" />
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] font-bold border border-cafe-200">
+                          {step.badge}
+                        </span>
+                        <span className="font-serif text-2xl font-extrabold text-cafe-300">
+                          {step.number}
+                        </span>
+                      </div>
                     </div>
                     <span className="text-xs font-semibold text-amberGold uppercase tracking-wider block">
                       {step.subtitle}

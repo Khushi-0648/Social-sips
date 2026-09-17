@@ -7,7 +7,6 @@ import {
   MapPin, 
   CheckCircle, 
   Phone, 
-  Sparkles,
   Coffee
 } from 'lucide-react';
 
@@ -54,7 +53,7 @@ export default function ReservationModal({ isOpen, onClose }) {
           </button>
           
           <div className="flex items-center gap-2 text-amberGold text-xs font-semibold uppercase tracking-wider mb-1">
-            <Sparkles className="w-3.5 h-3.5" />
+            <Coffee className="w-3.5 h-3.5 text-amberGold" />
             <span>Social Sips Cafe & Bar • Clearwater</span>
           </div>
           <h3 className="font-serif text-xl sm:text-2xl font-bold">

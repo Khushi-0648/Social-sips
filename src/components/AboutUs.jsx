@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Heart, 
   Coffee, 
-  Sparkles, 
+  CupSoda, 
   Wifi, 
   Dog, 
   Sun, 
@@ -24,7 +24,7 @@ export default function AboutUs() {
       description: 'Slow-churned daily with real fruit purees, Sicilian pistachios, and rich dairy for that unmatched silky European texture.'
     },
     {
-      icon: Sparkles,
+      icon: CupSoda,
       title: 'Pure Brewed Boba & Loose Leaf Teas',
       description: 'No powdered mixes or artificial chemical syrups. Just freshly boiled brown sugar tapioca and hand-shaken organic infusions.'
     },

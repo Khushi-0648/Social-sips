@@ -5,55 +5,55 @@ import {
   Music, 
   Laptop, 
   Wine, 
-  Sparkles, 
+  IceCream, 
   ArrowRight,
   MapPin
 } from 'lucide-react';
 
-export default function EventsCalendar({ onOpenReservation }) {
-  const events = [
-    {
-      id: 1,
-      day: 'Mon – Fri',
-      time: '7:00 AM – 12:00 PM',
-      title: 'Morning Co-Working & Coffee Club',
-      tag: 'Remote Work Sanctuary',
-      icon: Laptop,
-      description: 'Ultra-fast gigabit Wi-Fi, power outlets at every booth, plenty of sunlit seating, and complimentary refills on our batch drip coffee.',
-      image: '/images/lounge-vibe.jpg',
-    },
-    {
-      id: 2,
-      day: 'Thu – Sat',
-      time: '5:00 PM – 11:00 PM',
-      title: 'Twilight Sips & Social Bar Hours',
-      tag: 'Evening Vibes',
-      icon: Wine,
-      description: 'Our cafe transitions into Clearwater’s chic evening lounge with freshly shaken espresso martinis, craft mocktails, and artisan charcuterie.',
-      image: '/images/bar-espresso-martini.jpg',
-    },
-    {
-      id: 3,
-      day: 'Every Saturday',
-      time: '10:00 AM – 1:00 PM',
-      title: 'Weekend Acoustic Patio Sessions',
-      tag: 'Live Music & Sips',
-      icon: Music,
-      description: 'Breezy Florida morning tunes by local Tampa Bay & Clearwater acoustic musicians on our sunny, pet-friendly outdoor patio.',
-      image: '/images/patio-vibe.jpg',
-    },
-    {
-      id: 4,
-      day: 'Every Sunday',
-      time: '1:00 PM – 6:00 PM',
-      title: 'Boba & Artisan Gelato Tasting Flights',
-      tag: 'Taste Showcase',
-      icon: Sparkles,
-      description: 'Can’t choose one flavor? Try our signature flight board with 4 mini handcrafted boba teas or 4 scoops of fresh Italian gelato.',
-      image: '/images/gelato-strawberry.jpg',
-    }
-  ];
+const events = [
+  {
+    id: 1,
+    day: 'Mon – Fri',
+    time: '7:00 AM – 12:00 PM',
+    title: 'Morning Co-Working & Coffee Club',
+    tag: 'Remote Work Sanctuary',
+    icon: Laptop,
+    description: 'Ultra-fast gigabit Wi-Fi, power outlets at every booth, plenty of sunlit seating, and complimentary refills on our batch drip coffee.',
+    image: '/images/lounge-vibe.jpg',
+  },
+  {
+    id: 2,
+    day: 'Thu – Sat',
+    time: '5:00 PM – 11:00 PM',
+    title: 'Twilight Sips & Social Bar Hours',
+    tag: 'Evening Vibes',
+    icon: Wine,
+    description: 'Our cafe transitions into Clearwater’s chic evening lounge with freshly shaken espresso martinis, craft mocktails, and artisan charcuterie.',
+    image: '/images/bar-espresso-martini.jpg',
+  },
+  {
+    id: 3,
+    day: 'Every Saturday',
+    time: '10:00 AM – 1:00 PM',
+    title: 'Weekend Acoustic Patio Sessions',
+    tag: 'Live Music & Sips',
+    icon: Music,
+    description: 'Breezy Florida morning tunes by local Tampa Bay & Clearwater acoustic musicians on our sunny, pet-friendly outdoor patio.',
+    image: '/images/patio-vibe.jpg',
+  },
+  {
+    id: 4,
+    day: 'Every Sunday',
+    time: '1:00 PM – 6:00 PM',
+    title: 'Boba & Artisan Gelato Tasting Flights',
+    tag: 'Taste Showcase',
+    icon: IceCream,
+    description: 'Can’t choose one flavor? Try our signature flight board with 4 mini handcrafted boba teas or 4 scoops of fresh Italian gelato.',
+    image: '/images/gelato-strawberry.jpg',
+  }
+];
 
+export default function EventsCalendar({ onOpenReservation }) {
   return (
     <section className="py-20 lg:py-28 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -68,7 +68,7 @@ export default function EventsCalendar({ onOpenReservation }) {
             Weekly Socials & Cafe Hours
           </h2>
           <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
-            From focused weekday work mornings to sunset social bar vibes and weekend live music under the Florida sun.
+            There’s always something happening at Social Sips. Explore our weekly Clearwater happenings and save a table in advance.
           </p>
         </div>
 
@@ -81,22 +81,22 @@ export default function EventsCalendar({ onOpenReservation }) {
                 key={evt.id}
                 className="bg-white rounded-3xl p-6 sm:p-8 border border-cafe-200 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 flex flex-col sm:flex-row gap-6 group"
               >
-                {/* Visual Thumbnail */}
+                {/* Visual Thumbnail - Clean without text overlay */}
                 <div className="w-full sm:w-44 h-48 rounded-2xl overflow-hidden shrink-0 relative bg-cafe-100">
                   <img
                     src={evt.image}
                     alt={evt.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-cafe-950/80 text-amberGold text-[10px] font-bold backdrop-blur-md">
-                    {evt.day}
-                  </div>
                 </div>
 
                 {/* Details */}
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 text-xs font-semibold text-cafe-500 mb-1.5">
+                      <span className="px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 text-[10px] font-bold">
+                        {evt.day}
+                      </span>
                       <Clock className="w-3.5 h-3.5 text-amberGold" />
                       <span>{evt.time}</span>
                     </div>

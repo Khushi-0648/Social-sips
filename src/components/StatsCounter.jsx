@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { 
   Users, 
   Star, 
   Heart, 
   Coffee, 
-  Sparkles, 
   Award, 
   CheckCircle2, 
   TrendingUp, 
@@ -80,7 +80,8 @@ export default function StatsCounter() {
   return (
     <section id="stats" className="py-14 lg:py-18 bg-[#F4ECE1] relative overflow-hidden border-y border-cafe-200">
       
-      {/* Decorative Warm Accents */}
+      {/* Aceternity Style Ambient Radiant Aura */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-amberGold/15 via-orange-200/20 to-amber-100/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
       <div className="absolute top-0 right-1/4 w-80 h-80 bg-amberGold/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
 
@@ -90,7 +91,7 @@ export default function StatsCounter() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-cafe-300/70 gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs mb-3">
-              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              <span className="inline-flex rounded-full h-2 w-2 bg-emerald-500 animate-ping"></span>
               <span className="tracking-wide">COMMUNITY STATS BANNER • CLEARWATER, FL</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-extrabold text-cafe-950 tracking-tight">
@@ -109,9 +110,10 @@ export default function StatsCounter() {
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
-              <div 
+              <motion.div 
                 key={stat.id}
-                className="relative rounded-3xl bg-white border border-cafe-200/90 p-6 shadow-warm-sm hover:shadow-warm-md hover:border-amberGold/60 transition-all duration-300 hover:-translate-y-1 group"
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="relative rounded-3xl bg-white border border-cafe-200/90 p-6 shadow-warm-sm hover:shadow-warm-md hover:border-amberGold/60 transition-colors duration-300 group"
               >
                 {/* Micro Badge */}
                 <div className="flex items-center justify-between mb-4">
@@ -148,7 +150,7 @@ export default function StatsCounter() {
                   </span>
                   <span>Clearwater, FL</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

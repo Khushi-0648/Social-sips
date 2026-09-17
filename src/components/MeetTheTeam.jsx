@@ -5,7 +5,6 @@ import {
   IceCream, 
   CupSoda, 
   Wine, 
-  Sparkles, 
   Heart, 
   Quote
 } from 'lucide-react';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Maximize2, X, ChevronLeft, ChevronRight, Eye } from 'lucide-react';
+import { Eye, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryCategories, galleryItems } from '../data/galleryData';
 
 export default function Gallery() {
@@ -39,8 +39,8 @@ export default function Gallery() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
-            <Sparkles className="w-3.5 h-3.5 text-amberGold" />
-            Visual Cafe Gallery
+            <Eye className="w-3.5 h-3.5 text-amberGold" />
+            <span>Visual Cafe Gallery</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-cafe-950 tracking-tight">
             The Aesthetic Experience
@@ -83,13 +83,6 @@ export default function Gallery() {
               
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-cafe-950/90 via-cafe-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6" />
-
-              {/* Tag pinned to top */}
-              <div className="absolute top-4 left-4">
-                <span className="px-3 py-1 rounded-full text-[11px] font-semibold bg-cafe-900/80 text-amberGold backdrop-blur-md border border-amberGold/30 shadow-sm">
-                  {item.tag}
-                </span>
-              </div>
 
               {/* Action icon pinned top right */}
               <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
