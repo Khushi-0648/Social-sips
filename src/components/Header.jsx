@@ -54,12 +54,12 @@ export default function Header({ onOpenReservation }) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
       {/* Top Utility Information Bar */}
-      <div className="bg-cafe-950 text-cafe-200 text-xs py-2 px-4 border-b border-cafe-900">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-4 text-[11px] sm:text-xs">
-            <span className="flex items-center gap-1.5 text-amberGold font-semibold">
-              <MapPin className="w-3.5 h-3.5 text-amberGold" />
-              <span>Clearwater, FL • Minutes from Clearwater Beach</span>
+      <div className="bg-cafe-950 text-cafe-200 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-cafe-900">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 sm:gap-4 text-[10px] sm:text-xs min-w-0">
+            <span className="flex items-center gap-1.5 text-amberGold font-semibold truncate">
+              <MapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amberGold shrink-0" />
+              <span className="truncate">Clearwater, FL • Near Beach</span>
             </span>
             <span className="hidden md:inline text-cafe-600">|</span>
             <span className="hidden md:flex items-center gap-1.5 text-cafe-300">
@@ -68,14 +68,14 @@ export default function Header({ onOpenReservation }) {
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs">
+          <div className="flex items-center gap-3 sm:gap-4 text-[10px] sm:text-xs shrink-0">
             <a 
               href="tel:+17272401811" 
-              className="flex items-center gap-1.5 text-white hover:text-amberGold transition-colors font-semibold"
+              className="flex items-center gap-1 sm:gap-1.5 text-white hover:text-amberGold transition-colors font-semibold"
               title="Call Social Sips Cafe"
             >
               <Phone className="w-3 h-3 text-amberGold" />
-              <span>+1 (727) 240-1811</span>
+              <span>(727) 240-1811</span>
             </a>
             <span className="text-cafe-700 hidden sm:inline">|</span>
             <a 

@@ -20,7 +20,7 @@ export default function HeroBanner({ onOpenReservation }) {
   return (
     <section 
       id="home"
-      className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-24 sm:pt-28 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
+      className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-32 sm:pt-36 lg:pt-36 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
     >
       {/* Background Motion Video: Crystal Clear, High-Visibility, No Muddy Dark Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -42,11 +42,11 @@ export default function HeroBanner({ onOpenReservation }) {
       </div>
 
       {/* Top Editorial Row: BREATHE (Top-Left) & THE (Top-Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-3 pt-1">
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-3 pt-2 sm:pt-4">
         
         {/* Headline Left: BREATHE */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative"
