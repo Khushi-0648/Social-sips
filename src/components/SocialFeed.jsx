@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Instagram, 
   Heart, 
-  MessageCircle, 
   Camera 
 } from 'lucide-react';
 
@@ -84,27 +83,9 @@ export default function SocialFeed() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
 
-              {/* Dark Ambient Overlay on Hover */}
-              <div className="absolute inset-0 bg-cafe-950/85 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-between text-white text-left">
-                <div className="flex items-center justify-between text-xs">
-                  <span className="font-bold text-amberGold truncate">{post.handle}</span>
-                  <Instagram className="w-3.5 h-3.5 shrink-0" />
-                </div>
-
-                <p className="text-[11px] text-cafe-200 line-clamp-3 leading-relaxed">
-                  "{post.caption}"
-                </p>
-
-                <div className="flex items-center gap-3 text-[11px] text-cafe-300 pt-2 border-t border-white/10">
-                  <span className="flex items-center gap-1">
-                    <Heart className="w-3 h-3 text-rose-400 fill-rose-400" />
-                    <span>{post.likes}</span>
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MessageCircle className="w-3 h-3" />
-                    <span>Reply</span>
-                  </span>
-                </div>
+              {/* Minimal Instagram Indicator Icon - Clean without any text covering the image */}
+              <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Instagram className="w-4 h-4 text-amberGold" />
               </div>
             </div>
           ))}

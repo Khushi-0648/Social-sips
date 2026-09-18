@@ -83,23 +83,16 @@ export default function AboutUs() {
                 />
               </div>
 
-              {/* Quality Seal floating badge */}
-              <div className="absolute -top-5 left-2 sm:-left-4 lg:-left-6 bg-white p-3 sm:p-4 rounded-2xl shadow-warm-md border border-cafe-200 text-cafe-900 flex items-center gap-3">
-                <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-xl bg-cafe-900 text-amberGold flex items-center justify-center font-serif text-base sm:text-lg font-bold shrink-0">
-                  FL
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-cafe-900 whitespace-nowrap">Clearwater Proud</p>
-                  <p className="text-[11px] text-cafe-500 whitespace-nowrap">Locally Owned & Operated</p>
-                </div>
-              </div>
-
             </div>
           </div>
 
           {/* Right: Narrative & Highlights */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cafe-100 border border-cafe-200 text-xs font-semibold text-cafe-800">
+                <span className="w-2 h-2 rounded-full bg-amberGold"></span>
+                <span>Clearwater Proud • Locally Owned & Operated</span>
+              </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-cafe-900 leading-snug">
                 More than just a cafe — <br className="hidden sm:inline" />
                 it’s your everyday sanctuary.

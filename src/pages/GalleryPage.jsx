@@ -283,6 +283,7 @@ export default function GalleryPage({ onOpenReservation }) {
                 key={item.id}
                 className="bg-[#120F0D] rounded-3xl overflow-hidden border border-[#2C221B] hover:border-[#F0C070]/50 transition-all duration-500 shadow-xl group flex flex-col justify-between"
               >
+                {/* Image Container - Clean without overlay text */}
                 <div className="relative h-72 sm:h-80 overflow-hidden bg-[#181310]">
                   <img 
                     src={item.image} 
@@ -290,15 +291,14 @@ export default function GalleryPage({ onOpenReservation }) {
                     loading="lazy"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050404] via-[#050404]/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-[#120F0D]/90 backdrop-blur-md text-[#F0C070] text-[10px] font-bold uppercase tracking-wider border border-[#2C221B]">
-                      {item.tag}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-6 space-y-2">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-2.5 py-0.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-[10px] font-bold uppercase tracking-wider border border-[#3D2D22]">
+                      {item.tag}
+                    </span>
+                  </div>
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#F0C070] transition-colors leading-snug">
                     {item.title}
                   </h3>

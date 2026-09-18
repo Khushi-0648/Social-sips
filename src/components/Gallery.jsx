@@ -82,22 +82,9 @@ export default function Gallery() {
                 className="w-full h-full object-cover group-hover:scale-110 group-hover:opacity-90 transition-all duration-700"
               />
               
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-cafe-950/90 via-cafe-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6" />
-
-              {/* Action icon pinned top right */}
-              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Maximize2 className="w-4 h-4" />
-              </div>
-
-              {/* Bottom text info on hover */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <h3 className="font-serif text-lg font-bold text-white mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-cafe-200 line-clamp-2">
-                  {item.description}
-                </p>
+              {/* Minimal Expand Hint on Hover - Clean without text over image */}
+              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Maximize2 className="w-4 h-4 text-[#F0C070]" />
               </div>
             </div>
           ))}

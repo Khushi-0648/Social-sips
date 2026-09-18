@@ -381,7 +381,7 @@ export default function AboutPage({ onOpenReservation }) {
                 className="w-[290px] sm:w-[330px] lg:w-[350px] shrink-0 snap-start bg-[#120F0D] rounded-3xl overflow-hidden border border-[#2C221B] hover:border-[#F0C070]/50 transition-all duration-300 shadow-xl group flex flex-col justify-between"
               >
                 <div>
-                  {/* Product Image with Zoom & Badges */}
+                  {/* Product Image - Clean without overlay text */}
                   <div className="relative h-56 sm:h-60 overflow-hidden bg-[#181310]">
                     <img 
                       src={product.image} 
@@ -389,32 +389,19 @@ export default function AboutPage({ onOpenReservation }) {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#120F0D] via-transparent to-black/30" />
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-3.5 left-3.5">
-                      <span className="px-3 py-1 rounded-full bg-[#050404]/80 backdrop-blur-md text-[#F0C070] text-[11px] font-bold border border-[#3D2D22]">
-                        {product.category}
-                      </span>
-                    </div>
-
-                    {/* Tag Badge */}
-                    <div className="absolute top-3.5 right-3.5">
-                      <span className="px-2.5 py-1 rounded-full bg-[#F0C070] text-[#050404] text-[10px] font-extrabold uppercase tracking-wider shadow-md">
-                        {product.tag}
-                      </span>
-                    </div>
-
-                    {/* Price Tag */}
-                    <div className="absolute bottom-3 right-3.5">
-                      <span className="font-serif text-lg font-bold text-white bg-[#050404]/85 backdrop-blur-md px-3 py-1 rounded-xl border border-[#2C221B]">
-                        {product.price}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Product Details */}
                   <div className="p-6 space-y-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="px-2.5 py-0.5 rounded-full bg-[#1A1410] text-[#F0C070] text-[10px] font-bold uppercase tracking-wider border border-[#3D2D22]">
+                        {product.category}
+                      </span>
+                      <span className="font-serif text-base font-bold text-[#F0C070]">
+                        {product.price}
+                      </span>
+                    </div>
+
                     <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#F0C070] transition-colors leading-snug">
                       {product.name}
                     </h3>
@@ -515,25 +502,24 @@ export default function AboutPage({ onOpenReservation }) {
               </div>
             </div>
 
-            {/* Visual Collage with Verified Images */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-[#2C221B] shadow-2xl">
+            {/* Visual Showcase - Clean Image without overlay text */}
+            <div className="lg:col-span-6 space-y-4">
+              <div className="rounded-3xl overflow-hidden border border-[#2C221B] shadow-2xl">
                 <img 
                   src="/images/cafe-interior-main.jpg" 
                   alt="Social Sips Cafe Clearwater Interior Counter" 
-                  className="w-full h-[460px] object-cover"
+                  className="w-full h-[380px] sm:h-[420px] object-cover hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050404]/90 via-transparent to-transparent" />
-                
-                {/* Floating Quote Card */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-[#120F0D]/95 backdrop-blur-md border border-[#2C221B] shadow-2xl">
-                  <p className="text-xs sm:text-sm text-white font-medium italic leading-relaxed">
-                    "Our counter is where strangers become regulars, and regulars become lifelong friends."
-                  </p>
-                  <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#221B16]">
-                    <span className="text-xs text-[#F0C070] font-bold">— The Social Sips Family</span>
-                    <span className="text-[11px] text-[#8C7F75]">Clearwater, FL</span>
-                  </div>
+              </div>
+              
+              {/* Quote Card Below Image */}
+              <div className="p-5 rounded-2xl bg-[#120F0D] border border-[#2C221B] shadow-xl">
+                <p className="text-xs sm:text-sm text-white font-medium italic leading-relaxed">
+                  "Our counter is where strangers become regulars, and regulars become lifelong friends."
+                </p>
+                <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#221B16]">
+                  <span className="text-xs text-[#F0C070] font-bold">— The Social Sips Family</span>
+                  <span className="text-[11px] text-[#8C7F75]">Clearwater, FL</span>
                 </div>
               </div>
             </div>

@@ -76,7 +76,7 @@ export default function MeetTheTeam() {
                 className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
               >
                 <div>
-                  {/* Photo Container */}
+                  {/* Photo Container - Clean without overlay elements */}
                   <div className="relative h-64 overflow-hidden bg-cafe-100">
                     <img
                       src={member.image}
@@ -85,23 +85,25 @@ export default function MeetTheTeam() {
                       decoding="async"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 right-3 w-10 h-10 rounded-2xl bg-white/90 backdrop-blur-md flex items-center justify-center text-amberGold shadow-md border border-white">
-                      <Icon className="w-5 h-5" />
-                    </div>
                   </div>
 
                   {/* Body Info */}
                   <div className="p-6 space-y-3">
-                    <div>
-                      <h3 className="font-serif text-xl font-bold text-cafe-950 group-hover:text-amberGold transition-colors">
-                        {member.name}
-                      </h3>
-                      <p className="text-xs font-bold text-amberGold mt-0.5">
-                        {member.role}
-                      </p>
-                      <p className="text-[11px] text-cafe-500 mt-0.5">
-                        {member.specialty}
-                      </p>
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <h3 className="font-serif text-xl font-bold text-cafe-950 group-hover:text-amberGold transition-colors">
+                          {member.name}
+                        </h3>
+                        <p className="text-xs font-bold text-amberGold mt-0.5">
+                          {member.role}
+                        </p>
+                        <p className="text-[11px] text-cafe-500 mt-0.5">
+                          {member.specialty}
+                        </p>
+                      </div>
+                      <div className="w-10 h-10 rounded-2xl bg-amber-50 flex items-center justify-center text-amberGold border border-amber-200/60 shrink-0">
+                        <Icon className="w-5 h-5" />
+                      </div>
                     </div>
 
                     <p className="text-xs text-cafe-600 leading-relaxed">
