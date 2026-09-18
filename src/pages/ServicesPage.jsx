@@ -70,18 +70,17 @@ export default function ServicesPage({ onOpenReservation }) {
         className="relative min-h-[82vh] sm:min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-14 px-4 sm:px-8 lg:px-14 select-none border-b border-[#2C221B]"
       >
         {/* Background Motion Video: Clear, Bright, High-Aesthetic */}
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-cafe-950">
           <video
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-            poster="/images/hero-bar.jpg"
             className="w-full h-full object-cover object-center filter brightness-105 contrast-[1.02] saturate-[1.1]"
           >
-            <source src="/videos/iced-coffee-pour.mp4" type="video/mp4" />
             <source src="/videos/iced-coffee-13764.mp4" type="video/mp4" />
+            <source src="/videos/iced-coffee-ice-drop.mp4" type="video/mp4" />
           </video>
 
           {/* Light Subtle Edge Transitions */}

@@ -23,19 +23,18 @@ export default function HeroBanner({ onOpenReservation }) {
       className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
     >
       {/* Background Motion Video: Bright, Vivid & Clear with Zero Heavy Dark Overlay */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-cafe-950">
         <video
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          poster="/images/hero-coffee.jpg"
           className="w-full h-full object-cover object-center filter brightness-105 contrast-[1.02] saturate-[1.1]"
         >
+          <source src="/videos/iced-coffee-pour.mp4" type="video/mp4" />
           <source src="/videos/iced-coffee-13764.mp4" type="video/mp4" />
           <source src="/videos/iced-coffee-ice-drop.mp4" type="video/mp4" />
-          <source src="/videos/coffee-drop.webm" type="video/webm" />
         </video>
 
         {/* Very Light Subtle Edge Transitions */}
