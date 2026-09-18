@@ -31,7 +31,12 @@ export default function ContactPage({ onOpenReservation }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.name && formData.email && formData.message) {
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedPhone = formData.phone.trim();
+    const trimmedMessage = formData.message.trim();
+
+    if (trimmedName && trimmedEmail && trimmedMessage) {
       setFormSubmitted(true);
       setTimeout(() => {
         setFormSubmitted(false);
@@ -303,6 +308,7 @@ export default function ContactPage({ onOpenReservation }) {
                         <input
                           type="text"
                           required
+                          maxLength={80}
                           placeholder="e.g. Sarah Jenkins"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -315,6 +321,7 @@ export default function ContactPage({ onOpenReservation }) {
                         <input
                           type="email"
                           required
+                          maxLength={100}
                           placeholder="sarah@example.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -328,6 +335,7 @@ export default function ContactPage({ onOpenReservation }) {
                         <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">Phone Number (Optional)</label>
                         <input
                           type="tel"
+                          maxLength={25}
                           placeholder="(727) 000-0000"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -355,6 +363,7 @@ export default function ContactPage({ onOpenReservation }) {
                       <textarea
                         rows={4}
                         required
+                        maxLength={1000}
                         placeholder="Tell us how we can help..."
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}

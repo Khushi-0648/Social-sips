@@ -20,7 +20,8 @@ export default function Footer() {
 
   const handleSubscribe = (e) => {
     e.preventDefault();
-    if (newsletterEmail) {
+    const trimmed = newsletterEmail.trim();
+    if (trimmed && trimmed.includes('@')) {
       setSubscribed(true);
       setTimeout(() => setSubscribed(false), 5000);
       setNewsletterEmail('');
@@ -72,6 +73,7 @@ export default function Footer() {
                 <input
                   type="email"
                   required
+                  maxLength={100}
                   placeholder="Enter your email address..."
                   value={newsletterEmail}
                   onChange={(e) => setNewsletterEmail(e.target.value)}
