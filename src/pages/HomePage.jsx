@@ -8,7 +8,6 @@ import AboutUs from '../components/AboutUs';
 import MenuServices from '../components/MenuServices';
 import OrderFromTable from '../components/OrderFromTable';
 import BulkOrders from '../components/BulkOrders';
-import HygieneSafety from '../components/HygieneSafety';
 import RetailShop from '../components/RetailShop';
 import Testimonials from '../components/Testimonials';
 import SocialFeed from '../components/SocialFeed';
@@ -61,11 +60,6 @@ export default function HomePage({ onOpenReservation }) {
       {/* 10. Bulk Orders & Office Catering Showcase */}
       <section id="bulk-orders">
         <BulkOrders />
-      </section>
-
-      {/* 10. Hygiene, Cleanliness & Food Safety Standards */}
-      <section id="hygiene">
-        <HygieneSafety />
       </section>
 
       {/* 11. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
