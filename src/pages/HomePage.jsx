@@ -3,14 +3,12 @@ import HeroBanner from '../components/HeroBanner';
 import Gallery from '../components/Gallery';
 import AmbienceZones from '../components/AmbienceZones';
 import CraftProcess from '../components/CraftProcess';
-import EventsCalendar from '../components/EventsCalendar';
 import StatsCounter from '../components/StatsCounter';
 import AboutUs from '../components/AboutUs';
 import MenuServices from '../components/MenuServices';
+import OrderFromTable from '../components/OrderFromTable';
 import BulkOrders from '../components/BulkOrders';
 import HygieneSafety from '../components/HygieneSafety';
-import MeetTheTeam from '../components/MeetTheTeam';
-import ClearwaterGuide from '../components/ClearwaterGuide';
 import RetailShop from '../components/RetailShop';
 import Testimonials from '../components/Testimonials';
 import SocialFeed from '../components/SocialFeed';
@@ -40,12 +38,7 @@ export default function HomePage({ onOpenReservation }) {
         <CraftProcess />
       </section>
 
-      {/* 5. Weekly Socials & Cafe Hours (Community Calendar) */}
-      <section id="events">
-        <EventsCalendar onOpenReservation={onOpenReservation} />
-      </section>
-
-      {/* 6. A Gathering Place Loved by Thousands (Stats Counter Banner) */}
+      {/* 5. A Gathering Place Loved by Thousands (Stats Counter Banner) */}
       <section id="stats">
         <StatsCounter />
       </section>
@@ -60,7 +53,12 @@ export default function HomePage({ onOpenReservation }) {
         <MenuServices onOpenReservation={onOpenReservation} />
       </section>
 
-      {/* 9. Bulk Orders & Office Catering Showcase */}
+      {/* 9. Order From Your Table: Contactless Dining */}
+      <section id="table-order">
+        <OrderFromTable onOpenReservation={onOpenReservation} />
+      </section>
+
+      {/* 10. Bulk Orders & Office Catering Showcase */}
       <section id="bulk-orders">
         <BulkOrders />
       </section>
@@ -70,17 +68,7 @@ export default function HomePage({ onOpenReservation }) {
         <HygieneSafety />
       </section>
 
-      {/* 11. Meet The Team: Passionate Baristas & Italian Gelatieri */}
-      <section id="team">
-        <MeetTheTeam />
-      </section>
-
-      {/* 12. Clearwater Beach Companion Guide */}
-      <div>
-        <ClearwaterGuide />
-      </div>
-
-      {/* 13. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
+      {/* 11. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
       <div>
         <RetailShop />
       </div>

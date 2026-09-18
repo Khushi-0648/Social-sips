@@ -68,18 +68,18 @@ export default function FAQSection() {
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-cafe-50/70 transition-colors"
+                  className="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-3 cursor-pointer hover:bg-cafe-50/70 transition-colors"
                 >
-                  <span className="font-serif text-base sm:text-lg font-bold text-cafe-950">
+                  <span className="font-serif text-sm sm:text-lg font-bold text-cafe-950">
                     {faq.question}
                   </span>
-                  <div className={`w-8 h-8 rounded-full bg-cafe-100 flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-amberGold text-white' : 'text-cafe-700'}`}>
-                    <ChevronDown className="w-4 h-4" />
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-cafe-100 flex items-center justify-center shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-amberGold text-white' : 'text-cafe-700'}`}>
+                    <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-cafe-700 leading-relaxed border-t border-cafe-100 animate-fadeIn">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-1 text-xs sm:text-sm text-cafe-700 leading-relaxed border-t border-cafe-100 animate-fadeIn">
                     <p>{faq.answer}</p>
                   </div>
                 )}

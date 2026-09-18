@@ -12,39 +12,39 @@ import {
 const products = [
   {
     id: 'p1',
-    name: 'Clearwater Coastal Sunrise Blend',
-    type: 'Whole Bean (12oz)',
+    name: 'Coastal Sunrise Blend',
+    type: 'Whole Bean • 12oz',
     badge: 'House Favorite',
-    tastingNotes: 'Tasting Notes: Orange Blossom Honey, Milk Chocolate, Toasted Hazelnut',
+    tastingNotes: 'Notes: Honey, Milk Chocolate & Toasted Hazelnut',
     image: '/images/coffee-blend.jpg',
-    details: 'Our flagship medium roast. Smooth, sweet, and extraordinarily balanced whether brewed as espresso, pour-over, or drip.'
+    details: 'Flagship medium roast, smooth and sweet for espresso or drip.'
   },
   {
     id: 'p2',
-    name: 'Single-Origin Ethiopian Yirgacheffe',
-    type: 'Light Roast (12oz)',
+    name: 'Single-Origin Ethiopian',
+    type: 'Light Roast • 12oz',
     badge: 'Barista Choice',
-    tastingNotes: 'Tasting Notes: Jasmine Flower, Ripe Blueberry, Meyer Lemon',
+    tastingNotes: 'Notes: Jasmine Flower, Blueberry & Meyer Lemon',
     image: '/images/coffee-ethiopia.jpg',
-    details: 'Naturally processed heirloom varietals from the Gedeo zone. Bursting with aromatic berries and delicate tea-like elegance.'
+    details: 'Naturally processed heirloom varietal with floral elegance.'
   },
   {
     id: 'p3',
-    name: 'Hand-Thrown Speckled Ceramic Mug',
-    type: 'Artisan Mug (12oz)',
+    name: 'Speckled Ceramic Mug',
+    type: 'Artisan Ware • 12oz',
     badge: 'Handmade Craft',
-    tastingNotes: 'Features debossed Social Sips seal • Microwave & Dishwasher safe',
+    tastingNotes: 'Features debossed seal • Microwave & Dishwasher safe',
     image: '/images/ceramic-mug.jpg',
-    details: 'Crafted exclusively for Social Sips by a local Florida ceramist. Ergonomic handle and natural sand-clay speckled glaze.'
+    details: 'Hand-thrown in Florida with sand-clay glaze and ergonomic grip.'
   },
   {
     id: 'p4',
-    name: 'At-Home DIY Handcrafted Boba Kit',
-    type: 'Boba Kit (8 Cups)',
+    name: 'At-Home Boba DIY Kit',
+    type: 'Kit • 8 Servings',
     badge: 'Popular Gift',
-    tastingNotes: 'Includes Taiwanese tapioca, loose-leaf tea, brown sugar & wide straw',
+    tastingNotes: 'Includes: Boba, Loose Tea, Brown Sugar & Wide Straws',
     image: '/images/boba-kit.jpg',
-    details: 'Everything you need to brew authentic milk tea at home in under 20 minutes. Makes a wonderful gift for boba lovers!'
+    details: 'Everything needed to brew authentic milk tea at home in 20 mins.'
   }
 ];
 
@@ -80,16 +80,16 @@ export default function RetailShop() {
           </div>
         </div>
 
-        {/* 4 Retail Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-6">
+        {/* 4 Retail Products - Horizontal Snap Track on Mobile, Grid on Tablet/Desktop */}
+        <div className="flex sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {products.map((item) => (
             <div
               key={item.id}
-              className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
+              className="w-[260px] sm:w-auto shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
             >
               <div>
                 {/* Image - Clean without overlay text */}
-                <div className="relative h-60 sm:h-64 overflow-hidden bg-cafe-100">
+                <div className="relative h-44 sm:h-64 overflow-hidden bg-cafe-100">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -100,36 +100,35 @@ export default function RetailShop() {
                 </div>
 
                 {/* Details */}
-                <div className="p-4 sm:p-5 space-y-2.5">
+                <div className="p-4 sm:p-5 space-y-2">
                   <div className="flex items-center justify-between gap-2 min-w-0">
-                    <span className="text-[11px] sm:text-xs font-semibold text-cafe-600 truncate">
+                    <span className="text-[11px] sm:text-xs font-semibold text-cafe-600">
                       {item.type}
                     </span>
                     <span className="px-2 py-0.5 rounded-full bg-cafe-100 text-cafe-900 text-[10px] sm:text-[10.5px] font-bold border border-cafe-300 shrink-0 shadow-2xs">
                       {item.badge}
                     </span>
                   </div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug min-h-[44px] sm:min-h-[52px]">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-amberGold font-semibold line-clamp-2 min-h-[32px]">
+                  <p className="text-xs text-amberGold font-semibold">
                     {item.tastingNotes}
                   </p>
-                  <p className="text-xs text-cafe-600 leading-relaxed pt-1">
+                  <p className="text-xs text-cafe-600 leading-relaxed pt-0.5">
                     {item.details}
                   </p>
                 </div>
               </div>
 
-
               {/* Action */}
               <div className="p-4 sm:p-5 pt-0">
                 <a
                   href="tel:+17272401811"
-                  className="w-full py-2.5 rounded-xl bg-cafe-50 hover:bg-cafe-900 hover:text-white text-cafe-900 text-xs font-bold transition-colors border border-cafe-200 flex items-center justify-center gap-1.5"
+                  className="w-full py-2.5 rounded-xl bg-cafe-50 hover:bg-cafe-900 hover:text-white text-cafe-950 text-xs font-bold transition-colors border border-cafe-200 flex items-center justify-center gap-1.5"
                 >
                   <Package className="w-3.5 h-3.5 text-amberGold" />
-                  <span>Call to Hold at Counter</span>
+                  <span>Call to Hold</span>
                 </a>
               </div>
             </div>

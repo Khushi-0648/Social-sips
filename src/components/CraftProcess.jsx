@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  CheckCircle2, 
   Coffee, 
   IceCream, 
   CupSoda
@@ -13,8 +12,8 @@ export default function CraftProcess() {
       number: '01',
       icon: Coffee,
       title: 'Ethical Roasting & Micro Extraction',
-      subtitle: 'From High-Altitude Farms to Your Cup',
-      description: 'We source direct-trade single-origin specialty green beans from family farms in Ethiopia, Colombia, and Guatemala. Roasted weekly right here in Florida to unlock nuanced flavor notes of dark cocoa, citrus, and toasted hazelnut.',
+      subtitle: 'Direct-Trade Coffee Beans',
+      description: 'Ethically sourced single-origin beans, micro-roasted weekly in Florida to unlock rich cocoa and citrus notes.',
       image: '/images/coffee-cortado.jpg',
       badge: 'Locally Roasted'
     },
@@ -22,8 +21,8 @@ export default function CraftProcess() {
       number: '02',
       icon: IceCream,
       title: 'Old-World Italian Gelato Churning',
-      subtitle: 'Slow, Dense & Naturally Rich',
-      description: 'Unlike commercial ice cream loaded with air and artificial emulsifiers, our gelato is churned at higher temperatures with authentic DOP Sicilian Bronte pistachios, Madagascar bourbon vanilla, and fresh Florida dairy.',
+      subtitle: 'Authentic Italian Churning',
+      description: 'Slow-churned with DOP Sicilian Bronte pistachios and organic dairy for dense, silky, all-natural texture.',
       image: '/images/gelato-pistachio.jpg',
       badge: 'Authentic Recipe'
     },
@@ -31,8 +30,8 @@ export default function CraftProcess() {
       number: '03',
       icon: CupSoda,
       title: 'Slow-Simmered Boba & Loose Leaf Tea',
-      subtitle: 'Chewy Warm Pearls & Organic Infusions',
-      description: 'Our tapioca pearls are boiled in small batches every 3 hours and simmered in authentic Taiwanese brown sugar until warm, caramel-rich, and soft. Paired with certified ceremonial Uji matcha and cold-steeped jasmine green tea.',
+      subtitle: 'Warm Slow-Simmered Pearls',
+      description: 'Taiwanese tapioca pearls simmered in Muscovado sugar every 3 hours, paired with fresh organic tea infusions.',
       image: '/images/boba-tiger.jpg',
       badge: 'Zero Powders'
     }
@@ -54,56 +53,51 @@ export default function CraftProcess() {
             We believe extraordinary drinks and desserts come from unwavering respect for raw ingredients and artisanal techniques.
           </p>
         </div>
-        {/* 3 Steps Timeline Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        {/* 3 Steps - Horizontal Snap Carousel on Mobile, 3-Col Grid on Desktop */}
+        <div className="flex md:grid md:grid-cols-3 gap-5 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
               <div
                 key={idx}
-                className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1 flex flex-col group"
+                className="w-[280px] sm:w-[320px] md:w-auto shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1 flex flex-col group justify-between"
               >
-                {/* Visual Image - Clean without overlay text */}
-                <div className="relative h-52 overflow-hidden bg-cafe-100">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
+                <div>
+                  {/* Visual Image - Clean without overlay text */}
+                  <div className="relative h-44 sm:h-52 overflow-hidden bg-cafe-100">
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
 
-                {/* Content */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <div className="w-10 h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
+                  {/* Content */}
+                  <div className="p-5 sm:p-7 space-y-3">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div className="flex items-center gap-2">
                         <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-800 text-[10px] font-bold border border-cafe-200">
                           {step.badge}
                         </span>
-                        <span className="font-serif text-2xl font-extrabold text-cafe-300">
+                        <span className="font-serif text-xl sm:text-2xl font-extrabold text-cafe-300">
                           {step.number}
                         </span>
                       </div>
                     </div>
-                    <span className="text-xs font-semibold text-amberGold uppercase tracking-wider block">
+                    <span className="text-[11px] sm:text-xs font-semibold text-amberGold uppercase tracking-wider block">
                       {step.subtitle}
                     </span>
-                    <h3 className="font-serif text-xl font-bold text-cafe-950 mt-1 mb-2">
+                    <h3 className="font-serif text-lg sm:text-xl font-bold text-cafe-950 leading-snug">
                       {step.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-cafe-600 leading-relaxed">
                       {step.description}
                     </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-cafe-100 flex items-center gap-2 text-xs font-semibold text-cafe-800">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                    <span>Quality Guaranteed Every Cup</span>
                   </div>
                 </div>
               </div>

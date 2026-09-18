@@ -15,23 +15,23 @@ export default function AboutUs() {
   const highlights = [
     {
       icon: Coffee,
-      title: 'Ethically Sourced & Locally Roasted',
-      description: 'We partner with responsible micro-farms across Central & South America, roasting in small batches right here in Florida.'
+      title: 'Ethical Small-Batch Roasting',
+      description: 'Partnered with sustainable micro-farms, roasted fresh weekly in Florida.'
     },
     {
       icon: Award,
-      title: 'Authentic Italian Gelato Craft',
-      description: 'Slow-churned daily with real fruit purees, Sicilian pistachios, and rich dairy for that unmatched silky European texture.'
+      title: 'Artisan Gelato Churned Daily',
+      description: 'Slow-churned with real fruit purees and rich Sicilian pistachios.'
     },
     {
       icon: CupSoda,
-      title: 'Pure Brewed Boba & Loose Leaf Teas',
-      description: 'No powdered mixes or artificial chemical syrups. Just freshly boiled brown sugar tapioca and hand-shaken organic infusions.'
+      title: 'Pure Brewed Organic Boba',
+      description: 'Hand-shaken loose leaf teas with slow-simmered brown sugar tapioca.'
     },
     {
       icon: Sun,
-      title: 'Day-to-Night Clearwater Sanctuary',
-      description: 'Start your morning with cold brew and fresh croissants, stay for sunny afternoon boba, and unwind with evening espresso martinis.'
+      title: 'Day-to-Night Coastal Lounge',
+      description: 'From morning cold brew on the patio to evening espresso martinis.'
     }
   ];
 
@@ -102,19 +102,21 @@ export default function AboutUs() {
               </p>
             </div>
 
-            {/* Grid of 4 Key Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            {/* Grid of 4 Key Pillars - 2x2 Bento on Mobile, 2-Col on Desktop */}
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 pt-2">
               {highlights.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="p-4 rounded-2xl bg-white border border-cafe-200/80 shadow-warm-sm hover:border-amberGold/50 transition-colors">
-                    <div className="w-9 h-9 rounded-xl bg-cafe-100 text-cafe-800 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-amberGold" />
+                  <div key={idx} className="p-3 sm:p-4 rounded-2xl bg-white border border-cafe-200/80 shadow-warm-sm hover:border-amberGold/50 transition-colors flex flex-col justify-between">
+                    <div>
+                      <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-cafe-100 text-cafe-800 flex items-center justify-center mb-2 sm:mb-3">
+                        <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-amberGold" />
+                      </div>
+                      <h4 className="font-semibold text-xs sm:text-sm text-cafe-900 mb-0.5 sm:mb-1">
+                        {item.title}
+                      </h4>
                     </div>
-                    <h4 className="font-semibold text-sm text-cafe-900 mb-1">
-                      {item.title}
-                    </h4>
-                    <p className="text-xs text-cafe-600 leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-cafe-600 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

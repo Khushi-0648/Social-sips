@@ -17,45 +17,45 @@ const events = [
     id: 1,
     day: 'Mon – Fri',
     time: '7:00 AM – 12:00 PM',
-    title: 'Morning Co-Working & Coffee Club',
-    tag: 'Remote Work Sanctuary',
+    title: 'Morning Co-Working Club',
+    tag: 'Remote Sanctuary',
     icon: Laptop,
-    description: 'Ultra-fast gigabit Wi-Fi, power outlets at every booth, plenty of sunlit seating, and complimentary refills on our batch drip coffee.',
+    description: 'Gigabit Wi-Fi, power outlets at every booth, sunlit seating, and drip coffee refills.',
     image: '/images/lounge-vibe.jpg',
   },
   {
     id: 2,
     day: 'Thu – Sat',
     time: '5:00 PM – 11:00 PM',
-    title: 'Twilight Sips & Social Bar Hours',
+    title: 'Twilight Sips & Social Hours',
     tag: 'Evening Vibes',
     icon: Wine,
-    description: 'Our cafe transitions into Clearwater’s chic evening lounge with freshly shaken espresso martinis, craft mocktails, and artisan charcuterie.',
+    description: 'Evening lounge transition with shaken espresso martinis, craft mocktails, and charcuterie.',
     image: '/images/bar-espresso-martini.jpg',
   },
   {
     id: 3,
     day: 'Every Saturday',
     time: '10:00 AM – 1:00 PM',
-    title: 'Weekend Acoustic Patio Sessions',
-    tag: 'Live Music & Sips',
+    title: 'Acoustic Patio Sessions',
+    tag: 'Live Music',
     icon: Music,
-    description: 'Breezy Florida morning tunes by local Tampa Bay & Clearwater acoustic musicians on our sunny, pet-friendly outdoor patio.',
+    description: 'Live morning acoustic sets on our breezy, dog-friendly outdoor garden patio.',
     image: '/images/patio-vibe.jpg',
   },
   {
     id: 4,
     day: 'Every Sunday',
     time: '1:00 PM – 6:00 PM',
-    title: 'Boba & Artisan Gelato Tasting Flights',
+    title: 'Boba & Gelato Flights',
     tag: 'Taste Showcase',
     icon: IceCream,
-    description: 'Can’t choose one flavor? Try our signature flight board with 4 mini handcrafted boba teas or 4 scoops of fresh Italian gelato.',
+    description: 'Signature flight boards featuring mini handcrafted boba teas and Italian gelato scoops.',
     image: '/images/gelato-strawberry.jpg',
   }
 ];
 
-export default function EventsCalendar({ onOpenReservation }) {
+export default function EventsCalendar({ onOpenReservation, hidePrivateBanner = false }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [cardsPerPage, setCardsPerPage] = useState(2);
@@ -232,23 +232,25 @@ export default function EventsCalendar({ onOpenReservation }) {
         </div>
 
         {/* Private Event CTA Banner */}
-        <div className="mt-14 rounded-3xl bg-white border-2 border-cafe-200/90 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-warm-sm">
-          <div className="space-y-2 text-center md:text-left">
-            <span className="text-xs uppercase tracking-wider text-amberGold font-bold">Clearwater Private Gatherings</span>
-            <h4 className="font-serif text-2xl font-bold text-cafe-950">
-              Host your birthday, book club or office party with us!
-            </h4>
-            <p className="text-xs sm:text-sm text-cafe-600 max-w-xl">
-              We offer exclusive patio reservations, custom gelato bars, boba stations, and barista service in Clearwater, FL.
-            </p>
+        {!hidePrivateBanner && (
+          <div className="mt-14 rounded-3xl bg-white border-2 border-cafe-200/90 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-warm-sm">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-xs uppercase tracking-wider text-amberGold font-bold">Clearwater Private Gatherings</span>
+              <h4 className="font-serif text-2xl font-bold text-cafe-950">
+                Host your birthday, book club or office party with us!
+              </h4>
+              <p className="text-xs sm:text-sm text-cafe-600 max-w-xl">
+                We offer exclusive patio reservations, custom gelato bars, boba stations, and barista service in Clearwater, FL.
+              </p>
+            </div>
+            <button
+              onClick={onOpenReservation}
+              className="shrink-0 px-6 py-3.5 rounded-xl bg-cafe-900 hover:bg-cafe-800 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+            >
+              Inquire About Private Events
+            </button>
           </div>
-          <button
-            onClick={onOpenReservation}
-            className="shrink-0 px-6 py-3.5 rounded-xl bg-cafe-900 hover:bg-cafe-800 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
-          >
-            Inquire About Private Events
-          </button>
-        </div>
+        )}
 
       </div>
     </section>

@@ -1,109 +1,142 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Award, 
   Coffee, 
   IceCream, 
   CupSoda, 
-  Wine, 
-  Heart, 
-  Quote
+  Wine 
 } from 'lucide-react';
 
 const team = [
   {
+    id: 'coffee',
     name: 'Mateo Alvarez',
-    role: 'Head Coffee Roaster & Lead Barista',
-    specialty: 'Single-Origin Extraction & Latte Art',
+    role: 'Head Roaster',
+    specialty: 'Single-Origin',
     image: '/images/team-1.jpg',
     icon: Coffee,
-    bio: 'Dedicated to the science of extraction. Mateo sources green beans directly from micro-farms in Latin America and dials in each morning roast with millimeter precision.',
-    tip: 'Mateo’s Pick: "Ask for an 8oz Spanish Honey Latte with oat milk — balanced and sweet without syrup overpower."'
+    bio: 'Micro-roasts direct-trade single-origin beans in Florida.',
+    fav: 'Spanish Honey Latte'
   },
   {
+    id: 'gelato',
     name: 'Sofia Bianchi',
-    role: 'Master Gelatiere & Pastry Chef',
-    specialty: 'Traditional Italian Churning & Sorbets',
+    role: 'Master Gelatiere',
+    specialty: 'Italian Churning',
     image: '/images/team-2.jpg',
     icon: IceCream,
-    bio: 'Trained in Bologna, Italy, Sofia brought her family recipes to Clearwater. She insists on genuine Bronte pistachios, organic milk, and sun-ripened Florida citrus.',
-    tip: 'Sofia’s Pick: "Double scoop of Sicilian Pistachio paired with Wild Strawberry Sorbetto — pure balance."'
+    bio: 'Slow-churns authentic gelato with Sicilian Bronte pistachios.',
+    fav: 'Sicilian Pistachio'
   },
   {
+    id: 'boba',
     name: 'Kenji Lin',
-    role: 'Tea Sommelier & Boba Specialist',
-    specialty: 'Brown Sugar Tapioca & Ceremonial Matcha',
+    role: 'Tea Specialist',
+    specialty: 'Matcha & Boba',
     image: '/images/team-3.jpg',
     icon: CupSoda,
-    bio: 'Kenji spent years studying tea harvesting in Taiwan and Kyoto. He brews whole-leaf teas at tailored temperatures and slow-simmers warm brown sugar boba every 3 hours.',
-    tip: 'Kenji’s Pick: "The Ceremonial Matcha Cloud with 25% sweetness allows the grassy, umami matcha notes to sing."'
+    bio: 'Brews ceremonial matcha and simmers brown sugar boba.',
+    fav: 'Matcha Cloud'
   },
   {
+    id: 'bar',
     name: 'Chloe Davis',
-    role: 'Evening Bar Director & Mixologist',
-    specialty: 'Espresso Cocktails & Zero-Proof Sips',
+    role: 'Bar Director',
+    specialty: 'Craft Cocktails',
     image: '/images/team-4.jpg',
     icon: Wine,
-    bio: 'Chloe leads our 5:00 PM twilight transition, crafting craft cocktail syrups, botanical shrubs, and curating natural wines that pair seamlessly with artisan cheeses.',
-    tip: 'Chloe’s Pick: "Clearwater Espresso Martini on our patio at sunset — hands down the best way to close the week."'
+    bio: 'Crafts botanical spritzes and evening espresso martinis.',
+    fav: 'Espresso Martini'
   }
 ];
 
+const filterTabs = [
+  { id: 'all', label: 'All', icon: Award },
+  { id: 'coffee', label: 'Coffee', icon: Coffee },
+  { id: 'gelato', label: 'Gelato', icon: IceCream },
+  { id: 'boba', label: 'Boba', icon: CupSoda },
+  { id: 'bar', label: 'Bar', icon: Wine }
+];
+
 export default function MeetTheTeam() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const displayedTeam = activeFilter === 'all' 
+    ? team 
+    : team.filter(m => m.id === activeFilter);
+
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section id="makers" className="py-16 lg:py-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2.5">
+          <div className="inline-flex items-center px-3.5 py-1 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>Passionate Artisans</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cafe-950 tracking-tight">
             Meet the Makers
           </h2>
-          <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
+          <p className="text-sm sm:text-base text-cafe-600 leading-relaxed">
             The dedicated baristas, Italian gelatieri, and tea specialists who pour their craft and heart into every single visit.
           </p>
         </div>
 
-        {/* 4 Team Member Profiles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
-          {team.map((member, idx) => {
+        {/* Small Height Tabs with Minimum Text */}
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-8 sm:mb-10 overflow-x-auto no-scrollbar py-1">
+          {filterTabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = activeFilter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id)}
+                className={`flex items-center gap-1.5 px-3 py-1 sm:px-3.5 sm:py-1 rounded-xl text-xs font-bold transition-all border shrink-0 cursor-pointer ${
+                  isActive
+                    ? 'bg-cafe-900 text-amberGold border-cafe-900 shadow-2xs'
+                    : 'bg-white text-cafe-700 border-cafe-200 hover:bg-cafe-50 hover:text-cafe-950'
+                }`}
+              >
+                <Icon className={`w-3 h-3 ${isActive ? 'text-amberGold' : 'text-cafe-500'}`} />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Team Members - Compact Height Cards with Minimum Text */}
+        <div className={`flex ${displayedTeam.length === 1 ? 'sm:flex sm:justify-center' : 'sm:grid sm:grid-cols-2 xl:grid-cols-4'} gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0`}>
+          {displayedTeam.map((member) => {
             const Icon = member.icon;
             return (
               <div
-                key={idx}
-                className="bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between group"
+                key={member.id}
+                className="w-[280px] sm:w-auto shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-md transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
               >
                 <div>
-                  {/* Photo Container - Clean without overlay elements */}
-                  <div className="relative h-64 overflow-hidden bg-cafe-100">
+                  {/* Photo Container - Full Portrait Visibility */}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-cafe-100">
                     <img
                       src={member.image}
                       alt={member.name}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
+                    <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-xl bg-white/90 backdrop-blur-xs flex items-center justify-center text-amberGold border border-white/80 shadow-2xs">
+                      <Icon className="w-3.5 h-3.5" />
+                    </div>
                   </div>
 
-                  {/* Body Info */}
-                  <div className="p-6 space-y-3">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-serif text-xl font-bold text-cafe-950 group-hover:text-amberGold transition-colors">
-                          {member.name}
-                        </h3>
-                        <p className="text-xs font-bold text-amberGold mt-0.5">
-                          {member.role}
-                        </p>
-                        <p className="text-[11px] text-cafe-500 mt-0.5">
-                          {member.specialty}
-                        </p>
-                      </div>
-                      <div className="w-10 h-10 rounded-2xl bg-amber-50 flex items-center justify-center text-amberGold border border-amber-200/60 shrink-0">
-                        <Icon className="w-5 h-5" />
-                      </div>
+                  {/* Body Info - Minimum Text */}
+                  <div className="p-4 space-y-2">
+                    <div>
+                      <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
+                        {member.name}
+                      </h3>
+                      <p className="text-xs font-semibold text-amberGold mt-0.5">
+                        {member.role} • {member.specialty}
+                      </p>
                     </div>
 
                     <p className="text-xs text-cafe-600 leading-relaxed">
@@ -112,9 +145,12 @@ export default function MeetTheTeam() {
                   </div>
                 </div>
 
-                {/* Barista Insider Tip */}
-                <div className="p-4 mx-6 mb-6 rounded-2xl bg-cafe-50 border border-cafe-200/80 text-[11px] text-cafe-700 italic">
-                  <p>{member.tip}</p>
+                {/* Bottom Favorite Bar - Compact Minimum Text */}
+                <div className="px-4 pb-3.5 pt-0">
+                  <div className="pt-2.5 border-t border-cafe-100 flex items-center justify-between text-[11px]">
+                    <span className="text-cafe-500 font-medium">Favorite:</span>
+                    <span className="font-semibold text-cafe-900">{member.fav}</span>
+                  </div>
                 </div>
               </div>
             );

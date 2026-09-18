@@ -99,40 +99,41 @@ export default function StatsCounter() {
           </p>
         </div>
 
-        {/* 4 Large Clean Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 4 Clean Stats Cards - 2x2 Bento Grid on Mobile, 4 Cols on Desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((stat) => {
             const Icon = stat.icon;
             return (
               <motion.div 
                 key={stat.id}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="relative rounded-3xl bg-white border border-cafe-200/90 p-6 shadow-warm-sm hover:shadow-warm-md hover:border-amberGold/60 transition-colors duration-300 group"
+                className="relative rounded-2xl sm:rounded-3xl bg-white border border-cafe-200/90 p-3.5 sm:p-6 shadow-warm-sm hover:shadow-warm-md hover:border-amberGold/60 transition-colors duration-300 group flex flex-col justify-between"
               >
-                {/* Micro Badge */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${stat.iconBg} shadow-xs group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="w-6 h-6" />
+                {/* Micro Icon & Badge */}
+                <div className="flex items-center justify-between mb-2 sm:mb-4">
+                  <div className={`w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl flex items-center justify-center ${stat.iconBg} shadow-xs group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-4 h-4 sm:w-6 sm:h-6" />
                   </div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cafe-50 text-cafe-700 border border-cafe-200">
+                  <span className="hidden sm:inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-cafe-50 text-cafe-700 border border-cafe-200">
                     {stat.badge}
                   </span>
                 </div>
 
-                {/* Number */}
-                <div className="space-y-1 mb-2">
-                  <div className="font-serif text-3xl sm:text-4xl font-extrabold tracking-tight text-cafe-950 group-hover:text-amberGold transition-colors flex items-center">
+                {/* Number & Label */}
+                <div className="space-y-0.5 sm:space-y-1 mb-1 sm:mb-2">
+                  <div className="font-serif text-2xl sm:text-4xl font-extrabold tracking-tight text-cafe-950 group-hover:text-amberGold transition-colors flex items-center">
                     <span>{stat.value}</span>
                     {stat.isRating && (
-                      <Star className="w-6 h-6 ml-1.5 text-amber-500 fill-amber-500" />
+                      <Star className="w-4 h-4 sm:w-6 sm:h-6 ml-1 text-amber-500 fill-amber-500" />
                     )}
                   </div>
-                  <div className="text-sm font-bold text-cafe-800">
+                  <div className="text-xs sm:text-sm font-bold text-cafe-800 leading-snug">
                     {stat.label}
                   </div>
                 </div>
 
-                <p className="text-xs text-cafe-600 leading-relaxed">
+                {/* Detailed description - clean on desktop, compact on mobile */}
+                <p className="hidden sm:block text-xs text-cafe-600 leading-relaxed">
                   {stat.detail}
                 </p>
               </motion.div>

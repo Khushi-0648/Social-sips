@@ -14,42 +14,42 @@ import {
 const bulkPackages = [
   {
     id: 'coffee-box',
-    name: 'Office Coffee Traveler Box (96oz)',
+    name: 'Office Coffee Traveler (96oz)',
     serves: 'Serves 10–14 Guests',
     image: '/images/coffee-coldbrew.jpg',
     icon: Coffee,
     badge: 'Office Favorite',
-    description: 'Freshly brewed single-origin drip coffee or 18-hour chilled cold brew in an insulated carry box. Includes 12 cups, lids, sleeves, organic oat & whole milk, and cane sugar.',
+    description: 'Insulated carrier of single-origin brew with 12 cups, dairy, and natural sweeteners.',
     turnaround: 'Ready in 30 mins'
   },
   {
     id: 'boba-crate',
     name: 'Handcrafted Boba Party Pack',
-    serves: '12 to 50+ Cups',
+    serves: '12 to 50+ Servings',
     image: '/images/boba-tiger.jpg',
     icon: CupSoda,
     badge: 'Party Hit',
-    description: 'Assorted custom sealed boba cups with assorted flavors: Brown Sugar Tiger Milk Tea, Ceremonial Matcha Cloud, Mango Jasmine Refresher, and Taro Brulee. Includes fat boba straws.',
+    description: 'Individually sealed boba cups in assorted popular flavors with jumbo straws included.',
     turnaround: '2-hour advance notice'
   },
   {
     id: 'gelato-tub',
-    name: 'Artisan Gelato Catering Tubs & Cart',
+    name: 'Artisan Gelato Catering Tubs',
     serves: '25 to 100+ Servings',
     image: '/images/gelato-pistachio.jpg',
     icon: IceCream,
     badge: 'Celebrations',
-    description: 'Insulated 5-liter party tubs of authentic Italian gelato (Sicilian Pistachio, Stracciatella, Wild Strawberry Sorbet) with freshly baked cinnamon waffle cones and wooden scoops.',
+    description: 'Insulated 5-liter tubs of authentic Italian gelato with fresh waffle cones and scoops.',
     turnaround: '24-hour advance notice'
   },
   {
     id: 'pastry-platter',
-    name: 'Fresh Morning Bakery & Toast Platter',
+    name: 'Fresh Bakery & Toast Platter',
     serves: 'Serves 15–20 Guests',
     image: '/images/croissant.jpg',
     icon: Package,
     badge: 'Brunch Hit',
-    description: 'European cultured butter croissants, pain au chocolat, sliced sourdough with mashed avocado, heirloom cherry tomatoes, and house-made espresso strawberry jam.',
+    description: 'Artisan butter croissants, pain au chocolat, and sourdough with house berry jam.',
     turnaround: '24-hour advance notice'
   }
 ];
@@ -72,7 +72,7 @@ function BulkPackageCard({ pkg }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
+      className="relative bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 h-full"
     >
       {/* Glare spotlight layer following cursor */}
       <div
@@ -85,7 +85,7 @@ function BulkPackageCard({ pkg }) {
 
       <div>
         {/* Package Preview Image - Clean without overlay text */}
-        <div className="relative h-48 overflow-hidden bg-cafe-100">
+        <div className="relative h-40 sm:h-48 overflow-hidden bg-cafe-100">
           <img
             src={pkg.image}
             alt={pkg.name}
@@ -97,20 +97,20 @@ function BulkPackageCard({ pkg }) {
 
         {/* Card Content */}
         <div className="p-4 sm:p-5">
-          <div className="flex items-center justify-between gap-2 mb-3 min-w-0">
-            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 truncate">
+          <div className="flex items-center justify-between gap-2 mb-2 sm:mb-3 min-w-0">
+            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5">
               <Icon className="w-3.5 h-3.5 text-amberGold shrink-0" />
-              <span className="truncate">{pkg.serves}</span>
+              <span>{pkg.serves}</span>
             </span>
             <span className="text-[10px] sm:text-[10.5px] font-semibold text-cafe-700 bg-cafe-100 px-2 py-0.5 rounded-full border border-cafe-200 shrink-0">
               {pkg.badge}
             </span>
           </div>
 
-          <h3 className="font-serif text-lg font-bold text-cafe-950 mb-2 leading-snug min-h-[48px] sm:min-h-[56px]">
+          <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 mb-1.5 sm:mb-2 leading-snug">
             {pkg.name}
           </h3>
-          <p className="text-xs text-cafe-600 leading-relaxed min-h-[54px] line-clamp-3">
+          <p className="text-xs text-cafe-600 leading-relaxed">
             {pkg.description}
           </p>
         </div>
@@ -155,10 +155,12 @@ export default function BulkOrders() {
           </p>
         </div>
 
-        {/* 4 Packages Grid with Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* 4 Packages - Horizontal Snap Carousel on Mobile, Grid on Tablet/Desktop */}
+        <div className="flex sm:grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {bulkPackages.map((pkg) => (
-            <BulkPackageCard key={pkg.id} pkg={pkg} />
+            <div key={pkg.id} className="w-[280px] sm:w-auto shrink-0 snap-start flex flex-col">
+              <BulkPackageCard pkg={pkg} />
+            </div>
           ))}
         </div>
 

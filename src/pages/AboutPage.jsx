@@ -28,81 +28,81 @@ import HygieneSafety from '../components/HygieneSafety';
 const signatureProducts = [
   {
     id: 1,
-    name: 'Spanish Wildflower Honey Latte',
+    name: 'Spanish Honey Latte',
     category: 'Espresso Bar',
     tag: 'Signature Pour',
     price: '$6.50',
-    description: 'Double ristretto pulled over local Florida wildflower honey, steamed oat milk, and a dusting of organic Ceylon cinnamon.',
+    description: 'Double ristretto with local wildflower honey, oat milk, and Ceylon cinnamon.',
     tastingNotes: ['Wildflower Honey', 'Ceylon Cinnamon', 'Dark Cocoa Crema'],
     image: '/images/coffee-latte.jpg'
   },
   {
     id: 2,
-    name: 'Sicilian Bronte Pistachio Gelato',
+    name: 'Sicilian Bronte Pistachio',
     category: 'Artisan Gelato',
     tag: 'Slow-Churned',
     price: '$7.00',
-    description: 'Imported pure Bronte pistachios slow-churned with organic Florida whole milk into an extraordinarily dense, creamy European masterpiece.',
+    description: 'Pure Bronte pistachios slow-churned daily with organic Florida whole milk.',
     tastingNotes: ['Toasted Pistachio', 'Silky Whole Milk', 'Bronte PDO Certified'],
     image: '/images/gelato-pistachio.jpg'
   },
   {
     id: 3,
-    name: 'Tiger Brown Sugar Amber Boba',
+    name: 'Tiger Brown Sugar Boba',
     category: 'Handcrafted Boba',
     tag: 'Counter Favorite',
     price: '$6.75',
-    description: 'Taiwanese Grade-A tapioca pearls slow-stewed in rich Muscovado brown sugar for 3 hours, marbled with cold fresh organic milk.',
+    description: 'Grade-A tapioca pearls slow-simmered in rich Muscovado sugar with cold milk.',
     tastingNotes: ['Warm Chewy Pearls', 'Smoky Caramel', 'Velvety Milk'],
     image: '/images/boba-tiger.jpg'
   },
   {
     id: 4,
-    name: 'Ceremonial Uji Matcha Cloud',
+    name: 'Ceremonial Uji Matcha',
     category: 'Handcrafted Boba',
     tag: 'Kyoto First Harvest',
     price: '$7.25',
-    description: 'Stone-ground ceremonial matcha from Kyoto, layered over house vanilla bean milk and crowned with sea-salt sweet cream foam.',
+    description: 'Kyoto stone-ground matcha over vanilla bean milk with sea-salt sweet foam.',
     tastingNotes: ['Grassy Umami', 'Sea Salt Foam', 'Vibrant Jade'],
     image: '/images/boba-matcha.jpg'
   },
   {
     id: 5,
-    name: '18-Hour Slow-Drip Nitro Cold Brew',
+    name: '18-Hour Nitro Cold Brew',
     category: 'Cold Brew Craft',
     tag: 'Zero Bitterness',
     price: '$5.75',
-    description: 'Single-origin Huila Colombian beans steeped in cold spring water for 18 hours, nitrogen-infused for a creamy cascading microfoam.',
+    description: 'Single-origin Colombian beans steeped 18 hours, nitrogen-infused for microfoam.',
     tastingNotes: ['Black Cherry', 'Dark Cocoa', 'Creamy Nitro Head'],
     image: '/images/coffee-coldbrew.jpg'
   },
   {
     id: 6,
-    name: 'Clearwater Signature Espresso Martini',
+    name: 'Clearwater Espresso Martini',
     category: 'Evening Sips',
     tag: 'Sunset Lounge',
     price: '$12.00',
-    description: 'Freshly pulled espresso shot shaken vigorously over ice with Madagascar vanilla bean syrup, craft coffee liqueur, and dark cocoa dust.',
+    description: 'Fresh pulled espresso shaken with Madagascar vanilla and craft coffee liqueur.',
     tastingNotes: ['Bold Espresso Crema', 'Madagascar Vanilla', 'Rich Cacao'],
     image: '/images/bar-espresso-martini.jpg'
   },
   {
     id: 7,
-    name: 'Artisan Sourdough Avocado Tartine',
+    name: 'Artisan Avocado Tartine',
     category: 'Bakery & Bites',
     tag: 'Morning Fresh',
     price: '$9.50',
-    description: 'Locally baked 48-hour fermented sourdough, fresh Hass avocado mash, pickled shallots, watermelon radish, and toasted everything crunch.',
+    description: 'Fermented sourdough topped with fresh avocado mash and watermelon radish.',
     tastingNotes: ['Crusty Fermented Bread', 'Hass Avocado', 'Pink Sea Salt'],
     image: '/images/bar-avocado-toast.jpg'
   },
   {
     id: 8,
-    name: 'Ethiopia Yirgacheffe Beans (12oz)',
+    name: 'Ethiopia Yirgacheffe Beans',
     category: 'Retail Roastery',
-    tag: 'Direct-Trade Micro-Lot',
+    tag: 'Direct-Trade Lot',
     price: '$19.50',
-    description: 'Hand-picked heirloom Arabica beans from Yirgacheffe, roasted weekly in small 12kg batches right here on the Florida coast.',
+    description: 'Hand-picked heirloom Arabica roasted weekly in small batches in Florida.',
     tastingNotes: ['Bergamot Blossom', 'Ripe Peach', 'Honey Clean Finish'],
     image: '/images/coffee-ethiopia.jpg'
   }
@@ -148,34 +148,12 @@ export default function AboutPage({ onOpenReservation }) {
     }
   };
 
-  const pillars = [
-    {
-      icon: Coffee,
-      title: 'Ethical Direct-Trade Roasting',
-      description: 'We partner directly with family-owned micro-lots in Huila (Colombia) and Yirgacheffe (Ethiopia), paying well above fair-trade premiums for peak-season specialty beans roasted in small 12kg batches right here in Florida.'
-    },
-    {
-      icon: Sparkles,
-      title: 'Artisan Gelato Tradition',
-      description: 'Our gelato is slow-churned daily using time-honored Italian methods. Real Sicilian Bronte pistachios, Piedmont hazelnuts, and organic Florida dairy create an extraordinarily dense, silky texture unmatched by commercial ice creams.'
-    },
-    {
-      icon: Award,
-      title: 'Handcrafted Authentic Boba',
-      description: 'Say goodbye to chemical drink powders and preservative-laden syrups. We steep whole-leaf loose teas every 4 hours and slow-simmer Taiwanese Grade-A tapioca pearls in rich Muscovado brown sugar.'
-    },
-    {
-      icon: Sun,
-      title: 'A True Third-Place Sanctuary',
-      description: 'Designed as a welcoming sanctuary between home and work. High-speed gigabit Wi-Fi for remote creatives, cozy reading nooks, an open-air coastal patio, and ambient evening cocktail lounge vibes.'
-    }
-  ];
 
   const milestones = [
-    { year: '2021', title: 'The Coastal Dream', desc: 'Social Sips started as a weekend pop-up coffee cart at the Clearwater Beach sunset market.' },
-    { year: '2022', title: 'Flagship Roastery Opens', desc: 'Opened our permanent doors on Clearwater waterfront with custom Slayer espresso machines.' },
-    { year: '2023', title: 'Gelato & Boba Integration', desc: 'Introduced in-house authentic Italian gelato and Taiwanese handcrafted loose-leaf boba.' },
-    { year: '2024+', title: 'Voted Best of the Bay', desc: 'Awarded #1 Specialty Cafe & Gathering Space in Pinellas County by local community vote.' }
+    { year: '2021', title: 'The Coastal Dream', desc: 'Started as a weekend pop-up coffee cart at Clearwater Beach.' },
+    { year: '2022', title: 'Flagship Store Opens', desc: 'Opened our permanent doors with custom Slayer espresso machines.' },
+    { year: '2023', title: 'Gelato & Boba Craft', desc: 'Introduced authentic Italian gelato and Taiwanese artisanal boba.' },
+    { year: '2024+', title: 'Best of the Bay', desc: 'Voted #1 Specialty Cafe and Gathering Space in Pinellas County.' }
   ];
 
   const scrollToSection = (id) => {
@@ -405,7 +383,7 @@ export default function AboutPage({ onOpenReservation }) {
                     <h3 className="font-serif text-xl font-bold text-white group-hover:text-[#F0C070] transition-colors leading-snug">
                       {product.name}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#B8ADA5] leading-relaxed line-clamp-2">
+                    <p className="text-xs sm:text-sm text-[#B8ADA5] leading-relaxed">
                       {product.description}
                     </p>
 
@@ -529,50 +507,12 @@ export default function AboutPage({ onOpenReservation }) {
       </section>
 
 
-      {/* 4. Four Pillars Grid */}
-      <section className="py-20 bg-[#0A0807] border-b border-[#2C221B] relative overflow-hidden">
+
+
+      {/* 5. Timeline Milestones - Mobile Horizontal Snap Track */}
+      <section className="py-16 sm:py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-xs font-bold uppercase tracking-wider border border-[#3D2D22]">
-              <span>Our Core Standards</span>
-            </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-              Uncompromising Standards in Every Pour
-            </h2>
-            <p className="text-sm sm:text-base text-[#B8ADA5] leading-relaxed">
-              We never cut corners. From triple-reverse osmosis water filtration and bean harvest dates to authentic Italian machinery, we obsess over the details so you can simply enjoy.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-            {pillars.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <div 
-                  key={idx} 
-                  className="bg-[#120F0D] rounded-3xl p-8 border border-[#2C221B] hover:border-[#F0C070]/50 transition-all duration-300 shadow-xl space-y-4"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22] flex items-center justify-center">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#B8ADA5] leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-
-      {/* 5. Timeline Milestones */}
-      <section className="py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-xs font-bold uppercase tracking-wider border border-[#3D2D22]">
               <span>Milestone Timeline</span>
             </div>
@@ -582,11 +522,11 @@ export default function AboutPage({ onOpenReservation }) {
             <p className="text-sm text-[#B8ADA5]">From a sunny beachside cart to Clearwater's favorite coffee sanctuary.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
             {milestones.map((m, idx) => (
-              <div key={idx} className="bg-[#120F0D] rounded-3xl p-6 border border-[#2C221B] hover:border-[#F0C070]/40 transition-all space-y-3">
-                <span className="font-mono text-2xl font-extrabold text-[#F0C070]">{m.year}</span>
-                <h4 className="font-serif text-lg font-bold text-white">{m.title}</h4>
+              <div key={idx} className="w-[240px] sm:w-auto shrink-0 snap-start bg-[#120F0D] rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-[#2C221B] hover:border-[#F0C070]/40 transition-all space-y-2 sm:space-y-3">
+                <span className="font-mono text-xl sm:text-2xl font-extrabold text-[#F0C070]">{m.year}</span>
+                <h4 className="font-serif text-base sm:text-lg font-bold text-white">{m.title}</h4>
                 <p className="text-xs text-[#B8ADA5] leading-relaxed">{m.desc}</p>
               </div>
             ))}

@@ -7,99 +7,99 @@ import SocialFeed from '../components/SocialFeed';
 const galleryItems = [
   {
     id: 1,
-    title: 'Artisan Spanish Honey Latte & Microfoam',
+    title: 'Spanish Honey Latte',
     category: 'coffee',
     image: '/images/coffee-latte.jpg',
     tag: 'Signature Pour',
-    desc: 'Velvety espresso paired with organic Florida blossom honey and cinnamon dusting.'
+    desc: 'Espresso with raw Florida honey and Ceylon cinnamon.'
   },
   {
     id: 2,
-    title: 'Authentic Sicilian Pistachio Gelato',
+    title: 'Sicilian Pistachio Gelato',
     category: 'gelato',
     image: '/images/gelato-pistachio.jpg',
     tag: 'Slow-Churned',
-    desc: 'Crafted with imported Bronte pistachios and organic whole milk.'
+    desc: 'Authentic Bronte pistachios with organic whole milk.'
   },
   {
     id: 3,
-    title: 'Tiger Brown Sugar Milk Tea with Fresh Tapioca',
+    title: 'Tiger Brown Sugar Boba',
     category: 'boba',
     image: '/images/boba-tiger.jpg',
-    tag: '3-Hour Slow Stew',
-    desc: 'Taiwanese black tea shaken with fresh milk and warm muscovado pearls.'
+    tag: '3-Hour Stew',
+    desc: 'Black tea with warm slow-stewed Muscovado pearls.'
   },
   {
     id: 4,
-    title: '18-Hour Slow-Drip Nitro Cold Brew',
+    title: 'Nitro Cold Brew',
     category: 'coffee',
     image: '/images/coffee-coldbrew.jpg',
-    tag: 'Cold Extraction',
-    desc: 'Nitrogen-infused Colombian Huila beans cascading with silky microfoam head.'
+    tag: 'Cold Steep',
+    desc: '18-hour Colombian steep with velvety nitro microfoam.'
   },
   {
     id: 5,
-    title: 'Italian Affogato with Dark Roast Crema',
+    title: 'Espresso Affogato',
     category: 'gelato',
     image: '/images/affogato.jpg',
     tag: 'Italian Classic',
-    desc: 'Double shot of hot espresso poured over Madagascar vanilla bean gelato.'
+    desc: 'Hot double espresso over Madagascar vanilla gelato.'
   },
   {
     id: 6,
-    title: 'Ceremonial Uji Matcha Cloud Boba',
+    title: 'Ceremonial Matcha Cloud',
     category: 'boba',
     image: '/images/boba-matcha.jpg',
-    tag: 'Organic Matcha',
-    desc: 'First-harvest Kyoto ceremonial matcha layered over velvety house sweet milk.'
+    tag: 'Kyoto Harvest',
+    desc: 'Ceremonial Uji matcha over sea-salt cream milk.'
   },
   {
     id: 7,
-    title: 'Evening Cocktail & Espresso Lounge',
+    title: 'Evening Cocktail Lounge',
     category: 'atmosphere',
     image: '/images/bar-vibe.jpg',
     tag: 'Evening Vibes',
-    desc: 'Transitioning to warm dim lighting, craft espresso martinis, and relaxing tunes.'
+    desc: 'Craft espresso cocktails with ambient coastal lounge tunes.'
   },
   {
     id: 8,
-    title: 'Wild Strawberry & Lemon Sorbettos',
+    title: 'Wild Strawberry Sorbetto',
     category: 'gelato',
     image: '/images/gelato-strawberry.jpg',
     tag: 'Dairy-Free',
-    desc: 'Pure sun-ripened fruit churned into refreshing, naturally sweet gelato.'
+    desc: 'Sun-ripened berries churned into naturally sweet sorbet.'
   },
   {
     id: 9,
-    title: 'Sunny Coastal Outdoor Garden Patio',
+    title: 'Coastal Garden Patio',
     category: 'atmosphere',
     image: '/images/patio-vibe.jpg',
     tag: 'Outdoor Patio',
-    desc: 'Lush tropical greenery, breeze-catching umbrellas, and dog-friendly coastal seating.'
+    desc: 'Breezy shaded umbrellas with dog-friendly outdoor seating.'
   },
   {
     id: 10,
-    title: 'European Cultured Butter Croissants',
+    title: 'French Butter Croissant',
     category: 'coffee',
     image: '/images/croissant.jpg',
-    tag: 'Morning Bakery',
-    desc: 'Flaky 27-layer laminated French pastry baked fresh every dawn.'
+    tag: 'Baked Fresh',
+    desc: '27-layer flaky laminated French pastry baked daily.'
   },
   {
     id: 11,
-    title: 'Clearwater Signature Espresso Martini',
+    title: 'Espresso Martini',
     category: 'atmosphere',
     image: '/images/bar-espresso-martini.jpg',
     tag: 'Craft Bar',
-    desc: 'Freshly pulled espresso shot shaken over ice with premium spirits and cocoa dust.'
+    desc: 'Fresh pulled espresso shaken over ice with dark cocoa.'
   },
   {
     id: 12,
-    title: 'Mango Jasmine Sparkling Refresher',
+    title: 'Mango Jasmine Refresher',
     category: 'boba',
     image: '/images/boba-mango.jpg',
-    tag: 'Iced Refresher',
-    desc: 'Real Alphonso mango puree with aromatic silver needle jasmine green tea.'
+    tag: 'Iced Tea',
+    desc: 'Alphonso mango puree with aromatic jasmine green tea.'
   }
 ];
 
@@ -277,14 +277,15 @@ export default function GalleryPage({ onOpenReservation }) {
       {/* 3. Gallery Grid */}
       <section id="gallery-grid" className="py-16 bg-[#050404] border-b border-[#2C221B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {/* Responsive 2-Col Grid on Mobile, 3-Col on Desktop */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {filteredItems.map(item => (
               <div 
                 key={item.id}
-                className="bg-[#120F0D] rounded-3xl overflow-hidden border border-[#2C221B] hover:border-[#F0C070]/50 transition-all duration-500 shadow-xl group flex flex-col justify-between"
+                className="bg-[#120F0D] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#2C221B] hover:border-[#F0C070]/50 transition-all duration-500 shadow-xl group flex flex-col justify-between"
               >
                 {/* Image Container - Clean without overlay text */}
-                <div className="relative h-72 sm:h-80 overflow-hidden bg-[#181310]">
+                <div className="relative h-40 sm:h-72 lg:h-80 overflow-hidden bg-[#181310]">
                   <img 
                     src={item.image} 
                     alt={item.title} 
@@ -293,16 +294,16 @@ export default function GalleryPage({ onOpenReservation }) {
                   />
                 </div>
 
-                <div className="p-6 space-y-2">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="px-2.5 py-0.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-[10px] font-bold uppercase tracking-wider border border-[#3D2D22]">
+                <div className="p-3.5 sm:p-6 space-y-1.5 sm:space-y-2">
+                  <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
+                    <span className="px-2 sm:px-2.5 py-0.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-[9px] sm:text-[10px] font-bold uppercase tracking-wider border border-[#3D2D22]">
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white group-hover:text-[#F0C070] transition-colors leading-snug">
+                  <h3 className="font-serif text-sm sm:text-lg lg:text-xl font-bold text-white group-hover:text-[#F0C070] transition-colors leading-snug">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-[#B8ADA5] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-[#B8ADA5] leading-snug">
                     {item.desc}
                   </p>
                 </div>

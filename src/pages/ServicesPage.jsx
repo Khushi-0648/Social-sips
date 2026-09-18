@@ -19,36 +19,37 @@ import {
 } from 'lucide-react';
 import MenuServices from '../components/MenuServices';
 import BulkOrders from '../components/BulkOrders';
+import EventsCalendar from '../components/EventsCalendar';
 import RetailShop from '../components/RetailShop';
 
 export default function ServicesPage({ onOpenReservation }) {
   const serviceCards = [
     {
-      title: 'Artisan Coffee & Espresso Bar',
-      subtitle: 'Single-Origin Extraction & Micro-Lots',
-      desc: 'Featuring custom Slayer espresso machines, hand-poured V60 pour-overs, nitro cold brew taps, and seasonal house syrups (real vanilla bean, spiced cardamom, lavender honey).',
-      badge: 'Daily 7 AM – 10 PM',
+      title: 'Artisan Coffee & Espresso',
+      subtitle: 'Single-Origin Extraction',
+      desc: 'Custom Slayer espresso, V60 pour-overs, nitro cold brew taps, and house syrups.',
+      badge: 'Open Daily',
       icon: Coffee
     },
     {
-      title: 'Slow-Brewed Handcrafted Boba',
-      subtitle: 'Taiwanese Loose Leaf & Real Brown Sugar',
-      desc: 'Whole-leaf organic teas (High Mountain Oolong, Ceremonial Uji Matcha, Roasted Hojicha) shaken with fresh milk or oat milk, paired with slow-stewed warm tapioca pearls.',
-      badge: 'Hand-Shaken to Order',
+      title: 'Slow-Brewed Boba',
+      subtitle: 'Taiwanese Loose Leaf',
+      desc: 'Whole-leaf organic teas shaken fresh with warm brown sugar tapioca pearls.',
+      badge: 'Hand-Shaken',
       icon: CupSoda
     },
     {
-      title: 'Small-Batch Italian Gelato',
-      subtitle: 'Authentic Churn with Sicilian Pistachio',
-      desc: 'Dense, silky European-style gelato made daily. Enjoy freshly baked cinnamon waffle cones, espresso affogatos, and dairy-free seasonal fruit sorbettos.',
-      badge: 'Made Fresh Every Morning',
+      title: 'Small-Batch Gelato',
+      subtitle: 'Authentic Italian Churn',
+      desc: 'Slow-churned Italian gelato, freshly baked cinnamon waffle cones, and sorbettos.',
+      badge: 'Churned Daily',
       icon: IceCream
     },
     {
-      title: 'Office Catering & Group Delivery',
-      subtitle: 'Insulated Carry Boxes & Sealed Crates',
-      desc: 'Planning a team breakfast or coastal event? We provide 96oz hot coffee travelers, sealed boba crates, gelato tubs, and European butter pastry platters.',
-      badge: 'Advance Orders Welcome',
+      title: 'Office & Event Catering',
+      subtitle: 'Insulated Carry Boxes',
+      desc: 'Insulated 96oz coffee travelers, sealed boba crates, and fresh pastry platters.',
+      badge: 'Advance Orders',
       icon: Users
     }
   ];
@@ -169,6 +170,14 @@ export default function ServicesPage({ onOpenReservation }) {
               </button>
 
               <button
+                onClick={() => scrollToSection('weekly-events')}
+                className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-black/55 hover:bg-black/75 border border-white/25 text-white font-mono text-xs sm:text-sm tracking-wider backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold cursor-pointer"
+              >
+                <Calendar className="w-3.5 h-3.5 text-amberGold" />
+                <span>Weekly Socials</span>
+              </button>
+
+              <button
                 onClick={() => scrollToSection('retail-shop')}
                 className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold text-xs sm:text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold cursor-pointer"
               >
@@ -197,26 +206,26 @@ export default function ServicesPage({ onOpenReservation }) {
         </div>
       </section>
 
-      {/* 2. 4 Core Pillars Overview */}
-      <section className="py-16 bg-[#0A0807] border-b border-[#2C221B]">
+      {/* 2. 4 Core Pillars Overview - 2x2 Bento on Mobile, 4-Col on Desktop */}
+      <section className="py-12 sm:py-16 bg-[#0A0807] border-b border-[#2C221B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             {serviceCards.map((s, idx) => {
               const Icon = s.icon;
               return (
-                <div key={idx} className="bg-[#120F0D] rounded-3xl p-6 border border-[#2C221B] hover:border-[#F0C070]/50 transition-all shadow-xl flex flex-col justify-between space-y-4">
+                <div key={idx} className="bg-[#120F0D] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 border border-[#2C221B] hover:border-[#F0C070]/50 transition-all shadow-xl flex flex-col justify-between space-y-3 sm:space-y-4">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22] flex items-center justify-center">
-                        <Icon className="w-5 h-5" />
+                    <div className="flex items-center justify-between mb-2 sm:mb-4 gap-1">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22] flex items-center justify-center shrink-0">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22]">
+                      <span className="text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22]">
                         {s.badge}
                       </span>
                     </div>
-                    <h3 className="font-serif text-lg font-bold text-white mb-1">{s.title}</h3>
-                    <p className="text-xs text-[#F0C070] font-semibold mb-2">{s.subtitle}</p>
-                    <p className="text-xs text-[#B8ADA5] leading-relaxed">{s.desc}</p>
+                    <h3 className="font-serif text-xs sm:text-lg font-bold text-white mb-0.5 sm:mb-1">{s.title}</h3>
+                    <p className="text-[10.5px] sm:text-xs text-[#F0C070] font-semibold mb-1 sm:mb-2">{s.subtitle}</p>
+                    <p className="text-[11px] sm:text-xs text-[#B8ADA5] leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
               );
@@ -235,12 +244,17 @@ export default function ServicesPage({ onOpenReservation }) {
         <BulkOrders />
       </div>
 
-      {/* 5. At-Home Retail Counter Goods */}
+      {/* 5. Weekly Socials & Cafe Hours Section */}
+      <div className="border-b border-[#2C221B]" id="weekly-events">
+        <EventsCalendar onOpenReservation={onOpenReservation} hidePrivateBanner={true} />
+      </div>
+
+      {/* 6. At-Home Retail Counter Goods */}
       <div className="border-b border-[#2C221B]" id="retail-shop">
         <RetailShop />
       </div>
 
-      {/* 6. Private Event Booking Callout */}
+      {/* 7. Private Event Booking Callout */}
       <section className="py-20 bg-[#050404]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#120F0D] rounded-3xl p-8 sm:p-14 border border-[#2C221B] shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">

@@ -13,19 +13,19 @@ export default function ClearwaterGuide() {
     {
       title: 'Clearwater Beach & Pier 60',
       time: '6 mins away',
-      tip: 'Grab an iced Spanish Honey Latte or Tiger Boba in our spill-proof cups before watching world-famous Gulf sunsets.',
+      tip: 'Grab an iced Spanish Honey Latte in spill-proof cups before Gulf sunset views.',
       icon: Waves,
     },
     {
-      title: 'Coachman Park & Downtown Waterfront',
+      title: 'Coachman Park Waterfront',
       time: '4 mins away',
-      tip: 'The ideal scenic walking route with an iced cold brew and flaky butter croissants.',
+      tip: 'Enjoy a scenic waterfront stroll with our smooth 18-hour slow cold brew.',
       icon: Compass,
     },
     {
       title: 'Pinellas Trail Cycling Route',
       time: '2 mins away',
-      tip: 'Stop in for refreshing tropical passionfruit jasmine tea and quick cold hydration on your ride.',
+      tip: 'Stop by for refreshing tropical iced teas and electrolyte hydration on your ride.',
       icon: Navigation,
     }
   ];
@@ -47,26 +47,26 @@ export default function ClearwaterGuide() {
           </p>
         </div>
 
-        {/* 3 Coastal Cards Grid (Brown Background Tabs) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 3 Coastal Cards - Horizontal Snap Track on Mobile, 3-Col Grid on Desktop */}
+        <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
           {nearbySpots.map((spot, idx) => {
             const Icon = spot.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#1C130D] hover:bg-[#251911] rounded-3xl p-7 border border-[#3B261A] hover:border-[#F0C070]/60 shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
+                className="w-[270px] sm:w-[320px] md:w-auto shrink-0 snap-start bg-[#1C130D] hover:bg-[#251911] rounded-3xl p-5 sm:p-7 border border-[#3B261A] hover:border-[#F0C070]/60 shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#2A1B12] text-[#F0C070] border border-[#472E20] flex items-center justify-center group-hover:scale-105 transition-transform">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-[#2A1B12] text-[#F0C070] border border-[#472E20] flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#26180F] text-[#F0C070] text-xs font-bold border border-[#442B1D] shadow-2xs">
+                    <span className="px-2.5 sm:px-3 py-1 rounded-full bg-[#26180F] text-[#F0C070] text-[10px] sm:text-xs font-bold border border-[#442B1D] shadow-2xs">
                       {spot.time}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-white mb-2 group-hover:text-[#F0C070] transition-colors">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-[#F0C070] transition-colors">
                     {spot.title}
                   </h3>
 
