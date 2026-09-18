@@ -62,23 +62,23 @@ export default function ServicesPage({ onOpenReservation }) {
   return (
     <div className="pt-24 sm:pt-28 pb-20">
       
-      {/* 1. Page Hero Banner with Background Image & Ambient Obsidian Overlay */}
-      <section className="relative min-h-[420px] sm:min-h-[480px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
-        {/* Background Image Container with Multi-layer Vignette */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* 1. Page Hero Banner: Bright, Vivid & Sunlit Atmosphere (No Darkness) */}
+      <section className="relative min-h-[420px] sm:min-h-[500px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
+        {/* Crystal Clear, Bright Background Photography */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 
             src="/images/hero-bar.jpg" 
             alt="Social Sips Bar & Services Atmosphere" 
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.02] saturate-[1.12] scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050404] via-[#050404]/90 to-[#050404]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050404] via-transparent to-[#050404]/80" />
-          <div className="absolute inset-0 bg-[#050404]/40" />
+          {/* Gentle soft ambient gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-          <div className="max-w-3xl space-y-5">
+        {/* Hero Content with Frosted Glass Protection */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10 w-full flex items-center justify-start">
+          <div className="max-w-3xl bg-black/45 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/15 shadow-2xl space-y-5">
             
             {/* Breadcrumb & Badge */}
             <div className="flex flex-wrap items-center gap-2">
@@ -91,42 +91,42 @@ export default function ServicesPage({ onOpenReservation }) {
               <span className="text-[#5C4D41] text-xs">•</span>
               <span className="text-xs text-[#F0C070] font-semibold">Services & Menu</span>
               <span className="text-[#5C4D41] text-xs">•</span>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider">
                 <Sparkles className="w-3 h-3 text-[#F0C070]" />
                 <span>Offerings & Hospitality</span>
               </div>
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
               Curated Sips, Artisan Bites <br />
               <span className="italic font-normal text-[#F0C070]">& Group Catering.</span>
             </h1>
 
             {/* Lead Copy */}
-            <p className="text-base sm:text-lg text-[#D4C7BD] leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base lg:text-lg text-[#E8DED6] leading-relaxed max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
               Explore our complete spectrum of cafe craft: single-origin espresso extractions, loose-leaf boba teas, daily churned Italian gelato, office catering, and retail roastery beans.
             </p>
 
             {/* Quick Navigation Shortcuts */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-2">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
               <button
                 onClick={() => scrollToSection('in-cafe-menu')}
-                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#2C221B] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 backdrop-blur-md transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#3D2D22] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               >
                 <Coffee className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>In-Cafe Menu</span>
               </button>
               <button
                 onClick={() => scrollToSection('catering')}
-                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#2C221B] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 backdrop-blur-md transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#3D2D22] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               >
                 <Users className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>Group Catering</span>
               </button>
               <button
                 onClick={() => scrollToSection('retail-shop')}
-                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#2C221B] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 backdrop-blur-md transition-all cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#120F0D]/90 hover:bg-[#1A1512] border border-[#3D2D22] hover:border-[#F0C070]/50 text-xs font-semibold text-white flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               >
                 <ShoppingBag className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>At-Home Retail</span>

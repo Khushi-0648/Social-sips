@@ -179,23 +179,23 @@ export default function AboutPage({ onOpenReservation }) {
   return (
     <div className="pt-24 sm:pt-28 pb-20">
       
-      {/* 1. Page Hero Banner with Background Image & Ambient Obsidian Overlay */}
-      <section className="relative min-h-[440px] sm:min-h-[500px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
-        {/* Background Image Container with Multi-layer Vignette */}
-        <div className="absolute inset-0 z-0 pointer-events-none">
+      {/* 1. Page Hero Banner: Vivid, Bright & Sunlit Photography (No Heavy Darkness) */}
+      <section className="relative min-h-[440px] sm:min-h-[520px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
+        {/* Crystal Clear, Bright Background Photography */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <img 
             src="/images/cafe-interior-main.jpg" 
             alt="Social Sips Clearwater Cafe Heritage Atmosphere" 
-            className="w-full h-full object-cover scale-105"
+            className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.02] saturate-[1.12] scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050404] via-[#050404]/90 to-[#050404]/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050404] via-transparent to-[#050404]/80" />
-          <div className="absolute inset-0 bg-[#050404]/40" />
+          {/* Soft luminous gradient: Keeps photo bright, clear & fully visible while grounding text */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-          <div className="max-w-3xl space-y-5">
+        {/* Hero Content with Frosted Glass Protection for 100% Readability */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10 w-full flex items-center justify-start">
+          <div className="max-w-3xl bg-black/45 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/15 shadow-2xl space-y-5">
             
             {/* Breadcrumb & Heritage Badge */}
             <div className="flex flex-wrap items-center gap-2">
@@ -208,34 +208,34 @@ export default function AboutPage({ onOpenReservation }) {
               <span className="text-[#5C4D41] text-xs">•</span>
               <span className="text-xs text-[#F0C070] font-semibold">About Us</span>
               <span className="text-[#5C4D41] text-xs">•</span>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider">
                 <Sparkles className="w-3 h-3 text-[#F0C070]" />
                 <span>Our Heritage & Craft</span>
               </div>
             </div>
 
             {/* Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
               Crafted for Connection. <br />
               <span className="italic font-normal text-[#F0C070]">Brewed with Coastal Heart.</span>
             </h1>
 
             {/* Lead Copy */}
-            <p className="text-base sm:text-lg text-[#D4C7BD] leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base lg:text-lg text-[#E8DED6] leading-relaxed max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
               Welcome to Social Sips Cafe & Bar — Clearwater's vibrant third-place sanctuary where morning specialty espresso rituals, afternoon boba tea cravings, and evening artisan gelato lounges seamlessly harmonize.
             </p>
 
             {/* Key Feature Badges */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
                 <Coffee className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>Direct-Trade Micro-Lots</span>
               </div>
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
                 <Award className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>Italian Artisan Gelatieri</span>
               </div>
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
                 <MapPin className="w-3.5 h-3.5 text-[#F0C070]" />
                 <span>Clearwater, FL Waterfront</span>
               </div>
