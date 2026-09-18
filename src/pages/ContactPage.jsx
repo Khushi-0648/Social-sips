@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   MapPin, 
   Phone, 
@@ -9,7 +10,8 @@ import {
   Navigation, 
   MessageSquare, 
   Car, 
-  Calendar 
+  Calendar,
+  Sparkles
 } from 'lucide-react';
 import ClearwaterGuide from '../components/ClearwaterGuide';
 import FAQSection from '../components/FAQSection';
@@ -38,25 +40,73 @@ export default function ContactPage({ onOpenReservation }) {
   return (
     <div className="pt-24 sm:pt-28 pb-20">
       
-      {/* Page Header */}
-      <section className="py-16 sm:py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1A16] border border-[#3D2D22] text-xs font-bold text-[#F0C070] uppercase tracking-wider">
-              <span>Location & Inquiries</span>
+      {/* 1. Page Hero Banner with Background Image & Ambient Obsidian Overlay */}
+      <section className="relative min-h-[420px] sm:min-h-[480px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
+        {/* Background Image Container with Multi-layer Vignette */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src="/images/patio-vibe.jpg" 
+            alt="Social Sips Clearwater Coastal Patio & Location" 
+            className="w-full h-full object-cover scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050404] via-[#050404]/90 to-[#050404]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050404] via-transparent to-[#050404]/80" />
+          <div className="absolute inset-0 bg-[#050404]/40" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+          <div className="max-w-3xl space-y-5">
+            
+            {/* Breadcrumb & Badge */}
+            <div className="flex flex-wrap items-center gap-2">
+              <Link 
+                to="/" 
+                className="text-xs text-[#B8ADA5] hover:text-[#F0C070] transition-colors"
+              >
+                Home
+              </Link>
+              <span className="text-[#5C4D41] text-xs">•</span>
+              <span className="text-xs text-[#F0C070] font-semibold">Contact & Map</span>
+              <span className="text-[#5C4D41] text-xs">•</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider backdrop-blur-md">
+                <Sparkles className="w-3 h-3 text-[#F0C070]" />
+                <span>Clearwater Destination</span>
+              </div>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+
+            {/* Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
               We'd Love to Hear <br />
               <span className="italic font-normal text-[#F0C070]">From You.</span>
             </h1>
-            <p className="text-base sm:text-lg text-[#B8ADA5] leading-relaxed">
+
+            {/* Lead Copy */}
+            <p className="text-base sm:text-lg text-[#D4C7BD] leading-relaxed max-w-2xl">
               Have a question about our roasting origins, bulk office catering, or reserving our lounge for a private gathering? Reach out or stop by our counter in Clearwater, FL.
             </p>
+
+            {/* Contact Status Badges */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+                <Clock className="w-3.5 h-3.5 text-[#F0C070]" />
+                <span>Open Daily 7:00 AM – 10:00 PM</span>
+              </div>
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+                <Car className="w-3.5 h-3.5 text-[#F0C070]" />
+                <span>Free Dedicated Rear Parking</span>
+              </div>
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+                <MapPin className="w-3.5 h-3.5 text-[#F0C070]" />
+                <span>Minutes from Clearwater Beach</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Main 2-Column Section: Contact Cards & Form */}
+      {/* 2. Main 2-Column Section: Contact Cards & Form */}
       <section className="py-20 bg-[#0A0807] border-b border-[#2C221B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -118,36 +168,53 @@ export default function ContactPage({ onOpenReservation }) {
                   <div>
                     <h4 className="text-sm font-bold text-white">Cafe Hours</h4>
                     <ul className="text-xs text-[#B8ADA5] mt-1 space-y-1">
-                      <li><strong className="text-white">Mon – Thu:</strong> 7:00 AM – 9:00 PM</li>
-                      <li><strong className="text-white">Fri – Sat:</strong> 7:00 AM – 11:00 PM (Late Lounge)</li>
+                      <li><strong className="text-white">Mon–Thu:</strong> 7:00 AM – 9:00 PM</li>
+                      <li><strong className="text-white">Fri–Sat:</strong> 7:00 AM – 11:00 PM</li>
                       <li><strong className="text-white">Sunday:</strong> 8:00 AM – 9:00 PM</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
+              {/* Reserve CTA */}
+              <div className="p-6 rounded-2xl bg-[#120F0D] border border-[#2C221B] space-y-3">
+                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                  <Calendar className="w-4 h-4 text-[#F0C070]" />
+                  <span>Planning a Table or Event?</span>
+                </h4>
+                <p className="text-xs text-[#B8ADA5]">
+                  Guarantee seating for study groups, meetings, or celebrations with our easy instant reservation.
+                </p>
+                <button
+                  onClick={onOpenReservation}
+                  className="w-full py-2.5 rounded-xl bg-[#181310] hover:bg-[#F0C070] text-[#FAF5F0] hover:text-[#050404] font-bold text-xs border border-[#2C221B] hover:border-[#F0C070] transition-colors cursor-pointer"
+                >
+                  Open Table Reservation
+                </button>
+              </div>
             </div>
 
-            {/* Right Column: Interactive Contact Form */}
+            {/* Right Column: Direct Message Form */}
             <div className="lg:col-span-7">
               <div className="bg-[#120F0D] rounded-3xl p-8 sm:p-10 border border-[#2C221B] shadow-2xl space-y-6">
-                <div>
-                  <h3 className="font-serif text-2xl font-bold text-white">
+                <div className="space-y-2">
+                  <span className="text-xs font-bold text-[#F0C070] uppercase tracking-wider">Fast Response</span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                     Send an Inquiry or Feedback
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#B8ADA5] mt-1">
+                  <p className="text-xs sm:text-sm text-[#B8ADA5]">
                     Fill out the form below and our Clearwater management team will get back to you within 24 hours.
                   </p>
                 </div>
 
                 {formSubmitted ? (
-                  <div className="p-6 rounded-2xl bg-emerald-950/80 border border-emerald-500/50 text-emerald-200 text-sm space-y-2">
-                    <div className="flex items-center gap-2 font-bold text-emerald-300">
-                      <Check className="w-5 h-5 text-emerald-400" />
-                      <span>Message Received!</span>
+                  <div className="p-8 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 text-center space-y-3">
+                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                      <Check className="w-6 h-6" />
                     </div>
-                    <p className="text-xs leading-relaxed text-emerald-200/90">
-                      Thank you for contacting Social Sips Cafe. A member of our team will review your inquiry and reach back out shortly.
+                    <h4 className="font-serif text-xl font-bold text-white">Message Received!</h4>
+                    <p className="text-xs text-emerald-200/90 max-w-sm mx-auto">
+                      Thank you for reaching out to Social Sips Cafe. We will get back to you shortly.
                     </p>
                   </div>
                 ) : (
@@ -164,6 +231,7 @@ export default function ContactPage({ onOpenReservation }) {
                           className="w-full px-4 py-3 rounded-xl bg-[#181310] border border-[#33271F] text-white placeholder-[#7A6D63] text-xs focus:outline-none focus:border-[#F0C070] transition-colors"
                         />
                       </div>
+
                       <div>
                         <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">Email Address *</label>
                         <input
@@ -179,23 +247,24 @@ export default function ContactPage({ onOpenReservation }) {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">Phone Number</label>
+                        <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">Phone Number (Optional)</label>
                         <input
                           type="tel"
-                          placeholder="+1 (727) 000-0000"
+                          placeholder="(727) 000-0000"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl bg-[#181310] border border-[#33271F] text-white placeholder-[#7A6D63] text-xs focus:outline-none focus:border-[#F0C070] transition-colors"
                         />
                       </div>
+
                       <div>
-                        <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">What is this regarding?</label>
+                        <label className="block text-xs font-bold text-[#FAF5F0] mb-1.5">Inquiry Subject</label>
                         <select
                           value={formData.topic}
                           onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                           className="w-full px-4 py-3 rounded-xl bg-[#181310] border border-[#33271F] text-white text-xs focus:outline-none focus:border-[#F0C070] transition-colors"
                         >
-                          <option value="general">General Inquiries</option>
+                          <option value="general">General Question</option>
                           <option value="catering">Office Catering & Bulk Orders</option>
                           <option value="event">Private Lounge & Event Rental</option>
                           <option value="feedback">Guest Feedback</option>
@@ -231,12 +300,12 @@ export default function ContactPage({ onOpenReservation }) {
         </div>
       </section>
 
-      {/* Clearwater Guide Component */}
+      {/* 3. Clearwater Guide Component */}
       <div className="border-b border-[#2C221B]">
         <ClearwaterGuide />
       </div>
 
-      {/* Frequently Asked Questions */}
+      {/* 4. Frequently Asked Questions */}
       <div className="border-b border-[#2C221B]">
         <FAQSection />
       </div>

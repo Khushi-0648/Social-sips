@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Camera, Sparkles, Heart, Instagram, Filter, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Camera, Sparkles, Heart, Instagram, Filter, ArrowRight, Image as ImageIcon } from 'lucide-react';
 import SocialFeed from '../components/SocialFeed';
 
 const galleryItems = [
@@ -69,11 +70,11 @@ const galleryItems = [
   },
   {
     id: 9,
-    title: 'Sunny Outdoor Coastal Palm Patio',
+    title: 'Sunny Coastal Outdoor Garden Patio',
     category: 'atmosphere',
     image: '/images/patio-vibe.jpg',
-    tag: 'Coastal Terrace',
-    desc: 'Bask in the gentle Clearwater sea breeze under shaded linen umbrellas.'
+    tag: 'Outdoor Patio',
+    desc: 'Lush tropical greenery, breeze-catching umbrellas, and dog-friendly coastal seating.'
   },
   {
     id: 10,
@@ -111,25 +112,69 @@ export default function GalleryPage({ onOpenReservation }) {
   return (
     <div className="pt-24 sm:pt-28 pb-20">
       
-      {/* Page Header */}
-      <section className="py-16 sm:py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1A16] border border-[#3D2D22] text-xs font-bold text-[#F0C070] uppercase tracking-wider">
-              <span>Visual Cafe Gallery</span>
+      {/* 1. Page Hero Banner with Background Image & Ambient Obsidian Overlay */}
+      <section className="relative min-h-[420px] sm:min-h-[480px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
+        {/* Background Image Container with Multi-layer Vignette */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <img 
+            src="/images/lounge-vibe.jpg" 
+            alt="Social Sips Cafe Lounge Atmosphere & Visual Moments" 
+            className="w-full h-full object-cover scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#050404] via-[#050404]/90 to-[#050404]/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#050404] via-transparent to-[#050404]/80" />
+          <div className="absolute inset-0 bg-[#050404]/40" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+          <div className="max-w-3xl space-y-5">
+            
+            {/* Breadcrumb & Badge */}
+            <div className="flex flex-wrap items-center gap-2">
+              <Link 
+                to="/" 
+                className="text-xs text-[#B8ADA5] hover:text-[#F0C070] transition-colors"
+              >
+                Home
+              </Link>
+              <span className="text-[#5C4D41] text-xs">•</span>
+              <span className="text-xs text-[#F0C070] font-semibold">Visual Gallery</span>
+              <span className="text-[#5C4D41] text-xs">•</span>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider backdrop-blur-md">
+                <Sparkles className="w-3 h-3 text-[#F0C070]" />
+                <span>Visual Cafe Stories</span>
+              </div>
             </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+
+            {/* Headline */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
               Moments, Moods <br />
               <span className="italic font-normal text-[#F0C070]">& Handcrafted Sips.</span>
             </h1>
-            <p className="text-base sm:text-lg text-[#B8ADA5] leading-relaxed">
-              Step into the visual story of Social Sips Clearwater. From morning microfoam art to afternoon boba colors and candlelit evening lounge vibes.
+
+            {/* Lead Copy */}
+            <p className="text-base sm:text-lg text-[#D4C7BD] leading-relaxed max-w-2xl">
+              Step into the visual story of Social Sips Clearwater. From dawn microfoam latte pours and slow-churned pistachio gelato to afternoon boba colors and candlelit evening lounge vibes.
             </p>
+
+            {/* Gallery Stats Badges */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+                <ImageIcon className="w-3.5 h-3.5 text-[#F0C070]" />
+                <span>12 Handcrafted Highlights</span>
+              </div>
+              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#2C221B] text-xs font-semibold text-white flex items-center gap-2 backdrop-blur-md">
+                <Camera className="w-3.5 h-3.5 text-[#F0C070]" />
+                <span>Clearwater Beach Community</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Category Filter Tabs */}
+      {/* 2. Category Filter Tabs */}
       <section className="py-8 bg-[#0A0807] border-b border-[#2C221B] sticky top-20 z-30 backdrop-blur-xl bg-[#0A0807]/90">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1">
@@ -156,7 +201,7 @@ export default function GalleryPage({ onOpenReservation }) {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* 3. Gallery Grid */}
       <section className="py-16 bg-[#050404] border-b border-[#2C221B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -194,22 +239,22 @@ export default function GalleryPage({ onOpenReservation }) {
         </div>
       </section>
 
-      {/* Instagram & Social Feed Integration */}
+      {/* 4. Instagram & Social Feed Integration */}
       <div className="border-b border-[#2C221B]">
         <SocialFeed />
       </div>
 
-      {/* Bottom Photo Invitation */}
-      <section className="py-16 bg-[#050404]">
+      {/* 5. Bottom Photo Invitation */}
+      <section className="py-20 bg-[#050404]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1F1A16] border border-[#3D2D22] text-xs font-bold text-[#F0C070]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1F1A16] border border-[#3D2D22] text-xs font-bold text-[#F0C070]">
             <Camera className="w-3.5 h-3.5" />
             <span>Tag us at @SocialSipsCafe</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
             Capture Your Social Sips Moment
           </h2>
-          <p className="text-xs sm:text-sm text-[#B8ADA5] max-w-lg mx-auto">
+          <p className="text-xs sm:text-sm text-[#B8ADA5] max-w-lg mx-auto leading-relaxed">
             Share your photos on Instagram or TikTok with #SocialSipsClearwater to be featured on our digital wall and receive a surprise treat on your next visit!
           </p>
         </div>
