@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Coffee, 
   MapPin, 
@@ -28,19 +29,6 @@ export default function Footer() {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleFooterNav = (e, targetId) => {
-    e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      const navHeight = 90;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition - navHeight,
-        behavior: 'smooth'
-      });
-    }
   };
 
   return (
@@ -126,19 +114,17 @@ export default function Footer() {
             </div>
           </div>
 
-
           {/* Quick Links Column */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="font-serif text-sm font-bold text-white uppercase tracking-wider">
               Explore
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><button onClick={(e) => handleFooterNav(e, 'home')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">Home</button></li>
-              <li><button onClick={(e) => handleFooterNav(e, 'about')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">About Us</button></li>
-              <li><button onClick={(e) => handleFooterNav(e, 'menu')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">Curated Menu</button></li>
-              <li><button onClick={(e) => handleFooterNav(e, 'atmosphere')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">Atmosphere</button></li>
-              <li><button onClick={(e) => handleFooterNav(e, 'bulk-orders')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">Group Catering</button></li>
-              <li><button onClick={(e) => handleFooterNav(e, 'contact')} className="hover:text-[#F0C070] transition-colors cursor-pointer text-left">Contact & Map</button></li>
+              <li><Link to="/" className="hover:text-[#F0C070] transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-[#F0C070] transition-colors">About Us</Link></li>
+              <li><Link to="/services" className="hover:text-[#F0C070] transition-colors">Services & Menu</Link></li>
+              <li><Link to="/gallery" className="hover:text-[#F0C070] transition-colors">Photo Gallery</Link></li>
+              <li><Link to="/contact" className="hover:text-[#F0C070] transition-colors">Contact & Map</Link></li>
             </ul>
           </div>
 
@@ -207,13 +193,18 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Row */}
+        {/* Bottom Row & Legal Policy Links */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8C7F75]">
-          <div className="flex items-center gap-1.5 text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1.5 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Social Sips Cafe & Bar. All rights reserved.</span>
-            <span className="hidden md:inline">• Handcrafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 hidden md:inline" />
-            <span className="hidden md:inline">in Clearwater, Florida</span>
+            <span className="hidden md:inline">•</span>
+            <Link to="/privacy-policy" className="hover:text-[#F0C070] transition-colors underline-offset-2 hover:underline">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link to="/cookies-policy" className="hover:text-[#F0C070] transition-colors underline-offset-2 hover:underline">
+              Cookies Policy
+            </Link>
           </div>
 
           <button
@@ -224,7 +215,6 @@ export default function Footer() {
             <ArrowUp className="w-3.5 h-3.5 text-[#F0C070]" />
           </button>
         </div>
-
 
       </div>
     </footer>
