@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Camera, Sparkles, Heart, Instagram, Filter, ArrowRight, Image as ImageIcon } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Camera, Sparkles, Heart, Instagram, Filter, ArrowRight, ArrowDown, Image as ImageIcon } from 'lucide-react';
 import SocialFeed from '../components/SocialFeed';
 
 const galleryItems = [
@@ -25,24 +26,24 @@ const galleryItems = [
     title: 'Tiger Brown Sugar Milk Tea with Fresh Tapioca',
     category: 'boba',
     image: '/images/boba-tiger.jpg',
-    tag: 'Boba Favorite',
-    desc: 'Hand-swirled Muscovado brown sugar tiger stripes with warm chewy pearls.'
+    tag: '3-Hour Slow Stew',
+    desc: 'Taiwanese black tea shaken with fresh milk and warm muscovado pearls.'
   },
   {
     id: 4,
-    title: 'Main Espresso & Brew Counter Ambience',
-    category: 'atmosphere',
-    image: '/images/cafe-interior-main.jpg',
-    tag: 'Cafe Interior',
-    desc: 'Custom terrazzo counters, warm brass accents, and ambient acoustic warmth.'
+    title: '18-Hour Slow-Drip Nitro Cold Brew',
+    category: 'coffee',
+    image: '/images/coffee-coldbrew.jpg',
+    tag: 'Cold Extraction',
+    desc: 'Nitrogen-infused Colombian Huila beans cascading with silky microfoam head.'
   },
   {
     id: 5,
-    title: '18-Hour Nitrogen-Infused Cold Brew',
-    category: 'coffee',
-    image: '/images/coffee-coldbrew.jpg',
-    tag: 'Single Origin',
-    desc: 'Steeped overnight for an exceptionally smooth, chocolaty finish without bitterness.'
+    title: 'Italian Affogato with Dark Roast Crema',
+    category: 'gelato',
+    image: '/images/affogato.jpg',
+    tag: 'Italian Classic',
+    desc: 'Double shot of hot espresso poured over Madagascar vanilla bean gelato.'
   },
   {
     id: 6,
@@ -110,67 +111,141 @@ export default function GalleryPage({ onOpenReservation }) {
   );
 
   return (
-    <div className="pt-24 sm:pt-28 pb-20">
+    <div className="pb-20">
       
-      {/* 1. Page Hero Banner: Vivid, Bright & Sunlit Visual Moments (No Darkness) */}
-      <section className="relative min-h-[420px] sm:min-h-[500px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
-        {/* Crystal Clear, Bright Background Photography */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <img 
-            src="/images/lounge-vibe.jpg" 
-            alt="Social Sips Cafe Lounge Atmosphere & Visual Moments" 
-            className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.02] saturate-[1.12] scale-100"
-          />
-          {/* Gentle soft ambient gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
+      {/* 1. Page Hero Banner: Editorial 4-Corner Split Layout with Motion Video Backdrop */}
+      <section 
+        id="gallery-hero"
+        className="relative min-h-[82vh] sm:min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-14 px-4 sm:px-8 lg:px-14 select-none border-b border-[#2C221B]"
+      >
+        {/* Background Motion Video: Clear, Bright, High-Aesthetic */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/lounge-vibe.jpg"
+            className="w-full h-full object-cover object-center filter brightness-105 contrast-[1.02] saturate-[1.1]"
+          >
+            <source src="/videos/coffee-craft.webm" type="video/webm" />
+            <source src="/videos/iced-coffee-pour.mp4" type="video/mp4" />
+            <source src="/videos/iced-coffee-13764.mp4" type="video/mp4" />
+          </video>
+
+          {/* Light Subtle Edge Transitions */}
+          <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content with Frosted Glass Protection */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10 w-full flex items-center justify-start">
-          <div className="max-w-3xl bg-black/45 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/15 shadow-2xl space-y-5">
-            
-            {/* Breadcrumb & Badge */}
-            <div className="flex flex-wrap items-center gap-2">
-              <Link 
-                to="/" 
-                className="text-xs text-[#B8ADA5] hover:text-[#F0C070] transition-colors"
-              >
-                Home
-              </Link>
-              <span className="text-[#5C4D41] text-xs">•</span>
-              <span className="text-xs text-[#F0C070] font-semibold">Visual Gallery</span>
-              <span className="text-[#5C4D41] text-xs">•</span>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider">
-                <Sparkles className="w-3 h-3 text-[#F0C070]" />
-                <span>Visual Cafe Stories</span>
-              </div>
+        {/* Top Editorial Row: CAPTURED (Top-Left) & THE VISUAL (Top-Right) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-3 pt-2 sm:pt-4">
+          
+          {/* Headline Left: CAPTURED */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+              CAPTURED
+            </span>
+            <div className="flex items-center gap-1.5 mt-1 sm:mt-2 text-[10px] sm:text-[11px] font-mono tracking-widest text-amberGold uppercase">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              <span className="hidden sm:inline">Social Sips • </span>
+              <span>Visual Cafe Archive</span>
             </div>
+          </motion.div>
 
-            {/* Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-              Moments, Moods <br />
-              <span className="italic font-normal text-[#F0C070]">& Handcrafted Sips.</span>
-            </h1>
+          {/* Headline Right: THE VISUAL */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-end gap-1"
+          >
+            <span className="font-serif italic font-normal text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-amberGold/95 tracking-wider text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              the visual
+            </span>
+            <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-mono text-white/90 shadow-md">
+              <span className="hidden sm:inline">Daylight Patio • Evening Lounge</span>
+              <span className="sm:hidden">Cafe Moments</span>
+            </div>
+          </motion.div>
 
-            {/* Lead Copy */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#E8DED6] leading-relaxed max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              Step into the visual story of Social Sips Clearwater. From dawn microfoam latte pours and slow-churned pistachio gelato to afternoon boba colors and candlelit evening lounge vibes.
+        </div>
+
+        {/* Middle Space is Open: Video Flows Pure & Visible */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto my-auto py-2 sm:py-6 flex items-center justify-center pointer-events-none" />
+
+        {/* Bottom Editorial Row: Subtext & Action Controls (Lower-Left) & VISION (Bottom-Right) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-4 sm:gap-6 pt-2">
+          
+          {/* Lower-Left: Subtext & Quick Category Filter Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-2 sm:space-y-3.5 max-w-lg bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3 sm:p-0 rounded-2xl border border-white/10 sm:border-0 shadow-lg sm:shadow-none"
+          >
+            {/* Monospace Editorial Subtext */}
+            <p className="font-mono text-[11px] sm:text-sm text-neutral-100 tracking-wide uppercase leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              Immersive snapshots of sunlit patio mornings, artisan pours, and dusk cocktail lounge lights.
             </p>
 
-            {/* Gallery Stats Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-1">
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
-                <ImageIcon className="w-3.5 h-3.5 text-[#F0C070]" />
-                <span>12 Handcrafted Highlights</span>
-              </div>
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
-                <Camera className="w-3.5 h-3.5 text-[#F0C070]" />
-                <span>Clearwater Beach Community</span>
-              </div>
-            </div>
+            <p className="text-[10px] sm:text-[11px] font-mono text-amber-200/90 tracking-wider">
+              <span className="hidden sm:inline">Clearwater Beach Waterfront • </span>
+              <span>Community Tag @SocialSipsCafe</span>
+            </p>
 
-          </div>
+            {/* Quick Filter Shortcut Controls */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 pt-0.5 sm:pt-1">
+              {[
+                { id: 'all', label: 'All Frames' },
+                { id: 'coffee', label: 'Artisan Coffee' },
+                { id: 'gelato', label: 'Gelato & Boba' },
+                { id: 'atmosphere', label: 'Ambience' }
+              ].map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setActiveFilter(cat.id);
+                    const el = document.getElementById('gallery-grid');
+                    if (el) {
+                      const top = el.getBoundingClientRect().top + window.pageYOffset - 110;
+                      window.scrollTo({ top, behavior: 'smooth' });
+                    }
+                  }}
+                  className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs font-mono transition-all cursor-pointer backdrop-blur-md ${
+                    activeFilter === cat.id
+                      ? 'bg-gradient-to-r from-amberGold to-[#B87326] text-black font-extrabold shadow-lg'
+                      : 'bg-black/55 hover:bg-black/75 border border-white/25 text-white/90 hover:border-amberGold'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Lower-Right: VISION Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="self-end md:self-auto text-right"
+          >
+            <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)]">
+              VISION
+            </span>
+            <div className="flex items-center justify-end gap-2 mt-1 sm:mt-2 text-[10px] font-mono text-neutral-200 uppercase tracking-widest">
+              <span>Browse Gallery</span>
+              <ArrowDown className="w-3 h-3 text-amberGold animate-bounce" />
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
@@ -202,7 +277,7 @@ export default function GalleryPage({ onOpenReservation }) {
       </section>
 
       {/* 3. Gallery Grid */}
-      <section className="py-16 bg-[#050404] border-b border-[#2C221B]">
+      <section id="gallery-grid" className="py-16 bg-[#050404] border-b border-[#2C221B]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredItems.map(item => (

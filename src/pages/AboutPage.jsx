@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { 
   Coffee, 
   Heart, 
@@ -11,6 +12,7 @@ import {
   Clock, 
   Users, 
   ArrowRight,
+  ArrowDown,
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
@@ -176,78 +178,152 @@ export default function AboutPage({ onOpenReservation }) {
     { year: '2024+', title: 'Voted Best of the Bay', desc: 'Awarded #1 Specialty Cafe & Gathering Space in Pinellas County by local community vote.' }
   ];
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <div className="pt-24 sm:pt-28 pb-20">
+    <div className="pb-20">
       
-      {/* 1. Page Hero Banner: Vivid, Bright & Sunlit Photography (No Heavy Darkness) */}
-      <section className="relative min-h-[440px] sm:min-h-[520px] flex items-center justify-center border-b border-[#2C221B] overflow-hidden">
-        {/* Crystal Clear, Bright Background Photography */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <img 
-            src="/images/cafe-interior-main.jpg" 
-            alt="Social Sips Clearwater Cafe Heritage Atmosphere" 
-            className="w-full h-full object-cover object-center filter brightness-[1.12] contrast-[1.02] saturate-[1.12] scale-100"
-          />
-          {/* Soft luminous gradient: Keeps photo bright, clear & fully visible while grounding text */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent pointer-events-none" />
-          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
+      {/* 1. Page Hero Banner: Editorial 4-Corner Split Layout with Motion Video Backdrop */}
+      <section 
+        id="about-hero"
+        className="relative min-h-[82vh] sm:min-h-[85vh] lg:min-h-[88vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-12 sm:pb-14 px-4 sm:px-8 lg:px-14 select-none border-b border-[#2C221B]"
+      >
+        {/* Background Motion Video: Clear, Bright, High-Aesthetic */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            poster="/images/cafe-interior-main.jpg"
+            className="w-full h-full object-cover object-center filter brightness-105 contrast-[1.02] saturate-[1.1]"
+          >
+            <source src="/videos/coffee-craft.webm" type="video/webm" />
+            <source src="/videos/iced-coffee-13764.mp4" type="video/mp4" />
+          </video>
+
+          {/* Light Subtle Edge Transitions */}
+          <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050404] to-transparent pointer-events-none" />
         </div>
 
-        {/* Hero Content with Frosted Glass Protection for 100% Readability */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 relative z-10 w-full flex items-center justify-start">
-          <div className="max-w-3xl bg-black/45 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-white/15 shadow-2xl space-y-5">
-            
-            {/* Breadcrumb & Heritage Badge */}
-            <div className="flex flex-wrap items-center gap-2">
-              <Link 
-                to="/" 
-                className="text-xs text-[#B8ADA5] hover:text-[#F0C070] transition-colors"
-              >
-                Home
-              </Link>
-              <span className="text-[#5C4D41] text-xs">•</span>
-              <span className="text-xs text-[#F0C070] font-semibold">About Us</span>
-              <span className="text-[#5C4D41] text-xs">•</span>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1F1A16]/90 border border-[#3D2D22] text-[11px] font-bold text-[#F0C070] uppercase tracking-wider">
-                <Sparkles className="w-3 h-3 text-[#F0C070]" />
-                <span>Our Heritage & Craft</span>
-              </div>
+        {/* Top Editorial Row: ORIGIN (Top-Left) & THE STORY (Top-Right) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-3 pt-2 sm:pt-4">
+          
+          {/* Headline Left: ORIGIN */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative min-w-0"
+          >
+            <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
+              ORIGIN
+            </span>
+            <div className="flex items-center gap-1.5 mt-1 sm:mt-2 text-[10px] sm:text-[11px] font-mono tracking-widest text-amberGold uppercase">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              <span className="hidden sm:inline">Social Sips • </span>
+              <span>Clearwater Heritage</span>
             </div>
+          </motion.div>
 
-            {/* Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-              Crafted for Connection. <br />
-              <span className="italic font-normal text-[#F0C070]">Brewed with Coastal Heart.</span>
-            </h1>
+          {/* Headline Right: THE STORY */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-end gap-1 shrink-0"
+          >
+            <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-amberGold/95 tracking-wider text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              the story
+            </span>
+            <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-mono text-white/90 shadow-md">
+              <span className="hidden sm:inline">Artisanal Craft & Coastal Roots</span>
+              <span className="sm:hidden">Craft & Heritage</span>
+            </div>
+          </motion.div>
 
-            {/* Lead Copy */}
-            <p className="text-sm sm:text-base lg:text-lg text-[#E8DED6] leading-relaxed max-w-2xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-              Welcome to Social Sips Cafe & Bar — Clearwater's vibrant third-place sanctuary where morning specialty espresso rituals, afternoon boba tea cravings, and evening artisan gelato lounges seamlessly harmonize.
+        </div>
+
+        {/* Middle Space is Open: Video Flows Pure & Visible */}
+        <div className="relative z-10 w-full max-w-5xl mx-auto my-auto py-2 sm:py-6 flex items-center justify-center pointer-events-none" />
+
+        {/* Bottom Editorial Row: Subtext & Action Controls (Lower-Left) & HERITAGE (Bottom-Right) */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-4 sm:gap-6 pt-2">
+          
+          {/* Lower-Left: Subtext & Clean Interactive Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-2 sm:space-y-3.5 max-w-lg bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3 sm:p-0 rounded-2xl border border-white/10 sm:border-0 shadow-lg sm:shadow-none"
+          >
+            {/* Monospace Editorial Subtext */}
+            <p className="font-mono text-[11px] sm:text-sm text-neutral-100 tracking-wide uppercase leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+              Born on the Florida coast. Crafting authentic human connections over direct-trade extractions and slow-churned gelato.
             </p>
 
-            {/* Key Feature Badges */}
-            <div className="flex flex-wrap items-center gap-2.5 pt-1">
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
-                <Coffee className="w-3.5 h-3.5 text-[#F0C070]" />
-                <span>Direct-Trade Micro-Lots</span>
-              </div>
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
-                <Award className="w-3.5 h-3.5 text-[#F0C070]" />
-                <span>Italian Artisan Gelatieri</span>
-              </div>
-              <div className="px-3.5 py-1.5 rounded-xl bg-[#120F0D]/90 border border-[#3D2D22] text-xs font-semibold text-white flex items-center gap-2 shadow-sm">
-                <MapPin className="w-3.5 h-3.5 text-[#F0C070]" />
-                <span>Clearwater, FL Waterfront</span>
-              </div>
-            </div>
+            <p className="text-[10px] sm:text-[11px] font-mono text-amber-200/90 tracking-wider">
+              <span className="hidden sm:inline">27.9659° N, 82.8001° W • </span>
+              <span>4.9★ Community Voted • Clearwater Beach</span>
+            </p>
 
-          </div>
+            {/* Minimal Action Controls */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-0.5 sm:pt-1">
+              <button
+                onClick={() => scrollToSection('taste-craft')}
+                className="group px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amberGold to-[#B87326] hover:from-[#E29A44] hover:to-amberGold text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl hover:shadow-amber-500/25 transition-all duration-300 flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5"
+              >
+                <span>Explore Craft</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              <button
+                onClick={() => scrollToSection('our-heritage')}
+                className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-black/55 hover:bg-black/75 border border-white/25 text-white font-mono text-xs sm:text-sm tracking-wider backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-amberGold" />
+                <span>Our Heritage</span>
+              </button>
+
+              <button
+                onClick={onOpenReservation}
+                className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold text-xs sm:text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold cursor-pointer"
+              >
+                <Calendar className="w-3.5 h-3.5 text-amberGold" />
+                <span>Reserve</span>
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Lower-Right: HERITAGE Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="self-end md:self-auto text-right"
+          >
+            <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)]">
+              HERITAGE
+            </span>
+            <div className="flex items-center justify-end gap-2 mt-1 sm:mt-2 text-[10px] font-mono text-neutral-200 uppercase tracking-widest">
+              <span>Scroll To Explore</span>
+              <ArrowDown className="w-3 h-3 text-amberGold animate-bounce" />
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
-
       {/* 2. NEW: Signature Products Interactive Slider / Carousel */}
-      <section className="py-20 bg-[#0A0807] border-b border-[#2C221B] relative overflow-hidden">
+      <section id="taste-craft" className="py-20 bg-[#0A0807] border-b border-[#2C221B] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section Header & Slider Controls */}
@@ -405,7 +481,7 @@ export default function AboutPage({ onOpenReservation }) {
 
 
       {/* 3. Story & Philosophy 2-Column Section */}
-      <section className="py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
+      <section id="our-heritage" className="py-20 bg-[#050404] border-b border-[#2C221B] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
