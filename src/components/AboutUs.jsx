@@ -37,10 +37,8 @@ export default function AboutUs() {
 
   return (
     <section id="about" className="py-20 lg:py-28 bg-cream relative overflow-hidden border-b border-cafe-200">
-      {/* Decorative subtle texture */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-cafe-100/50 rounded-full blur-3xl pointer-events-none" />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">

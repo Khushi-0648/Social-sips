@@ -13,7 +13,7 @@ const products = [
   {
     id: 'p1',
     name: 'Clearwater Coastal Sunrise Blend',
-    type: 'Whole Bean Coffee (12oz)',
+    type: 'Whole Bean (12oz)',
     badge: 'House Favorite',
     tastingNotes: 'Tasting Notes: Orange Blossom Honey, Milk Chocolate, Toasted Hazelnut',
     image: '/images/coffee-blend.jpg',
@@ -22,7 +22,7 @@ const products = [
   {
     id: 'p2',
     name: 'Single-Origin Ethiopian Yirgacheffe',
-    type: 'Light Roast Coffee (12oz)',
+    type: 'Light Roast (12oz)',
     badge: 'Barista Choice',
     tastingNotes: 'Tasting Notes: Jasmine Flower, Ripe Blueberry, Meyer Lemon',
     image: '/images/coffee-ethiopia.jpg',
@@ -31,7 +31,7 @@ const products = [
   {
     id: 'p3',
     name: 'Hand-Thrown Speckled Ceramic Mug',
-    type: 'Artisan Stoneware (12oz)',
+    type: 'Artisan Mug (12oz)',
     badge: 'Handmade Craft',
     tastingNotes: 'Features debossed Social Sips seal • Microwave & Dishwasher safe',
     image: '/images/ceramic-mug.jpg',
@@ -40,7 +40,7 @@ const products = [
   {
     id: 'p4',
     name: 'At-Home DIY Handcrafted Boba Kit',
-    type: 'Complete Boba Kit (8 Cups)',
+    type: 'Boba Kit (8 Cups)',
     badge: 'Popular Gift',
     tastingNotes: 'Includes Taiwanese tapioca, loose-leaf tea, brown sugar & wide straw',
     image: '/images/boba-kit.jpg',
@@ -53,7 +53,7 @@ export default function RetailShop() {
 
   return (
     <section id="shop" className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200 scroll-mt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -102,17 +102,17 @@ export default function RetailShop() {
                 {/* Details */}
                 <div className="p-4 sm:p-5 space-y-2.5">
                   <div className="flex items-center justify-between gap-2 min-w-0">
-                    <span className="text-[11px] sm:text-xs font-semibold text-cafe-600 whitespace-nowrap shrink-0">
+                    <span className="text-[11px] sm:text-xs font-semibold text-cafe-600 truncate">
                       {item.type}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full bg-cafe-100 text-cafe-900 text-[10px] sm:text-[11px] font-bold border border-cafe-300 whitespace-nowrap shrink-0 shadow-2xs">
+                    <span className="px-2 py-0.5 rounded-full bg-cafe-100 text-cafe-900 text-[10px] sm:text-[10.5px] font-bold border border-cafe-300 shrink-0 shadow-2xs">
                       {item.badge}
                     </span>
                   </div>
-                  <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug">
+                  <h3 className="font-serif text-base sm:text-lg font-bold text-cafe-950 group-hover:text-amberGold transition-colors leading-snug min-h-[44px] sm:min-h-[52px]">
                     {item.name}
                   </h3>
-                  <p className="text-xs text-amberGold font-semibold">
+                  <p className="text-xs text-amberGold font-semibold line-clamp-2 min-h-[32px]">
                     {item.tastingNotes}
                   </p>
                   <p className="text-xs text-cafe-600 leading-relaxed pt-1">
@@ -120,6 +120,7 @@ export default function RetailShop() {
                   </p>
                 </div>
               </div>
+
 
               {/* Action */}
               <div className="p-4 sm:p-5 pt-0">

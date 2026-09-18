@@ -96,27 +96,27 @@ function BulkPackageCard({ pkg }) {
         </div>
 
         {/* Card Content */}
-        <div className="p-5 sm:p-6">
+        <div className="p-4 sm:p-5">
           <div className="flex items-center justify-between gap-2 mb-3 min-w-0">
-            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 whitespace-nowrap shrink-0">
+            <span className="text-xs font-bold text-amberGold flex items-center gap-1.5 truncate">
               <Icon className="w-3.5 h-3.5 text-amberGold shrink-0" />
-              <span>{pkg.serves}</span>
+              <span className="truncate">{pkg.serves}</span>
             </span>
-            <span className="text-[10px] sm:text-[11px] font-semibold text-cafe-700 bg-cafe-100 px-2.5 py-0.5 rounded-full border border-cafe-200 whitespace-nowrap shrink-0">
+            <span className="text-[10px] sm:text-[10.5px] font-semibold text-cafe-700 bg-cafe-100 px-2 py-0.5 rounded-full border border-cafe-200 shrink-0">
               {pkg.badge}
             </span>
           </div>
 
-          <h3 className="font-serif text-lg font-bold text-cafe-950 mb-2 leading-snug">
+          <h3 className="font-serif text-lg font-bold text-cafe-950 mb-2 leading-snug min-h-[48px] sm:min-h-[56px]">
             {pkg.name}
           </h3>
-          <p className="text-xs text-cafe-600 leading-relaxed">
+          <p className="text-xs text-cafe-600 leading-relaxed min-h-[54px] line-clamp-3">
             {pkg.description}
           </p>
         </div>
       </div>
 
-      <div className="px-6 pb-6 pt-0">
+      <div className="px-4 sm:px-5 pb-5 pt-0">
         <div className="pt-3 border-t border-cafe-100 flex items-center justify-between text-[11px] text-cafe-500 font-semibold mb-3">
           <span className="flex items-center gap-1">
             <Clock className="w-3.5 h-3.5 text-amberGold" />
@@ -140,7 +140,7 @@ function BulkPackageCard({ pkg }) {
 export default function BulkOrders() {
   return (
     <section id="bulk-orders" className="py-20 lg:py-28 scroll-mt-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">

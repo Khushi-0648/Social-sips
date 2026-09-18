@@ -26,10 +26,13 @@ const ReservationModal = lazy(() => import('./components/ReservationModal'));
 export default function App() {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
 
+
   return (
-    <div className="min-h-screen bg-cream font-sans flex flex-col selection:bg-amberGold selection:text-cafe-950">
+    <div className="theme-obsidian min-h-screen bg-[#050404] text-white selection:bg-[#F0C070] selection:text-[#050404] font-sans flex flex-col">
       {/* Top Header & Sticky Navigation */}
       <Header onOpenReservation={() => setIsReservationOpen(true)} />
+
+
 
       <main className="flex-1 pb-20 md:pb-0">
         {/* 1. Hero Banner */}
@@ -90,14 +93,15 @@ export default function App() {
           </section>
 
           {/* 12. Clearwater Beach Companion Guide */}
-          <section id="guide">
+          <div>
             <ClearwaterGuide />
-          </section>
+          </div>
 
           {/* 13. At-Home Retail: Whole Beans, Ceramic Mugs & Boba Kits */}
-          <section id="shop">
+          <div>
             <RetailShop />
-          </section>
+          </div>
+
 
           {/* 14. Customer Reviews & Community Feedback (Interactive Slider) */}
           <section id="reviews">

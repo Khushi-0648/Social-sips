@@ -135,3 +135,259 @@
     animation-play-state: paused;
   }
 }
+
+/* ============================================================
+   PURE OBSIDIAN & GOLD LUXURY THEME
+   - Canvas: #050404 (Pure Pitch Obsidian)
+   - Cards / Surfaces: #120F0D (Matte Truffle Dark Chocolate)
+   - Elevated / Badges: #1F1A16 (Deep Roasted Espresso)
+   - Borders: #2C221B / #3D2D22 (Subtle Dark Bronze / Cacao)
+   - Accents: #F0C070 (Radiant Champagne Gold)
+   - Primary Text: #FFFFFF (Crisp Bright White)
+   - Muted Text: #B8ADA5 (Warm Latte Cream)
+   ============================================================ */
+
+.theme-obsidian {
+  background-color: #050404 !important;
+  color: #FFFFFF !important;
+  color-scheme: dark;
+}
+
+/* Base canvas and section backgrounds */
+.theme-obsidian,
+.theme-obsidian main,
+.theme-obsidian section,
+.theme-obsidian .bg-cream,
+.theme-obsidian .bg-cream-warm,
+.theme-obsidian .bg-\[\#F5EFEB\],
+.theme-obsidian .bg-cafe-50 {
+  background-color: #050404 !important;
+}
+
+/* Subtle alternating section background for rhythm */
+.theme-obsidian #gallery,
+.theme-obsidian #craft,
+.theme-obsidian #menu,
+.theme-obsidian #guide,
+.theme-obsidian #faq,
+.theme-obsidian #testimonials {
+  background-color: #0B0908 !important;
+}
+
+/* Card surfaces: Rich dark chocolate truffle */
+.theme-obsidian .bg-white,
+.theme-obsidian .bg-cream-card,
+.theme-obsidian .glass-card {
+  background-color: #120F0D !important;
+  border-color: #2C221B !important;
+  color: #FFFFFF !important;
+}
+
+.theme-obsidian .bg-white:hover,
+.theme-obsidian .hover\:bg-white:hover {
+  background-color: #1A1512 !important;
+}
+
+/* Pills, tags, and micro badges */
+.theme-obsidian .bg-cafe-100,
+.theme-obsidian .bg-cafe-200\/70,
+.theme-obsidian .bg-cafe-200 {
+  background-color: #1E1713 !important;
+  border-color: #3D2D22 !important;
+  color: #F0C070 !important;
+}
+
+/* Typography contrast */
+.theme-obsidian h1,
+.theme-obsidian h2,
+.theme-obsidian h3,
+.theme-obsidian h4,
+.theme-obsidian .text-cafe-950,
+.theme-obsidian .text-cafe-900 {
+  color: #FFFFFF !important;
+}
+
+.theme-obsidian .text-cafe-600,
+.theme-obsidian .text-cafe-700,
+.theme-obsidian .text-cafe-800 {
+  color: #B8ADA5 !important;
+}
+
+.theme-obsidian .text-cafe-500,
+.theme-obsidian .text-cafe-400 {
+  color: #8C7F75 !important;
+}
+
+.theme-obsidian .text-cafe-300,
+.theme-obsidian .text-cafe-200 {
+  color: #D4C7BD !important;
+}
+
+/* Accent gold colors */
+.theme-obsidian .text-amberGold,
+.theme-obsidian .text-amber-500,
+.theme-obsidian .text-amber-600,
+.theme-obsidian .text-amber-700 {
+  color: #F0C070 !important;
+}
+
+/* Borders and dividers */
+.theme-obsidian .border-cafe-100,
+.theme-obsidian .border-cafe-200,
+.theme-obsidian .border-cafe-300,
+.theme-obsidian .border-cream-border,
+.theme-obsidian .border-cafe-850,
+.theme-obsidian .divide-cafe-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #2C221B !important;
+}
+
+/* Primary Action Buttons */
+.theme-obsidian button.bg-cafe-900,
+.theme-obsidian a.bg-cafe-900,
+.theme-obsidian button.bg-cafe-950,
+.theme-obsidian a.bg-cafe-950,
+.theme-obsidian button.bg-amberGold,
+.theme-obsidian a.bg-amberGold {
+  background-color: #F0C070 !important;
+  color: #050404 !important;
+  font-weight: 700 !important;
+}
+
+.theme-obsidian button.bg-cafe-900:hover,
+.theme-obsidian a.bg-cafe-900:hover,
+.theme-obsidian button.bg-cafe-950:hover,
+.theme-obsidian a.bg-cafe-950:hover,
+.theme-obsidian button.bg-amberGold:hover,
+.theme-obsidian a.bg-amberGold:hover {
+  background-color: #E5B058 !important;
+  color: #050404 !important;
+}
+
+/* Secondary & Counter Action Buttons */
+.theme-obsidian .bg-cafe-50 {
+  background-color: #17120F !important;
+  border-color: #2C221B !important;
+  color: #FAF5F0 !important;
+}
+
+.theme-obsidian .bg-cafe-50:hover {
+  background-color: #221B16 !important;
+  color: #F0C070 !important;
+}
+
+/* Header & Navigation Bar */
+.theme-obsidian header .bg-cafe-950 {
+  background-color: #050404 !important;
+  border-bottom: 1px solid #1E1611 !important;
+  color: #B8ADA5 !important;
+}
+
+.theme-obsidian nav {
+  background: rgba(5, 4, 4, 0.94) !important;
+  border-color: #261D17 !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+
+.theme-obsidian nav a,
+.theme-obsidian nav button,
+.theme-obsidian nav .text-cafe-900,
+.theme-obsidian nav .text-cafe-700 {
+  color: #E8DED6 !important;
+}
+
+.theme-obsidian nav a:hover {
+  color: #F0C070 !important;
+}
+
+/* Forms & Inputs */
+.theme-obsidian input,
+.theme-obsidian textarea,
+.theme-obsidian select {
+  background-color: #16120F !important;
+  border-color: #33271F !important;
+  color: #FFFFFF !important;
+}
+
+.theme-obsidian input::placeholder,
+.theme-obsidian textarea::placeholder {
+  color: #7A6D63 !important;
+}
+
+.theme-obsidian input:focus,
+.theme-obsidian textarea:focus,
+.theme-obsidian select:focus {
+  border-color: #F0C070 !important;
+  box-shadow: 0 0 0 2px rgba(240, 192, 112, 0.25) !important;
+}
+
+/* Modals */
+.theme-obsidian .bg-white.rounded-3xl {
+  background-color: #120F0D !important;
+  border-color: #2C221B !important;
+}
+
+/* Dark Custom Scrollbars */
+.theme-obsidian::-webkit-scrollbar-track {
+  background: #050404 !important;
+}
+.theme-obsidian::-webkit-scrollbar-thumb {
+  background: #2C221B !important;
+  border-radius: 4px;
+}
+.theme-obsidian::-webkit-scrollbar-thumb:hover {
+  background: #F0C070 !important;
+}
+
+/* ============================================================
+   AMBIENT WHITE SPOTLIGHT GLOW EFFECT (LEFT & RIGHT)
+   Soft, luxury diffuse white/light blooms on all sections
+   ============================================================ */
+
+.theme-obsidian section,
+.theme-obsidian footer {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Left Side White Glow Effect */
+.theme-obsidian section::before,
+.theme-obsidian footer::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 15% !important;
+  left: -10rem !important;
+  width: 34rem !important;
+  height: 34rem !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 42%, transparent 72%) !important;
+  filter: blur(55px) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Right Side White Glow Effect */
+.theme-obsidian section::after,
+.theme-obsidian footer::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 12% !important;
+  right: -10rem !important;
+  width: 36rem !important;
+  height: 36rem !important;
+  border-radius: 9999px !important;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 42%, transparent 72%) !important;
+  filter: blur(55px) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Subtle vertical stagger on alternating sections for dynamic visual rhythm */
+.theme-obsidian section:nth-of-type(even)::before {
+  top: 35% !important;
+}
+.theme-obsidian section:nth-of-type(even)::after {
+  bottom: 25% !important;
+}
+
+

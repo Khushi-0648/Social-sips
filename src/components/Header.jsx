@@ -13,6 +13,8 @@ import {
 
 export default function Header({ onOpenReservation }) {
   const [isScrolled, setIsScrolled] = useState(false);
+
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -164,6 +166,8 @@ export default function Header({ onOpenReservation }) {
               <Calendar className="w-3.5 h-3.5 text-amberGold shrink-0" />
               <span>Reserve Table</span>
             </button>
+
+
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
