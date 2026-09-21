@@ -1,4 +1,4 @@
-﻿# Logs
+# Logs
 logs
 *.log
 npm-debug.log*
@@ -12,6 +12,7 @@ node_modules
 dist
 dist-ssr
 *.local
+*.zip
 
 # Editor
 .vscode/*
