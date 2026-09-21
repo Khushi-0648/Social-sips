@@ -25,9 +25,6 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div className="theme-obsidian min-h-screen bg-[#050404] text-white selection:bg-[#F0C070] selection:text-[#050404] font-sans flex flex-col relative">
-        {/* Tactile Organic Film Grain Overlay */}
-        <div className="film-grain fixed inset-0 pointer-events-none z-50 opacity-[0.035] mix-blend-screen" aria-hidden="true" />
-
         {/* Top Sticky Obsidian & Gold Header */}
         <Header onOpenReservation={openReservation} />
 
