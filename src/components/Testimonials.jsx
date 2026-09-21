@@ -61,11 +61,11 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="reviews" className="py-20 lg:py-28 scroll-mt-24 bg-cream-warm relative overflow-hidden">
+    <section id="reviews" className="py-14 sm:py-20 lg:py-24 scroll-mt-24 bg-cream-warm relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Centered Linear Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
             <span>Verified Customer Reviews</span>
           </div>

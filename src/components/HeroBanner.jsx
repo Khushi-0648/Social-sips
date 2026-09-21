@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Coffee, 
   ArrowRight, 
-  Phone, 
   Calendar,
-  ArrowDown
+  Sparkles,
+  Leaf
 } from 'lucide-react';
 
 export default function HeroBanner({ onOpenReservation }) {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.85;
+    }
+  }, []);
+
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -17,140 +24,252 @@ export default function HeroBanner({ onOpenReservation }) {
     }
   };
 
+  // Staggered reveal animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.14,
+        delayChildren: 0.15
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 22 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.85,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    }
+  };
+
   return (
     <section 
       id="home"
-      className="relative min-h-[94vh] sm:min-h-[90vh] lg:min-h-[95vh] flex flex-col justify-between overflow-hidden bg-cafe-950 text-white pt-28 sm:pt-32 lg:pt-36 pb-20 sm:pb-8 px-4 sm:px-8 lg:px-14 select-none"
+      className="relative min-h-[92vh] sm:min-h-[94vh] lg:min-h-[98vh] flex items-center justify-center overflow-hidden bg-cafe-950 text-white pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-12 px-4 sm:px-8 lg:px-14 select-none"
     >
-      {/* Background Motion Video: Bright, Vivid & Clear with Zero Heavy Dark Overlay */}
+      {/* 1. Background Layer: Full-bleed video/image of lush green plantation hills with dark gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-cafe-950">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover object-center filter brightness-105 contrast-[1.02] saturate-[1.1]"
+          poster="/images/story/plantation-hills-bg.jpg"
+          className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-[1.04] saturate-[1.12] transition-opacity duration-1000"
         >
-          <source src="/videos/iced-coffee-pour.mp4" type="video/mp4" />
-          <source src="/videos/iced-coffee-13764.mp4" type="video/mp4" />
-          <source src="/videos/iced-coffee-ice-drop.mp4" type="video/mp4" />
+          <source src="/videos/plantation-hills-loop.webm" type="video/webm" />
+          <source src="/videos/gemini-user-video-3.webm" type="video/webm" />
         </video>
 
-        {/* Very Light Subtle Edge Transitions */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+        {/* Subtle dark gradient overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/65 to-black/35 pointer-events-none" />
+        <div className="sm:hidden absolute inset-0 bg-black/45 pointer-events-none" />
+
+        {/* Top and Bottom edge vignettes */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/85 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-36 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+
+        {/* Ambient warm morning sunlight glow */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at 75% 25%, rgba(240, 192, 112, 0.16) 0%, transparent 60%)'
+          }}
+        />
       </div>
 
-      {/* Top Editorial Row: BREATHE (Top-Left) & THE (Top-Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-row items-start justify-between gap-3 pt-2 sm:pt-4">
-        
-        {/* Headline Left: BREATHE */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative"
+      {/* 2. Motion & VFX: 4 Drifting Green Leaf Elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
+        {/* Leaf 1: Top-Left floating gently down and across */}
+        <div 
+          className="absolute w-8 h-8 sm:w-11 sm:h-11 text-emerald-400/75 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] animate-drift-leaf-1"
+          style={{ top: '14%', left: '6%' }}
         >
-          <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-            BREATHE
-          </span>
-          <div className="flex items-center gap-1.5 mt-1 sm:mt-2 text-[10px] sm:text-[11px] font-mono tracking-widest text-amberGold uppercase">
-            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
-            <span className="hidden sm:inline">Social Sips • </span>
-            <span>Clearwater Roastery</span>
-          </div>
-        </motion.div>
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full transform -rotate-12">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+          </svg>
+        </div>
 
-        {/* Headline Right: THE */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col items-end gap-1"
+        {/* Leaf 2: Center-Right floating down towards hero product */}
+        <div 
+          className="absolute w-7 h-7 sm:w-10 sm:h-10 text-emerald-500/65 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] animate-drift-leaf-2"
+          style={{ top: '32%', right: '10%' }}
         >
-          <span className="font-serif italic font-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-amberGold/95 tracking-wider text-right drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-            the
-          </span>
-          <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/25 text-[10px] sm:text-xs font-mono text-white/90 shadow-md">
-            <span className="hidden sm:inline">Artisanal Pour-Over & Gelato</span>
-            <span className="sm:hidden">Pour-Over & Gelato</span>
-          </div>
-        </motion.div>
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full transform rotate-45">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+          </svg>
+        </div>
 
+        {/* Leaf 3: Bottom-Left floating upwards */}
+        <div 
+          className="absolute w-6 h-6 sm:w-9 sm:h-9 text-emerald-300/70 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] animate-drift-leaf-3"
+          style={{ bottom: '20%', left: '16%' }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full transform rotate-180">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+          </svg>
+        </div>
+
+        {/* Leaf 4: Bottom-Right drifting near the wooden coaster */}
+        <div 
+          className="absolute w-8 h-8 sm:w-12 sm:h-12 text-emerald-400/60 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] animate-drift-leaf-4"
+          style={{ bottom: '14%', right: '20%' }}
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full transform -rotate-45">
+            <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+          </svg>
+        </div>
       </div>
 
-      {/* Middle Space is Open: Video Flows Pure & Visible */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto my-auto py-2 sm:py-6 flex items-center justify-center pointer-events-none" />
-
-      {/* Bottom Editorial Row: Subtext & Action Controls (Lower-Left) & ROAST (Bottom-Right) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-4 sm:gap-6 pt-2">
+      {/* 3. Main Content Container: Staggered Fade-Up Reveal */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        {/* Lower-Left: Subtext & Clean Interactive Buttons */}
+        {/* Left / Center Column: Typography & Content */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-2 sm:space-y-3.5 max-w-lg bg-black/35 sm:bg-transparent backdrop-blur-md sm:backdrop-blur-none p-3 sm:p-0 rounded-2xl border border-white/10 sm:border-0 shadow-lg sm:shadow-none"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="lg:col-span-7 flex flex-col items-start space-y-4 sm:space-y-6"
         >
-          {/* Monospace Editorial Subtext */}
-          <p className="font-mono text-[11px] sm:text-sm text-neutral-100 tracking-wide uppercase leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-            Pure mountain shade-grown beans. Bottled fresh for your daily clarity.
-          </p>
+          {/* Small pill badge: • SOCIAL SIPS • TREE-TO-CUP ROASTERY */}
+          <motion.div variants={itemVariants}>
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-black/75 backdrop-blur-xl border border-[#F0C070]/40 shadow-lg text-[10.5px] sm:text-xs font-mono tracking-widest text-amberGold uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block shrink-0 shadow-xs" />
+              <span>• SOCIAL SIPS • TREE-TO-CUP ROASTERY</span>
+            </div>
+          </motion.div>
 
-          <p className="text-[10px] sm:text-[11px] font-mono text-amber-200/90 tracking-wider">
-            <span className="hidden sm:inline">27.9659° N, 82.8001° W • </span>
-            <span>Clearwater, FL • Open Daily 7 AM – 10 PM</span>
-          </p>
+          {/* Large vintage bold headline: BREATHE the Nature Harvest */}
+          <motion.div variants={itemVariants} className="space-y-1">
+            <h1 className="font-syne font-black uppercase text-3xl sm:text-5xl md:text-6xl lg:text-[4.15rem] xl:text-[4.75rem] tracking-tight text-white leading-[1.08] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]">
+              BREATHE{' '}
+              <span className="font-serif italic font-normal text-amberGold/95 lowercase tracking-normal">
+                the
+              </span>{' '}
+              <span className="block sm:inline font-syne font-black text-amber-100 sm:text-white">
+                Nature Harvest
+              </span>
+            </h1>
+          </motion.div>
 
-          {/* Minimal Action Controls */}
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-0.5 sm:pt-1">
-            <button
-              onClick={() => scrollToSection('menu')}
-              className="group px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amberGold to-[#B87326] hover:from-[#E29A44] hover:to-amberGold text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl hover:shadow-amber-500/25 transition-all duration-300 flex items-center gap-2 cursor-pointer transform hover:-translate-y-0.5"
-            >
-              <span>Explore Menu</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </button>
+          {/* Subhead */}
+          <motion.div variants={itemVariants}>
+            <p className="font-mono text-xs sm:text-sm md:text-base text-neutral-200/95 tracking-wide leading-relaxed max-w-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+              From hand-picked shade-grown cherries to artisanal roasts and organic teas.
+            </p>
+          </motion.div>
 
-            <a
-              href="tel:+17272401811"
-              className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-black/55 hover:bg-black/75 border border-white/25 text-white font-mono text-xs sm:text-sm tracking-wider backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold"
-              title="Call Social Sips Cafe"
-            >
-              <Phone className="w-3.5 h-3.5 text-amberGold" />
-              <span className="hidden sm:inline">(727) 240-1811</span>
-              <span className="sm:hidden">Call</span>
-            </a>
+          {/* Editorial Specs Bar */}
+          <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 text-[10px] sm:text-xs font-mono text-[#D4C7BD]">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 shadow-sm">
+              <Leaf className="w-3.5 h-3.5 text-[#F0C070]" />
+              <span>Shade-Grown Cherries</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F0C070]" />
+              <span>Artisanal Roasts</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black/60 backdrop-blur-md border border-white/15 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#F0C070]" />
+              <span>Organic Teas</span>
+            </span>
+          </motion.div>
 
-            <button
-              onClick={onOpenReservation}
-              className="px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white/15 hover:bg-white/25 border border-white/30 text-white font-bold text-xs sm:text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center gap-2 hover:border-amberGold cursor-pointer"
-            >
-              <Calendar className="w-3.5 h-3.5 text-amberGold" />
-              <span>Reserve</span>
-            </button>
-          </div>
+          {/* Dual CTA buttons: [Explore Menu →] and [Reserve Table] */}
+          <motion.div variants={itemVariants} className="pt-2 sm:pt-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+              {/* Primary Warm Amber Button */}
+              <button
+                onClick={() => scrollToSection('menu')}
+                className="group px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-amberGold via-[#E0983A] to-[#B87326] hover:from-[#EAA64A] hover:to-amberGold text-black font-extrabold text-xs sm:text-sm tracking-wider uppercase shadow-xl hover:shadow-amber-500/30 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 transform hover:-translate-y-0.5"
+              >
+                <span>Explore Menu</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+
+              {/* Frosted Glass Outline Button */}
+              <button
+                onClick={onOpenReservation}
+                className="px-7 sm:px-9 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl bg-white/10 hover:bg-white/20 border border-white/30 hover:border-amberGold text-white font-bold text-xs sm:text-sm tracking-wide backdrop-blur-md transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95 transform hover:-translate-y-0.5"
+              >
+                <Calendar className="w-4 h-4 text-amberGold" />
+                <span>Reserve Table</span>
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Location & Hours Micro-tag */}
+          <motion.div variants={itemVariants} className="pt-1 text-[10.5px] font-mono text-amber-200/80">
+            <span>Clearwater, FL • Open Daily: 7:00 AM – 10:00 PM</span>
+          </motion.div>
         </motion.div>
 
-        {/* Lower-Right: ROAST Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="self-end md:self-auto text-right"
-        >
-          <span className="font-syne font-extrabold uppercase text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] tracking-tight text-white leading-tight block drop-shadow-[0_2px_16px_rgba(0,0,0,0.85)]">
-            ROAST
-          </span>
-          <div className="flex items-center justify-end gap-2 mt-1 sm:mt-2 text-[10px] font-mono text-neutral-200 uppercase tracking-widest">
-            <span>Scroll To Explore</span>
-            <ArrowDown className="w-3 h-3 text-amberGold animate-bounce" />
-          </div>
-        </motion.div>
+        {/* 4. Centerpiece Layer: Animated hero product with gentle floating idle animation */}
+        <div className="lg:col-span-5 flex items-center justify-center lg:justify-end mt-2 lg:mt-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.90, y: 35 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="relative select-none"
+          >
+            {/* Gentle Floating Idle Animation */}
+            <motion.div
+              animate={{ 
+                y: [0, -14, 0],
+                rotate: [0, 0.6, 0, -0.6, 0]
+              }}
+              transition={{ 
+                duration: 6, 
+                repeat: Infinity, 
+                ease: 'easeInOut' 
+              }}
+              className="relative group"
+            >
+              {/* Warm Golden Sunlight Backlight Aura */}
+              <div 
+                className="absolute -inset-6 sm:-inset-10 rounded-full pointer-events-none filter blur-2xl opacity-60 transition-opacity duration-500"
+                style={{
+                  background: 'radial-gradient(circle at 50% 50%, rgba(240, 192, 112, 0.35) 0%, rgba(184, 115, 38, 0.15) 50%, transparent 70%)'
+                }}
+              />
+
+              {/* Floating Shadow Underneath */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4/5 h-10 bg-black/80 blur-xl rounded-full pointer-events-none" />
+
+              {/* Hero Product Frame: Frosted Glass of Artisan Cold Brew on Rustic Wood Base */}
+              <div className="relative z-10 overflow-hidden rounded-3xl p-2 bg-gradient-to-b from-white/20 via-white/5 to-black/60 backdrop-blur-xl border border-white/25 shadow-[0_24px_60px_rgba(0,0,0,0.85)]">
+                <img
+                  src="/images/story/hero-cold-brew-product.jpg"
+                  alt="Artisan Cold Brew on Rustic Wooden Base"
+                  className="w-56 sm:w-68 md:w-76 lg:w-80 xl:w-[22rem] h-auto object-cover rounded-2xl filter brightness-105 contrast-[1.06]"
+                  loading="eager"
+                />
+
+                {/* Glassmorphic Live Tag */}
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/75 backdrop-blur-xl border border-[#F0C070]/40 text-[10px] font-mono text-amberGold shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                  <span>Artisan Cold Brew</span>
+                </div>
+
+                {/* Floating Bottom Badge */}
+                <div className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 backdrop-blur-xl border border-white/20 text-[10px] font-mono text-white/90 shadow-lg">
+                  <Sparkles className="w-3 h-3 text-amberGold" />
+                  <span>Rustic Wood Base</span>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
 
       </div>
     </section>
   );
 }
-

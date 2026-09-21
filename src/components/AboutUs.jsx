@@ -36,12 +36,12 @@ export default function AboutUs() {
   ];
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-cream relative overflow-hidden border-b border-cafe-200">
+    <section id="about" className="py-14 sm:py-20 lg:py-24 bg-cream relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
             Our Clearwater Story
           </div>
@@ -55,7 +55,7 @@ export default function AboutUs() {
         </div>
 
         {/* 2-Column Story Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           
           {/* Left: Aesthetic Photo Collage with Accents */}
           <div className="lg:col-span-6 relative">
@@ -68,7 +68,7 @@ export default function AboutUs() {
                   alt="Social Sips spacious interior cafe seating and gathering area in Clearwater"
                   loading="lazy"
                   decoding="async"
-                  className="w-full h-[400px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full h-[320px] sm:h-[480px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
@@ -102,15 +102,15 @@ export default function AboutUs() {
               </p>
             </div>
 
-            {/* Grid of 4 Key Pillars - 2x2 Bento on Mobile, 2-Col on Desktop */}
-            <div className="grid grid-cols-2 gap-2.5 sm:gap-4 pt-2">
+            {/* Grid of 4 Key Pillars - Horizontal Slider on Mobile, 2-Col on Desktop */}
+            <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar gap-2.5 sm:gap-4 pb-2 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid-cols-2">
               {highlights.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="p-3 sm:p-4 rounded-2xl bg-white border border-cafe-200/80 shadow-warm-sm hover:border-amberGold/50 transition-colors flex flex-col justify-between">
+                  <div key={idx} className="w-[68vw] max-w-[240px] sm:w-auto shrink-0 snap-start p-3.5 sm:p-4 rounded-2xl bg-white border border-cafe-200/80 shadow-warm-sm hover:border-amberGold/50 transition-colors flex flex-col justify-between select-none">
                     <div>
-                      <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-cafe-100 text-cafe-800 flex items-center justify-center mb-2 sm:mb-3">
-                        <Icon className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-amberGold" />
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-cafe-100 text-cafe-800 flex items-center justify-center mb-2 sm:mb-3">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-amberGold" />
                       </div>
                       <h4 className="font-semibold text-xs sm:text-sm text-cafe-900 mb-0.5 sm:mb-1">
                         {item.title}
@@ -125,7 +125,7 @@ export default function AboutUs() {
             </div>
 
             {/* Amenity Badges */}
-            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs text-cafe-800 font-medium">
+            <div className="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-cafe-800 font-medium">
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-cafe-200">
                 <Wifi className="w-4 h-4 text-emerald-600" />
                 <span>Gigabit WiFi for Remote Work</span>

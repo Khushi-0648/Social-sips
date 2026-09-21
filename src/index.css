@@ -61,6 +61,11 @@
   border: 1px solid rgba(215, 188, 159, 0.2);
 }
 
+/* Tactile Organic Film Grain Texture */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.75'/%3E%3C/svg%3E");
+}
+
 /* Subtle animations */
 @keyframes float {
   0%, 100% {
@@ -86,6 +91,59 @@
 
 .animate-pulse-subtle {
   animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* 4 Drifting Leaf Keyframes for Nature Harvest Hero */
+@keyframes driftLeaf1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-12deg);
+  }
+  50% {
+    transform: translate(25px, -18px) rotate(8deg);
+  }
+}
+
+@keyframes driftLeaf2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate(-30px, 22px) rotate(65deg);
+  }
+}
+
+@keyframes driftLeaf3 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(180deg);
+  }
+  50% {
+    transform: translate(35px, -24px) rotate(195deg);
+  }
+}
+
+@keyframes driftLeaf4 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  50% {
+    transform: translate(-20px, -28px) rotate(-25deg);
+  }
+}
+
+.animate-drift-leaf-1 {
+  animation: driftLeaf1 14s ease-in-out infinite;
+}
+
+.animate-drift-leaf-2 {
+  animation: driftLeaf2 16s ease-in-out infinite;
+}
+
+.animate-drift-leaf-3 {
+  animation: driftLeaf3 18s ease-in-out infinite;
+}
+
+.animate-drift-leaf-4 {
+  animation: driftLeaf4 15s ease-in-out infinite;
 }
 
 /* Shimmer beam and 3D utilities for modern motion aesthetics */

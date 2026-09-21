@@ -10,7 +10,8 @@ import {
   Flame,
   Info,
   X,
-  ArrowRight
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { menuCategories, menuItems } from '../data/menuData';
@@ -20,6 +21,12 @@ export default function MenuServices({ onOpenReservation }) {
   const [selectedDiet, setSelectedDiet] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isExpandedView, setIsExpandedView] = useState(false);
+
+  const categoriesList = [
+    { id: 'all', name: 'All Menu', icon: 'Sparkles', count: menuItems.length },
+    ...menuCategories
+  ];
 
   const getCategoryIcon = (iconName) => {
     switch (iconName) {
@@ -27,8 +34,22 @@ export default function MenuServices({ onOpenReservation }) {
       case 'IceCream': return IceCream;
       case 'CupSoda': return CupSoda;
       case 'Wine': return Wine;
+      case 'Sparkles': return Sparkles;
       default: return Coffee;
     }
+  };
+
+  const handleExploreMenu = () => {
+    setActiveCategory('all');
+    setSelectedDiet('all');
+    setSearchQuery('');
+    setIsExpandedView(true);
+    setTimeout(() => {
+      const el = document.getElementById('menu-items-anchor');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   };
 
   const filteredItems = menuItems.filter(item => {
@@ -40,11 +61,11 @@ export default function MenuServices({ onOpenReservation }) {
   });
 
   return (
-    <section id="menu" className="py-20 lg:py-28 bg-cream-warm relative">
+    <section id="menu" className="py-14 sm:py-20 lg:py-24 bg-cream-warm relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-cafe-200/70 text-cafe-900 text-xs font-semibold tracking-wider uppercase border border-cafe-300">
             <span>Handcrafted Menu & Services</span>
           </div>
@@ -58,7 +79,7 @@ export default function MenuServices({ onOpenReservation }) {
 
         {/* Category Navigation Tabs */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-          {menuCategories.map((cat) => {
+          {categoriesList.map((cat) => {
             const Icon = getCategoryIcon(cat.icon);
             const isActive = activeCategory === cat.id;
             return (
@@ -118,12 +139,26 @@ export default function MenuServices({ onOpenReservation }) {
           </div>
         </div>
 
-        {/* Menu Cards Grid - Horizontal Snap Carousel on Mobile, 2/3-Col Grid on Desktop */}
-        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Mobile Swipe Hint */}
+        {!isExpandedView && (
+          <div className="sm:hidden text-center mb-3 text-[11px] font-semibold text-cafe-500 flex items-center justify-center gap-1.5">
+            <span>← Swipe to explore menu items →</span>
+          </div>
+        )}
+
+        {/* Menu Cards Grid - Horizontal Snap Carousel on Mobile (or Full Grid when expanded), 2/3-Col Grid on Desktop */}
+        <div 
+          id="menu-items-anchor"
+          className={`gap-4 sm:gap-8 scroll-mt-28 ${
+            isExpandedView 
+              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3' 
+              : 'flex sm:grid sm:grid-cols-2 lg:grid-cols-3 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-4 pt-1 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0'
+          }`}
+        >
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="w-[270px] sm:w-auto shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1 flex flex-col group justify-between"
+              className={`${isExpandedView ? 'w-full' : 'w-[270px] sm:w-auto'} shrink-0 snap-start bg-white rounded-3xl overflow-hidden border border-cafe-200 shadow-warm-sm hover:shadow-warm-lg transition-all duration-300 hover:-translate-y-1 flex flex-col group justify-between`}
             >
               <div>
                 {/* Image Container - Clean without overlay text */}
@@ -190,15 +225,27 @@ export default function MenuServices({ onOpenReservation }) {
           ))}
         </div>
 
-        {/* View Full 18-Item Menu Button on Mobile & Desktop */}
-        <div className="mt-8 text-center">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-cafe-950 text-white hover:bg-amberGold hover:text-cafe-950 font-bold text-xs sm:text-sm transition-all duration-300 border border-amberGold/30 shadow-md group"
+        {/* Explore Menu Button on Mobile & Desktop */}
+        <div className="mt-8 text-center flex flex-wrap items-center justify-center gap-3">
+          <button
+            onClick={handleExploreMenu}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-cafe-950 text-white hover:bg-amberGold hover:text-cafe-950 font-bold text-xs sm:text-sm transition-all duration-300 border border-amberGold/30 shadow-md group cursor-pointer"
           >
-            <span>Explore All 18 Creations on Full Menu</span>
+            <span>Explore Menu</span>
             <ArrowRight className="w-4 h-4 text-amberGold group-hover:text-cafe-950 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </button>
+          {isExpandedView && (
+            <button
+              onClick={() => {
+                setIsExpandedView(false);
+                const el = document.getElementById('menu');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white text-cafe-800 hover:bg-cafe-100 font-bold text-xs sm:text-sm transition-all duration-300 border border-cafe-300 shadow-xs cursor-pointer"
+            >
+              <span>Show Compact Slider</span>
+            </button>
+          )}
         </div>
 
         {/* Empty State if filter yields no results */}

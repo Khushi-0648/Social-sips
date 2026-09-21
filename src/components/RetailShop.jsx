@@ -52,11 +52,11 @@ export default function RetailShop() {
   const [heldProduct, setHeldProduct] = useState(null);
 
   return (
-    <section id="shop" className="py-20 lg:py-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200 scroll-mt-24">
+    <section id="shop" className="py-14 sm:py-20 lg:py-24 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200 scroll-mt-24">
       <div className="max-w-7xl 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
               <span>At-Home Retail & Goods</span>
@@ -78,6 +78,11 @@ export default function RetailShop() {
               <span>Call to Reserve Items for Pickup</span>
             </a>
           </div>
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="sm:hidden text-center mb-3 text-[11px] font-semibold text-cafe-500 flex items-center justify-center gap-1.5">
+          <span>← Swipe to explore retail products →</span>
         </div>
 
         {/* 4 Retail Products - Horizontal Snap Track on Mobile, Grid on Tablet/Desktop */}

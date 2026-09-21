@@ -33,11 +33,11 @@ export default function Gallery() {
   const currentItem = activeLightboxIndex !== null ? filteredItems[activeLightboxIndex] : null;
 
   return (
-    <section id="gallery" className="py-20 lg:py-28 scroll-mt-24 bg-cream relative">
+    <section id="gallery" className="py-14 sm:py-20 lg:py-24 scroll-mt-24 bg-cream relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-cafe-100 text-cafe-800 text-xs font-semibold tracking-wider uppercase border border-cafe-200">
             <span>Visual Cafe Gallery</span>
           </div>
@@ -50,7 +50,7 @@ export default function Gallery() {
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 px-2 max-w-full sm:flex-wrap sm:justify-center mb-12">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 px-2 max-w-full sm:flex-wrap sm:justify-center mb-8 sm:mb-12">
           {galleryCategories.map((cat) => (
             <button
               key={cat.id}
@@ -66,13 +66,13 @@ export default function Gallery() {
           ))}
         </div>
 
-        {/* Masonry / Grid of Photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* Horizontal Slider on Mobile, 2/3-Col Grid on Desktop */}
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6 pb-3 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0">
           {filteredItems.map((item, index) => (
             <div
               key={item.id}
               onClick={() => openLightbox(index)}
-              className="group relative rounded-3xl overflow-hidden bg-cafe-900 cursor-pointer shadow-warm-sm hover:shadow-warm-lg transition-all duration-500 h-72 sm:h-80 select-none"
+              className="w-[80vw] max-w-[320px] sm:w-auto shrink-0 snap-start group relative rounded-3xl overflow-hidden bg-cafe-900 cursor-pointer shadow-warm-sm hover:shadow-warm-lg transition-all duration-500 h-72 sm:h-80 select-none"
             >
               <img
                 src={item.image}
@@ -108,6 +108,11 @@ export default function Gallery() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="sm:hidden flex items-center justify-center gap-2 pt-3 text-[11px] font-mono text-cafe-500">
+          <span>← Swipe to explore gallery photos ({filteredItems.length}) →</span>
         </div>
 
       </div>

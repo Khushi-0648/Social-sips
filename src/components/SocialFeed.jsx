@@ -52,11 +52,11 @@ const socialPosts = [
 
 export default function SocialFeed() {
   return (
-    <section className="py-20 lg:py-28 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>@SocialSipsClearwater</span>
           </div>
@@ -68,12 +68,12 @@ export default function SocialFeed() {
           </p>
         </div>
 
-        {/* 6 Grid Photos with Interactive Hover Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5">
+        {/* Horizontal Slider on Mobile, 6-Col Grid on Desktop */}
+        <div className="flex sm:grid overflow-x-auto sm:overflow-visible snap-x snap-mandatory no-scrollbar gap-3.5 sm:grid-cols-3 lg:grid-cols-6 sm:gap-5 pb-3 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0">
           {socialPosts.map((post) => (
             <div
               key={post.id}
-              className="group relative rounded-3xl overflow-hidden aspect-square bg-cafe-900 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300"
+              className="w-44 sm:w-auto shrink-0 snap-start group relative rounded-3xl overflow-hidden aspect-square bg-cafe-900 cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 select-none"
             >
               <img
                 src={post.image}
@@ -83,7 +83,7 @@ export default function SocialFeed() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
 
-              {/* Minimal Instagram Indicator Icon - Clean without any text covering the image */}
+              {/* Minimal Instagram Indicator Icon */}
               <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Instagram className="w-4 h-4 text-amberGold" />
               </div>
@@ -91,8 +91,13 @@ export default function SocialFeed() {
           ))}
         </div>
 
+        {/* Mobile Swipe Hint */}
+        <div className="sm:hidden flex items-center justify-center gap-2 pt-2 text-[11px] font-mono text-cafe-500">
+          <span>← Swipe to explore community moments ({socialPosts.length}) →</span>
+        </div>
+
         {/* Bottom Social Call to Action */}
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <div className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white text-cafe-950 font-bold text-xs sm:text-sm border border-cafe-300 shadow-sm">
             <Camera className="w-4 h-4 text-amberGold" />
             <span>Tag #SocialSipsClearwater on Your Social Stories</span>

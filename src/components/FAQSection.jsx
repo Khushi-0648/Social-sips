@@ -41,11 +41,11 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F4ECE1] relative overflow-hidden border-b border-cafe-200">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#F4ECE1] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-3">
+        <div className="text-center mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>Got Questions?</span>
           </div>

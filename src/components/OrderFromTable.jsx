@@ -56,11 +56,11 @@ export default function OrderFromTable({ onOpenReservation }) {
   };
 
   return (
-    <section id="table-order" className="py-16 sm:py-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section id="table-order" className="py-14 sm:py-20 lg:py-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider border border-amber-300 shadow-2xs">
             <Zap className="w-3.5 h-3.5 text-amber-700" />
             <span>Contactless Dine-In</span>
@@ -73,8 +73,13 @@ export default function OrderFromTable({ onOpenReservation }) {
           </p>
         </div>
 
+        {/* Mobile Swipe Hint */}
+        <div className="md:hidden text-center mb-3 text-[11px] font-semibold text-cafe-500 flex items-center justify-center gap-1.5">
+          <span>← Swipe to explore 3 steps →</span>
+        </div>
+
         {/* 3 Steps Bento Grid (Horizontal Scroll on Mobile, 3 Columns on Tablet/Desktop) */}
-        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 mb-10 sm:mb-12">
+        <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-3 md:pb-0 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 sm:mb-12">
           {steps.map((step) => {
             const Icon = step.icon;
             return (
@@ -123,7 +128,7 @@ export default function OrderFromTable({ onOpenReservation }) {
             {/* Left: Table Status & Info */}
             <div className="space-y-3 text-center lg:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amberGold text-xs font-mono border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span>Live Table Ordering Active</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white tracking-tight">

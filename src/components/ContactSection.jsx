@@ -33,14 +33,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-[#050404] text-[#B8ADA5] relative overflow-hidden border-t border-[#2C221B]">
+    <section id="contact" className="py-14 sm:py-20 lg:py-24 bg-[#050404] text-[#B8ADA5] relative overflow-hidden border-t border-[#2C221B]">
       {/* Decorative Warm Ambient Glow */}
       <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-[#F0C070]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#1F1A16] text-[#F0C070] text-xs font-bold tracking-wider uppercase border border-[#3D2D22]">
             Clearwater, Florida
           </div>

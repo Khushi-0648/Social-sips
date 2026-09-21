@@ -78,74 +78,80 @@ export default function Header({ onOpenReservation }) {
       </div>
 
       {/* Main Streamlined Navigation Bar - Pure Obsidian & Gold */}
-      <nav 
-        className={`transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-[#050404]/95 backdrop-blur-md shadow-2xl py-2.5 border-b border-[#2C221B]' 
-            : 'bg-[#050404]/85 backdrop-blur-md py-3.5 border-b border-[#2C221B]/70'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-3">
-          {/* Boutique Brand Identity */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-2.5 sm:gap-3 group text-left cursor-pointer focus:outline-none shrink-0"
-          >
-            <div className="w-10 h-10 rounded-2xl bg-[#120F0D] flex items-center justify-center text-[#F0C070] shadow-sm group-hover:scale-105 transition-transform duration-300 border border-[#3D2D22] shrink-0">
-              <Coffee className="w-5 h-5 text-[#F0C070]" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-xl font-bold tracking-tight text-white group-hover:text-[#F0C070] transition-colors whitespace-nowrap">
-                  Social Sips
-                </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22] whitespace-nowrap">
-                  Cafe & Bar
-                </span>
+      <div className={`transition-all duration-300 ${isScrolled ? 'px-3 sm:px-6 pt-1 sm:pt-2' : ''}`}>
+        <nav 
+          className={`transition-all duration-300 ${
+            isScrolled 
+              ? 'max-w-7xl mx-auto bg-[#050404]/90 backdrop-blur-xl shadow-[0_12px_40px_rgba(0,0,0,0.8)] py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 rounded-2xl border border-[#F0C070]/30' 
+              : 'bg-[#050404]/85 backdrop-blur-md py-3.5 px-4 sm:px-6 lg:px-8 border-b border-[#2C221B]/70'
+          }`}
+        >
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            {/* Boutique Brand Identity */}
+            <Link 
+              to="/" 
+              className="flex items-center gap-2.5 sm:gap-3 group text-left cursor-pointer focus:outline-none shrink-0"
+            >
+              <div className="w-10 h-10 rounded-2xl bg-[#120F0D] flex items-center justify-center text-[#F0C070] shadow-sm group-hover:scale-105 transition-transform duration-300 border border-[#3D2D22] shrink-0">
+                <Coffee className="w-5 h-5 text-[#F0C070]" />
               </div>
-              <p className="text-[11px] font-medium tracking-wide text-[#B8ADA5] hidden sm:block lg:hidden xl:block whitespace-nowrap">
-                Clearwater, FL • Coffee • Gelato • Boba
-              </p>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="font-serif text-xl font-bold tracking-tight text-white group-hover:text-[#F0C070] transition-colors whitespace-nowrap">
+                    Social Sips
+                  </span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-widest bg-[#1F1A16] text-[#F0C070] border border-[#3D2D22] whitespace-nowrap">
+                    Cafe & Bar
+                  </span>
+                </div>
+                <p className="text-[11px] font-medium tracking-wide text-[#B8ADA5] hidden sm:block lg:hidden xl:block whitespace-nowrap">
+                  Clearwater, FL • Coffee • Gelato • Boba
+                </p>
+              </div>
+            </Link>
+
+            {/* Desktop Streamlined Nav Links */}
+            <div className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-8">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.name}
+                  to={link.path}
+                  className={({ isActive }) => 
+                    `text-xs xl:text-sm font-bold transition-all cursor-pointer py-1 relative whitespace-nowrap ${
+                      isActive 
+                        ? 'text-[#F0C070] after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#F0C070]' 
+                        : 'text-[#E8DED6] hover:text-[#F0C070] after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#F0C070] hover:after:w-full after:transition-all after:duration-200'
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              ))}
             </div>
-          </Link>
 
-          {/* Desktop Streamlined Nav Links */}
-          <div className="hidden lg:flex items-center gap-3.5 xl:gap-6 2xl:gap-8">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                className={({ isActive }) => 
-                  `text-xs xl:text-sm font-bold transition-all cursor-pointer py-1 relative whitespace-nowrap ${
-                    isActive 
-                      ? 'text-[#F0C070] after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#F0C070]' 
-                      : 'text-[#E8DED6] hover:text-[#F0C070] after:content-[\'\'] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#F0C070] hover:after:w-full after:transition-all after:duration-200'
-                  }`
-                }
+            {/* Desktop Action CTAs */}
+            <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
+              <div className="hidden 2xl:flex items-center gap-1.5 px-3 py-2 rounded-xl border border-[#2C221B] bg-[#120F0D] text-[11px] font-mono text-[#F0C070]">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                <span>Open Now • Til 10 PM</span>
+              </div>
+
+              <a
+                href="tel:+17272401811"
+                className="hidden xl:flex px-3.5 py-2 rounded-xl border border-[#2C221B] bg-[#120F0D] hover:bg-[#1A1512] text-white text-xs font-bold transition-all shadow-xs items-center gap-1.5 whitespace-nowrap shrink-0"
               >
-                {link.name}
-              </NavLink>
-            ))}
-          </div>
+                <Phone className="w-3.5 h-3.5 text-[#F0C070] shrink-0" />
+                <span>(727) 240-1811</span>
+              </a>
 
-          {/* Desktop Action CTAs */}
-          <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
-            <a
-              href="tel:+17272401811"
-              className="hidden xl:flex px-3.5 py-2 rounded-xl border border-[#2C221B] bg-[#120F0D] hover:bg-[#1A1512] text-white text-xs font-bold transition-all shadow-xs items-center gap-1.5 whitespace-nowrap shrink-0"
-            >
-              <Phone className="w-3.5 h-3.5 text-[#F0C070] shrink-0" />
-              <span>(727) 240-1811</span>
-            </a>
-
-            <button
-              onClick={onOpenReservation}
-              className="px-3.5 xl:px-4 py-2 rounded-xl bg-[#F0C070] hover:bg-[#E5B058] text-[#050404] font-bold text-xs shadow-lg transition-all duration-300 flex items-center gap-1.5 group cursor-pointer whitespace-nowrap shrink-0"
-            >
-              <Calendar className="w-3.5 h-3.5 text-[#050404] shrink-0" />
-              <span>Reserve Table</span>
-            </button>
-          </div>
+              <button
+                onClick={onOpenReservation}
+                className="px-3.5 xl:px-4 py-2 rounded-xl bg-[#F0C070] hover:bg-[#E5B058] text-[#050404] font-bold text-xs shadow-lg transition-all duration-300 flex items-center gap-1.5 group cursor-pointer whitespace-nowrap shrink-0"
+              >
+                <Calendar className="w-3.5 h-3.5 text-[#050404] shrink-0" />
+                <span>Reserve Table</span>
+              </button>
+            </div>
 
           {/* Mobile & Tablet Action Controls */}
           <div className="flex lg:hidden items-center gap-2 sm:gap-2.5 shrink-0">
@@ -222,6 +228,7 @@ export default function Header({ onOpenReservation }) {
           </div>
         )}
       </nav>
+      </div>
     </header>
   );
 }

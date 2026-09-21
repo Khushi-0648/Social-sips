@@ -139,11 +139,11 @@ function BulkPackageCard({ pkg }) {
 
 export default function BulkOrders() {
   return (
-    <section id="bulk-orders" className="py-20 lg:py-28 scroll-mt-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
+    <section id="bulk-orders" className="py-14 sm:py-20 lg:py-24 scroll-mt-28 bg-[#F5EFEB] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl 2xl:max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>Group Catering & Events</span>
           </div>
@@ -153,6 +153,11 @@ export default function BulkOrders() {
           <p className="text-base sm:text-lg text-cafe-600 leading-relaxed">
             Planning a team breakfast, beach party, birthday, or corporate gathering in Clearwater? Let Social Sips handle your drinks and artisan desserts with seamless bulk packaging.
           </p>
+        </div>
+
+        {/* Mobile Swipe Hint */}
+        <div className="sm:hidden text-center mb-3 text-[11px] font-semibold text-cafe-500 flex items-center justify-center gap-1.5">
+          <span>← Swipe to explore catering packages →</span>
         </div>
 
         {/* 4 Packages - Horizontal Snap Carousel on Mobile, Grid on Tablet/Desktop */}

@@ -118,11 +118,11 @@ export default function AmbienceZones({ onOpenReservation }) {
   };
 
   return (
-    <section id="atmosphere" className="py-20 lg:py-28 scroll-mt-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
+    <section id="atmosphere" className="py-14 sm:py-20 lg:py-24 scroll-mt-24 bg-[#FAF6F0] relative overflow-hidden border-b border-cafe-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Linear Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 text-xs font-bold uppercase tracking-wider border border-cafe-300 shadow-xs">
             <span>Atmosphere & Space</span>
           </div>
@@ -135,7 +135,7 @@ export default function AmbienceZones({ onOpenReservation }) {
         </div>
 
         {/* Linear Zone Quick-Jump Navigator */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1.5 px-2 max-w-full sm:justify-center mb-10">
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1.5 px-2 max-w-full sm:justify-center mb-6 sm:mb-8">
           {zones.map((zone, idx) => {
             const Icon = zone.icon;
             const isActive = activeZoneIndex === idx;
@@ -179,7 +179,7 @@ export default function AmbienceZones({ onOpenReservation }) {
                 <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
                   
                   {/* Left: Atmospheric Photography - Clean without overlay text */}
-                  <div className="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden bg-cafe-950 group">
+                  <div className="lg:col-span-7 relative h-56 sm:h-72 lg:h-auto overflow-hidden bg-cafe-950 group">
                     <img
                       src={zone.image}
                       alt={zone.name}
@@ -190,7 +190,7 @@ export default function AmbienceZones({ onOpenReservation }) {
                   </div>
 
                   {/* Right: Narrative, Features & Reservation Action */}
-                  <div className="lg:col-span-5 p-8 sm:p-10 lg:p-12 flex flex-col justify-between space-y-6">
+                  <div className="lg:col-span-5 p-5 sm:p-8 lg:p-12 flex flex-col justify-between space-y-5 sm:space-y-6">
                     <div className="space-y-4">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-xs font-mono font-bold text-amberGold tracking-wider uppercase">

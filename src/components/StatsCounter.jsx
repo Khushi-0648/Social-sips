@@ -77,17 +77,17 @@ export default function StatsCounter() {
   ];
 
   return (
-    <section id="stats" className="py-20 lg:py-28 scroll-mt-24 bg-[#F4ECE1] relative overflow-hidden border-y border-cafe-200">
+    <section id="stats" className="py-12 sm:py-16 lg:py-20 scroll-mt-24 bg-[#F4ECE1] relative overflow-hidden border-y border-cafe-200">
       
-      {/* Aceternity Style Ambient Radiant Aura */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-amberGold/15 via-orange-200/20 to-amber-100/10 rounded-full blur-[100px] pointer-events-none animate-pulse-slow" />
+      {/* Ambient Radiant Aura */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-amberGold/15 via-orange-200/20 to-amber-100/10 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute top-0 right-1/4 w-80 h-80 bg-amberGold/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-orange-200/30 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Linear Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-3">
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white text-cafe-900 border border-cafe-300 text-xs font-bold shadow-xs">
             <span>COMMUNITY STATS • CLEARWATER, FL</span>
           </div>
