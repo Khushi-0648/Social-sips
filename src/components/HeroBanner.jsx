@@ -153,36 +153,45 @@ export default function HeroBanner({ onOpenReservation }) {
         {/* Hero image: coffee product */}
         <div className="lg:col-span-6 flex items-center justify-center lg:justify-end mt-8 lg:mt-0 order-1 lg:order-2">
           <motion.div
-            initial={{ opacity: 0, scale: 0.90, y: 35 }}
+            initial={{ opacity: 0, scale: 0.85, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 1.1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="relative select-none w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none"
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative select-none w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
           >
             <motion.div
               animate={{
-                y: [0, -10, 0]
+                y: [0, -15, 0],
+                rotate: [0, 2, 0, -2, 0]
               }}
               transition={{
-                duration: 6.5,
+                duration: 8,
                 repeat: Infinity,
                 ease: 'easeInOut'
               }}
               className="relative group"
             >
               <div
-                className="absolute -inset-4 sm:-inset-8 lg:-inset-12 rounded-full pointer-events-none filter blur-2xl lg:blur-3xl opacity-60 lg:opacity-70"
+                className="absolute -inset-3 sm:-inset-6 lg:-inset-8 rounded-full pointer-events-none filter blur-xl lg:blur-2xl opacity-50 lg:opacity-60"
                 style={{
                   background: 'radial-gradient(circle at 50% 42%, rgba(186, 230, 253, 0.22) 0%, rgba(240, 192, 112, 0.16) 38%, transparent 70%)'
                 }}
               />
-              <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 -translate-x-1/2 w-3/4 sm:w-4/5 h-8 sm:h-10 bg-black/80 blur-xl rounded-full pointer-events-none" />
+              <div className="absolute -bottom-3 sm:-bottom-4 lg:-bottom-6 left-1/2 -translate-x-1/2 w-2/3 sm:w-3/4 lg:w-4/5 h-6 sm:h-8 lg:h-10 bg-black/80 blur-lg lg:blur-xl rounded-full pointer-events-none" />
 
-              <div className="relative z-10 overflow-hidden rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-gradient-to-b from-white/20 via-white/5 to-black/60 backdrop-blur-xl border border-white/25 shadow-[0_16px_40px_rgba(0,0,0,0.85)] lg:shadow-[0_24px_60px_rgba(0,0,0,0.85)]">
-                <img
+              <div className="relative z-10 overflow-hidden rounded-xl sm:rounded-2xl lg:rounded-3xl p-1 sm:p-1.5 lg:p-2 bg-gradient-to-b from-white/20 via-white/5 to-black/60 backdrop-blur-xl border border-white/25 shadow-[0_12px_30px_sm:0_16px_40px_lg:0_20px_50px_rgba(0,0,0,0.85)]">
+                <motion.img
                   src="/images/story/hero-cold-brew-product.jpg"
                   alt="Artisan Cold Brew"
-                  className="w-full h-auto aspect-[3/4] sm:aspect-square lg:aspect-auto lg:h-[32rem] object-cover rounded-xl sm:rounded-2xl filter brightness-105 contrast-[1.06]"
+                  className="w-full h-auto object-contain rounded-lg sm:rounded-xl lg:rounded-2xl filter brightness-105 contrast-[1.06]"
                   loading="eager"
+                  animate={{
+                    scale: [1, 1.02, 1]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut'
+                  }}
                 />
               </div>
             </motion.div>
